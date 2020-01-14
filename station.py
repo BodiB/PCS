@@ -7,12 +7,17 @@ from simulationEntity import SimulationEntity
 
 class Station(SimulationEntity):
 
-    def __init__(self, daily_capacity: int, name: str):
+    def __init__(self, daily_capacity: int, name: str, x_coord=0, y_coord=0):
         """
         Parameters:
         -   daily_capacity: number of persons that arrive at the station per day
+        -   name: Name of the train station used for display
+        -   x_coord: x coordinate of the station used for display
+        -   y_coord: y coordinate of the station used for display
         """
         super().__init__()
+
+        self.x, self.y = x_coord, y_coord
         seconds_per_day = 24 * 60 * 60
         ticks_per_day = seconds_per_day // self._interval 
 
@@ -32,3 +37,9 @@ class Station(SimulationEntity):
         Returns the amount of people present at the station
         """
         return self._people
+
+    def get_coord(self):
+        """
+        Coordinates for drawing
+        """
+        return (self.x, self.y)

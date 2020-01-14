@@ -11,17 +11,21 @@ class Simulation:
 
     def __init__(self): 
         self.stations = [
-            Station(5704, "Zandvoort aan zee"),
-            Station(2391, "Overveen"),
-            Station(42040, "Haarlem"),
-            Station(3090, "Haarlem Spaarnwoude"),
-            Station(2730, "Halfweg-Zwanenburg"),
-            Station(58008, "Amsterdam Sloterdijk"),
-            Station(192178, "Amsterdam Centraal"),
+            Station(5704, "Zandvoort aan zee", 160, 805),
+            Station(2391, "Overveen", 210, 805),
+            Station(42040, "Haarlem", 255, 805),
+            Station(3090, "Haarlem Spaarnwoude", 300, 805),
+            Station(2730, "Halfweg-Zwanenburg", 360, 805),
+            Station(58008, "Amsterdam Sloterdijk", 420, 805),
+            Station(192178, "Amsterdam Centraal", 485, 805),
         ]
 
         # create white background
-        self.background = np.zeros((SCREEN_WIDTH, SCREEN_HEIGHT,3), np.uint8) + BACKGROUND_COLOR
+        background_image = cv2.imread("background.png")
+        self.background_image = cv2.resize(background_image, (SCREEN_WIDTH, SCREEN_WIDTH)) 
+        self.background = np.copy(self.background_image)
+
+        # self.background = np.zeros((SCREEN_WIDTH, SCREEN_HEIGHT,3), np.uint8) + BACKGROUND_COLOR
 
         self.ix = -1
         self.iy = -1
@@ -33,25 +37,23 @@ class Simulation:
             self.ix, self.iy = x, y
 
     def clear_background(self):
-        self.background *= 0
-        self.background += BACKGROUND_COLOR
+        self.background = np.copy(self.background_image)
+        # self.background += BACKGROUND_COLOR
 
     def draw_stations(self):
-        
-        station_interval = (SCREEN_WIDTH - 150) // (len(self.stations))
+        w = 15
+        h = 15
 
-        w = 30
-        h = 30
-
-        y = SCREEN_HEIGHT // 2 - h // 2
         i = 0
         for s in self.stations:
-            x = 150 + i * station_interval
-            cv2.rectangle(self.background, (x, y), (x + w, y + h), (0,0,255), -1)
+            x = s.x - w // 2
+            y = s.y - h // 2
+            cv2.rectangle(self.background, (x , y), (x + w, y + h), (0,0,255), -1)
 
             if self.ix <= x + w and self.ix >= x and self.iy <= y+h and self.iy >= y:
-                cv2.putText(self.background, f"{s.get_people()}", (600, 150), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
-                cv2.putText(self.background, f"{s._name}", (600, 100), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
+                cv2.putText(self.background, f"{s.get_people()}", (20, 350), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
+                cv2.putText(self.background, f"{s._name}", (20, 300), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
+
             i += 1
 
     def simulate_steps(self):
@@ -74,7 +76,7 @@ class Simulation:
         minute = (seconds // 60) % 60
 
         timestring = f"day: {day} {hour}:{minute}"
-        cv2.putText(self.background, timestring, (100, 100), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2, cv2.LINE_AA)
+        cv2.putText(self.background, timestring, (20, 100), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2, cv2.LINE_AA)
     
     def start(self):
 

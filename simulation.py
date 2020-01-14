@@ -48,8 +48,10 @@ class Simulation:
         for s in self.stations:
             x = 150 + i * station_interval
             cv2.rectangle(self.background, (x, y), (x + w, y + h), (0,0,255), -1)
-            cv2.putText(self.background, f"{s.get_people()}", (x, y + 25), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1, cv2.LINE_AA)
-            cv2.putText(self.background, f"{s._name}", (x, y + 100), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0, 0, 0), 1, cv2.LINE_AA)
+
+            if self.ix <= x + w and self.ix >= x and self.iy <= y+h and self.iy >= y:
+                cv2.putText(self.background, f"{s.get_people()}", (600, 150), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
+                cv2.putText(self.background, f"{s._name}", (600, 100), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
             i += 1
 
     def simulate_steps(self):

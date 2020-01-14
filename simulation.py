@@ -11,9 +11,13 @@ class Simulation:
 
     def __init__(self): 
         self.stations = [
-            Station(1000),
-            Station(3200),
-            Station(10000)
+            Station(5704, "Zandvoort aan zee"),
+            Station(2391, "Overveen"),
+            Station(42040, "Haarlem"),
+            Station(3090, "Haarlem Spaarnwoude"),
+            Station(2730, "Halfweg-Zwanenburg"),
+            Station(58008, "Amsterdam Sloterdijk"),
+            Station(192178, "Amsterdam Centraal"),
         ]
 
         # create white background
@@ -44,7 +48,8 @@ class Simulation:
         for s in self.stations:
             x = 150 + i * station_interval
             cv2.rectangle(self.background, (x, y), (x + w, y + h), (0,0,255), -1)
-            cv2.putText(self.background, f"people:{s.get_people()}", (x, y), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 3, cv2.LINE_AA)
+            cv2.putText(self.background, f"{s.get_people()}", (x, y + 25), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1, cv2.LINE_AA)
+            cv2.putText(self.background, f"{s._name}", (x, y + 100), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0, 0, 0), 1, cv2.LINE_AA)
             i += 1
 
     def simulate_steps(self):
@@ -52,7 +57,6 @@ class Simulation:
             s.simulate()
 
         self.tick += 1
-
 
     def _get_time(self):
         """

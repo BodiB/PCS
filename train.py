@@ -2,7 +2,9 @@
 Class to describe a train on the network
 """
 
-class Train:
+from simulationEntity import SimulationEntity
+
+class Train(SimulationEntity):
 
     def __init__(self, load_capacity: int, load_rate: int):
         """

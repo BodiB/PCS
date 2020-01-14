@@ -2,7 +2,9 @@
 Class to describe a part of the railway
 """
 
-class Railway:
+from simulationEntity import SimulationEntity
+
+class Railway(SimulationEntity):
     def __init__(self, length: float, speed: float): 
             """
             Parameters:

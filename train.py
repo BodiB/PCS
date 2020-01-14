@@ -6,7 +6,7 @@ class Train:
 
     def __init__(self, load_capacity: int, load_rate: int):
         """
-        Paramters:
+        Parameters:
         -   load_capacity: total amount of people that fit in the train
         -   load_rate: number of people per timestep that can enter or leave the train
         """
@@ -16,7 +16,7 @@ class Train:
 
     def load(self, amount: int) -> int:
         """
-        Paramters:
+        Parameters:
         -   amount: the amount of people to load
 
         Returns: 
@@ -24,7 +24,7 @@ class Train:
         """
 
         if self._current_load + amount > self._max_capacity:
-            temp = self._current_load + amount  1
+            temp = self._current_load + amount 
             self._current_load = self._max_capacity
             return temp - self._max_capacity
         

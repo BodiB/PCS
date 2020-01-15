@@ -3,6 +3,7 @@ Class to define the station
 """
 
 from simulationEntity import SimulationEntity
+from train import Train
 
 
 class Station(SimulationEntity):
@@ -27,10 +28,26 @@ class Station(SimulationEntity):
         self._people = 0
 
         self._people_per_spawn = 1 if daily_capacity // ticks_per_day == 0 else daily_capacity // ticks_per_day
+
+        # list to hold all usable rails of the station
+        self.rails = []
+
+        # list to hold all present trains at the station
+        self.trains = []
+
+        self.spawned = []
+
+        self.spawn_train = False
+
+        if self._name == "Zandvoort aan zee":
+            self.spawn_train = True
     
     def simulate(self):
         if self.get_random() <= self._spawn_rate:
              self._people += self._people_per_spawn
+
+        for t in self.spawned:
+            t.simulate()
 
     def get_people(self) -> int:
         """
@@ -43,3 +60,24 @@ class Station(SimulationEntity):
         Coordinates for drawing
         """
         return (self.x, self.y)
+
+    def attach_rail(self, rail):
+        """
+        Attach a rail to this station
+        """
+
+        self.rails.append(rail)
+
+        if self.spawn_train:
+            self.spawned.append(Train(None))
+            self.spawned[0].attach_rail(rail)
+            self.spawn_train = False
+
+    def add_traject(self, traject):
+        pass
+
+    def attach_train(self, train):
+        """
+        Add train to this station
+        """
+        self.trains.append(train)

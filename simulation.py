@@ -5,46 +5,66 @@ from train import Train
 from railway import Railway
 from station import Station
 
-from config import SCREEN_WIDTH, SCREEN_HEIGHT, BACKGROUND_COLOR, SECONDS_PER_TICK
+from config import *
 
 class Simulation:
 
     def __init__(self): 
         self.stations = [
-            Station(5704, "Zandvoort aan zee", 160, 805),
-            Station(2391, "Overveen", 210, 805),
-            Station(42040, "Haarlem", 255, 805),
-            Station(3090, "Haarlem Spaarnwoude", 300, 805),
-            Station(2730, "Halfweg-Zwanenburg", 360, 805),
-            Station(58008, "Amsterdam Sloterdijk", 420, 805),
-            Station(192178, "Amsterdam Centraal", 485, 805),
+            Station(5704, "Zandvoort aan zee", int(160 / 1024 * SCREEN_WIDTH), int(805 / 1024 * SCREEN_HEIGHT)),
+            Station(2391, "Overveen", int(210 / 1024 * SCREEN_WIDTH), int(805 / 1024 * SCREEN_HEIGHT)),
+            Station(42040, "Haarlem", int(255 / 1024 * SCREEN_WIDTH), int(805 / 1024 * SCREEN_HEIGHT)),
+            Station(3090, "Haarlem Spaarnwoude", int(300 / 1024 * SCREEN_WIDTH), int(805 / 1024 * SCREEN_HEIGHT)),
+            Station(2730, "Halfweg-Zwanenburg", int(360 / 1024 * SCREEN_WIDTH), int(805 / 1024 * SCREEN_HEIGHT)),
+            Station(58008, "Amsterdam Sloterdijk", int(420 / 1024 * SCREEN_WIDTH), int(805 / 1024 * SCREEN_HEIGHT)),
+            Station(192178, "Amsterdam Centraal", int(485 / 1024 * SCREEN_WIDTH), int(805 / 1024 * SCREEN_HEIGHT)),
         ]
+
+        self._create_station_hash()
+
+        # attach rails to station
+        self._get_station("Zandvoort aan zee").attach_rail(Railway(5.76, 100, self._get_station("Zandvoort aan zee"), self._get_station("Overveen")))
+        self._get_station("Overveen").attach_rail(Railway(2, 100, self._get_station("Overveen"), self._get_station("Haarlem")))
 
         # create white background
         background_image = cv2.imread("background.png")
         self.background_image = cv2.resize(background_image, (SCREEN_WIDTH, SCREEN_WIDTH)) 
         self.background = np.copy(self.background_image)
 
-        # self.background = np.zeros((SCREEN_WIDTH, SCREEN_HEIGHT,3), np.uint8) + BACKGROUND_COLOR
-
         self.ix = -1
         self.iy = -1
 
+        self.click_x = -1
+        self.click_y = -1
+
         self.tick = 0
+
+    def _create_station_hash(self):
+        """
+        Create hashtable to easily access stations
+        """
+        self.station_hash = {}
+
+        for s in self.stations:
+            self.station_hash[s._name] = s
+
+    def _get_station(self, name):
+        return self.station_hash[name]
 
     def handle_mouse(self, event,x,y,flags,param):
         if event == cv2.EVENT_MOUSEMOVE:
             self.ix, self.iy = x, y
+    
+        if event == cv2.EVENT_LBUTTONDOWN:
+            self.click_x, self.click_y = x, y
 
     def clear_background(self):
         self.background = np.copy(self.background_image)
-        # self.background += BACKGROUND_COLOR
 
-    def draw_stations(self):
+    def _draw_stations(self):
         w = 15
         h = 15
 
-        i = 0
         for s in self.stations:
             x = s.x - w // 2
             y = s.y - h // 2
@@ -54,7 +74,21 @@ class Simulation:
                 cv2.putText(self.background, f"{s.get_people()}", (20, 350), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
                 cv2.putText(self.background, f"{s._name}", (20, 300), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
 
-            i += 1
+    def _draw_rails(self):
+        """
+        Draws all rails
+        """
+        for s in self.stations:
+            for r in s.rails:
+                cv2.line(self.background, r.get_begin(), r.get_end(), RAIL_COLOR, thickness=RAIL_THICKNESS)
+    
+    def _draw_trains(self):
+        w = 15
+        h = 8
+        for s in self.stations:
+            for t in s.spawned:
+                x, y = t.get_pos()
+                cv2.rectangle(self.background, (x , y), (x + w, y + h), (255, 0, 0), -1)
 
     def simulate_steps(self):
         for s in self.stations:
@@ -88,7 +122,9 @@ class Simulation:
         while(1):
             self.simulate_steps()
             self.draw_time()
-            self.draw_stations()
+            self._draw_rails()
+            self._draw_stations()
+            self._draw_trains()
             cv2.imshow('Simulation', self.background)
 
             # clear background

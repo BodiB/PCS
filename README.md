@@ -1,1 +1,3 @@
 # PCS
+The train network within the Netherlands is a complicated machine. One single train being delayed can have a knock on effect on many other trains. With this simulation we will have a look at how big of an influence a delayed train has on the punctuality of other trains, and if it at some point is more beneficial to simply cancel the delayed train instead of making other trains wait on it.
+We expect that the effect of boarding on the punctuality of a train is marginal, as it can be compensated in the timetable. When the boarding exceeds certain limits, for example when trains are cancelled, the delay could cause a chain reaction when the timetable is planned too tightly.

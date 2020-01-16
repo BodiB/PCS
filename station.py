@@ -30,30 +30,42 @@ class Station(SimulationEntity):
         self._people_per_spawn = 1 if daily_capacity // ticks_per_day == 0 else daily_capacity // ticks_per_day
 
         # list to hold all usable rails of the station
-        self.rails = []
+        self.rails = {}
 
         # list to hold all present trains at the station
         self.trains = []
 
         self.spawned = []
 
+        self.trajects = []
+        # keep a list of times at which to spawn trains
+        self.spawn_times = []
+
         self.spawn_train = False
 
         if self._name == "Zandvoort aan zee":
             self.spawn_train = True
     
-    def simulate(self):
+    def simulate(self, ticks):
         if self.get_random() <= self._spawn_rate:
              self._people += self._people_per_spawn
 
-        for t in self.spawned:
-            t.simulate()
+        minute = self.get_minutes(ticks)
 
+        for t in self.trains:
+            target = t.get_target()
+
+            if minute == t.get_departure():
+                t.attach_rail(self.rails[target.station._name])
+                
     def get_people(self) -> int:
         """
         Returns the amount of people present at the station
         """
         return self._people
+
+    def is_free(self):
+        return len(self.trains) < 1
 
     def get_coord(self):
         """
@@ -66,7 +78,7 @@ class Station(SimulationEntity):
         Attach a rail to this station
         """
 
-        self.rails.append(rail)
+        self.rails[rail.end_station._name] = rail
 
         if self.spawn_train:
             self.spawned.append(Train(None))
@@ -74,9 +86,9 @@ class Station(SimulationEntity):
             self.spawn_train = False
 
     def add_traject(self, traject):
-        pass
+        self.trajects.append(traject)
 
-    def attach_train(self, train):
+    def add_train(self, train):
         """
         Add train to this station
         """

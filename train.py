@@ -3,11 +3,10 @@ Class to describe a train on the network
 """
 
 from simulationEntity import SimulationEntity
-from traject import Traject
 
 class Train(SimulationEntity):
 
-    def __init__(self, traject: Traject, load_capacity: int = 0, load_rate: int = 0):
+    def __init__(self, load_capacity: int = 0, load_rate: int = 0):
         """
         Parameters:
         -   load_capacity: total amount of people that fit in the train
@@ -17,7 +16,10 @@ class Train(SimulationEntity):
         self._load_rate = load_rate
         self._current_load = 0
 
-        self._traject = traject
+        self.schedule = []
+        self.departure_time = -1
+
+        self.current_schedule_place = 0
 
         self.rail = None
 
@@ -58,15 +60,38 @@ class Train(SimulationEntity):
         self.distance = 0
         self.rail = rail
 
-    def simulate(self):
+    def add_schedule(self, schedule):
+        self.current_schedule_place = 1
+        self.schedule = schedule
+        self.departure_time = schedule[0].departure
+
+    def get_target(self):
+        """
+        Returns the current target Timeslot
+        """
+        if self.schedule:
+            return self.schedule[self.current_schedule_place]
+
+    def get_departure(self):
+        return self.departure_time
+
+    def simulate(self, tick):
         if self.rail:
             self.distance += self.rail.get_speed()
             
             # train arrived at station
             if self.distance >= self.rail.get_length():
                 end = self.rail.end_station
-                end.attach_train(self)
+                end.add_train(self)
                 self.rail = None
+                self.departure_time = self.schedule[self.current_schedule_place].departure
+                self.current_schedule_place+= 1
+
+                if self.current_schedule_place >= len(self.schedule):
+                    self.schedule = []
+
+    def is_terminated(self):
+        return False if self.schedule else True
 
     def get_pos(self):
         if self.rail:
@@ -82,6 +107,8 @@ class Train(SimulationEntity):
 
         else:
             return (-100, -100)
+
+        
 
         
 

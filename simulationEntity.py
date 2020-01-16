@@ -15,3 +15,10 @@ class SimulationEntity:
 
     def get_random(self) -> float:
         return random.uniform(0, 1)
+
+    def get_seconds(self, ticks) -> float:
+        return ticks * self._interval
+        
+    def get_minutes(self, ticks) -> int:
+        seconds = self.get_seconds(ticks)
+        return seconds // 60

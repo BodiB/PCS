@@ -6,17 +6,28 @@ from config import (BACKGROUND_COLOR, SCREEN_HEIGHT, SCREEN_WIDTH,
 from railway import Railway
 from station import Station
 from train import Train
+from traject import TimeSlot, Traject
 
 from config import *
 
 from data.stations import stations_list
+from data.timesheets import timeslots
 
 class Simulation:
 
     def __init__(self):
         self.stations = stations_list
-
         self._create_station_hash()
+
+        self.schedules = []
+
+        # create timeslots
+        for schedule in timeslots:
+            current = []
+            for slot in schedule:
+                current.append(TimeSlot(self._get_station(slot[0]), slot[1], slot[2]))
+            self.schedules.append(Traject(current))
+        
 
         # attach rails to station
         self._get_station("Zandvoort aan zee").attach_rail(Railway(5.76, 100, self._get_station("Zandvoort aan zee"), self._get_station("Overveen")))
@@ -77,20 +88,23 @@ class Simulation:
         Draws all rails
         """
         for s in self.stations:
-            for r in s.rails:
+            for r in s.rails.values():
                 cv2.line(self.background, r.get_begin(), r.get_end(), RAIL_COLOR, thickness=RAIL_THICKNESS)
     
     def _draw_trains(self):
         w = 15
         h = 8
-        for s in self.stations:
-            for t in s.spawned:
+        for s in self.schedules:
+            for t in s.trains:
                 x, y = t.get_pos()
                 cv2.rectangle(self.background, (x , y), (x + w, y + h), (255, 0, 0), -1)
 
     def simulate_steps(self):
+        for s in self.schedules:
+            s.simulate(self.tick)
+
         for s in self.stations:
-            s.simulate()
+            s.simulate(self.tick)
 
         self.tick += 1
 

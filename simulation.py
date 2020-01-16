@@ -12,6 +12,7 @@ from config import *
 
 from data.stations import stations_list
 from data.timesheets import timeslots
+from data.rails import rail_list
 
 class Simulation:
 
@@ -28,10 +29,9 @@ class Simulation:
                 current.append(TimeSlot(self._get_station(slot[0]), slot[1], slot[2]))
             self.schedules.append(Traject(current))
         
-
-        # attach rails to station
-        self._get_station("Zandvoort aan zee").attach_rail(Railway(5.76, 100, self._get_station("Zandvoort aan zee"), self._get_station("Overveen")))
-        self._get_station("Overveen").attach_rail(Railway(2, 100, self._get_station("Overveen"), self._get_station("Haarlem")))
+        # attach rails to stations
+        for r in rail_list:
+            self._get_station(r[0]).attach_rail(Railway(r[2], r[3], self._get_station(r[0]), self._get_station(r[1])))
 
         # create white background
         background_image = cv2.imread("background.png")

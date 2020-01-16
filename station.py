@@ -35,16 +35,9 @@ class Station(SimulationEntity):
         # list to hold all present trains at the station
         self.trains = []
 
-        self.spawned = []
-
         self.trajects = []
         # keep a list of times at which to spawn trains
         self.spawn_times = []
-
-        self.spawn_train = False
-
-        if self._name == "Zandvoort aan zee":
-            self.spawn_train = True
     
     def simulate(self, ticks):
         if self.get_random() <= self._spawn_rate:
@@ -56,7 +49,9 @@ class Station(SimulationEntity):
             target = t.get_target()
 
             if minute == t.get_departure():
+                print(f"Dispatching train from {self._name} to {target.station._name}")
                 t.attach_rail(self.rails[target.station._name])
+                self.trains.remove(t)
                 
     def get_people(self) -> int:
         """
@@ -77,13 +72,8 @@ class Station(SimulationEntity):
         """
         Attach a rail to this station
         """
-
+        print(f"attaching rail at {self._name} to {rail.end_station._name}")
         self.rails[rail.end_station._name] = rail
-
-        if self.spawn_train:
-            self.spawned.append(Train(None))
-            self.spawned[0].attach_rail(rail)
-            self.spawn_train = False
 
     def add_traject(self, traject):
         self.trajects.append(traject)
@@ -92,4 +82,5 @@ class Station(SimulationEntity):
         """
         Add train to this station
         """
+        print(f"adding traing at {self._name}")
         self.trains.append(train)

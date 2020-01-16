@@ -21,4 +21,4 @@ class SimulationEntity:
         
     def get_minutes(self, ticks) -> int:
         seconds = self.get_seconds(ticks)
-        return seconds // 60
+        return (seconds // 60) % 60

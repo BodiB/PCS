@@ -25,7 +25,7 @@ class Railway(SimulationEntity):
             self.x_end = end_station.x
             self.y_end = end_station.y
 
-            meters_per_second = speed * 3.6
+            meters_per_second = speed / 3.6
 
             # max distance per tick in meters
             self._speed = meters_per_second * self._interval

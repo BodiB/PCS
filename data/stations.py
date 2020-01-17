@@ -9,6 +9,9 @@ stations_list = [
             Station(2730, "Halfweg-Zwanenburg", int(360 / 1024 * SCREEN_WIDTH), int(805 / 1024 * SCREEN_HEIGHT)),
             Station(58008, "Amsterdam Sloterdijk", int(420 / 1024 * SCREEN_WIDTH), int(805 / 1024 * SCREEN_HEIGHT)),
             Station(192178, "Amsterdam Centraal", int(485 / 1024 * SCREEN_WIDTH), int(805 / 1024 * SCREEN_HEIGHT)),
+            Station(0, "Hoofddorp", 278, 916),
+            Station(0, "Schiphol Airport", 305, 899),
+            Station(0, "Amsterdam Lelylaan", 397, 841),
 ]
 
 extended_stations = [

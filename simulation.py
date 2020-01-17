@@ -10,14 +10,14 @@ from traject import TimeSlot, Traject
 
 from config import *
 
-from data.stations import stations_list
+from data.stations import stations_list, extended_stations
 from data.timesheets import timeslots
 from data.rails import rail_list
 
 class Simulation:
 
     def __init__(self):
-        self.stations = stations_list
+        self.stations = stations_list + extended_stations
         self._create_station_hash()
 
         self.schedules = []
@@ -97,7 +97,7 @@ class Simulation:
         for s in self.schedules:
             for t in s.trains:
                 x, y = t.get_pos()
-                cv2.rectangle(self.background, (x , y), (x + w, y + h), (255, 0, 0), -1)
+                cv2.rectangle(self.background, (x , y), (x + w, y + h), TRAIN_COLOR, -1)
 
     def simulate_steps(self):
         for s in self.schedules:

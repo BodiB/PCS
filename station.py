@@ -2,6 +2,7 @@
 Class to define the station
 """
 
+from config import SCREEN_HEIGHT, SCREEN_WIDTH
 from simulationEntity import SimulationEntity
 from train import Train
 
@@ -18,9 +19,10 @@ class Station(SimulationEntity):
         """
         super().__init__()
 
-        self.x, self.y = x_coord, y_coord
+        self.x, self.y = int(
+            x_coord / 1024 * SCREEN_WIDTH), int(y_coord / 1024 * SCREEN_HEIGHT)
         seconds_per_day = 24 * 60 * 60
-        ticks_per_day = seconds_per_day // self._interval 
+        ticks_per_day = seconds_per_day // self._interval
 
         # chance of a person spwaning per simulation tick
         self._spawn_rate = daily_capacity / ticks_per_day
@@ -38,10 +40,10 @@ class Station(SimulationEntity):
         self.trajects = []
         # keep a list of times at which to spawn trains
         self.spawn_times = []
-    
+
     def simulate(self, ticks):
         if self.get_random() <= self._spawn_rate:
-             self._people += self._people_per_spawn
+            self._people += self._people_per_spawn
 
         minute = self.get_minutes(ticks)
 
@@ -52,7 +54,7 @@ class Station(SimulationEntity):
                 print(f"Dispatching train from {self._name} to {target.station._name}")
                 t.attach_rail(self.rails[target.station._name])
                 self.trains.remove(t)
-                
+
     def get_people(self) -> int:
         """
         Returns the amount of people present at the station

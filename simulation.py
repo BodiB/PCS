@@ -199,5 +199,5 @@ if __name__ == "__main__":
         sim = Simulation("NL")
     else:
         sim = Simulation()
-    # sim.start()
-    sim.test()
+    sim.start()
+    # sim.test()

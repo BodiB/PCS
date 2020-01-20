@@ -79,7 +79,7 @@ class Train(SimulationEntity):
             else:
                 diff_in_minutes = s.arrival - current_minute
             diff_in_ticks = diff_in_minutes * 60 / self._interval
-            current_minute = s.arrival
+            current_minute = s.departure
 
             if curr == 0:
                 self.arrival_ticks.append(ticks + diff_in_ticks)

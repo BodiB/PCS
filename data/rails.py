@@ -7,24 +7,24 @@ rail_list = [
     ("Haarlem Spaarnwoude", "Halfweg-Zwanenburg", 5, 100),
     ("Halfweg-Zwanenburg", "Amsterdam Sloterdijk", 6.4, 100),
     ("Amsterdam Sloterdijk", "Amsterdam Centraal", 4.6, 100),
-    
-    ("Hoofddorp", "Schiphol Airport", 4.7 ,100), 
-    ("Schiphol Airport", "Amsterdam Lelylaan", 8.3,100), 
-    ("Amsterdam Lelylaan", "Amsterdam Sloterdijk", 3.5,100), 
 
-    
+    ("Hoofddorp", "Schiphol Airport", 4.7, 100),
+    ("Schiphol Airport", "Amsterdam Lelylaan", 8.3, 100),
+    ("Amsterdam Lelylaan", "Amsterdam Sloterdijk", 3.5, 100),
+
+
     ("Den Helder", "Den Helder Zuid", 2.7, 100),
-    ("Den Helder Zuid", "Anna Paulowna", 8.9 , 100),
-    ("Anna Paulowna",  "Schagen", 9.3 , 100),
+    ("Den Helder Zuid", "Anna Paulowna", 8.9, 100),
+    ("Anna Paulowna",  "Schagen", 9.3, 100),
     ("Schagen", "Heerhugowaard", 14, 100),
-    ("Heerhugowaard", "Alkmaar Noord", 4.9 , 100),
-    ("Alkmaar Noord", "Alkmaar", 1.8 , 100),
+    ("Heerhugowaard", "Alkmaar Noord", 4.9, 100),
+    ("Alkmaar Noord", "Alkmaar", 1.8, 100),
     ("Alkmaar", "Heiloo", 5.1, 100),
     ("Heiloo", "Castricum", 6.8, 100),
     ("Castricum", "Zaandam", 17.3, 100),
     ("Zaandam", "Amsterdam Sloterdijk", 7.7, 100),
     ("Amsterdam Centraal", "Amsterdam Amstel", 6, 100),
-    
+
     ("Amsterdam Centraal", "Amsterdam Muiderpoort", 3.7, 100),
     ("Amsterdam Muiderpoort", "Amsterdam Science Park", 1.5, 100),
     ("Amsterdam Science Park", "Diemen", 1.7, 100),
@@ -34,4 +34,7 @@ rail_list = [
     ("Bussum Zuid", "Hilversum Media Park", 3.2,100),
     ("Hilversum Media Park", "Hilversum", 1.5, 100),
     ("Hilversum", "Baarn", 7.1, 100),
+
 ]
+
+rail_list_NL = []

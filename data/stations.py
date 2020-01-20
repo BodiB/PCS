@@ -2,13 +2,13 @@ from config import SCREEN_HEIGHT, SCREEN_WIDTH
 from station import Station
 
 stations_list = [
-            Station(5704, "Zandvoort aan zee", int(160 / 1024 * SCREEN_WIDTH), int(805 / 1024 * SCREEN_HEIGHT)),
-            Station(2391, "Overveen", int(210 / 1024 * SCREEN_WIDTH), int(805 / 1024 * SCREEN_HEIGHT)),
-            Station(42040, "Haarlem", int(255 / 1024 * SCREEN_WIDTH), int(805 / 1024 * SCREEN_HEIGHT)),
-            Station(3090, "Haarlem Spaarnwoude", int(300 / 1024 * SCREEN_WIDTH), int(805 / 1024 * SCREEN_HEIGHT)),
-            Station(2730, "Halfweg-Zwanenburg", int(360 / 1024 * SCREEN_WIDTH), int(805 / 1024 * SCREEN_HEIGHT)),
-            Station(58008, "Amsterdam Sloterdijk", int(420 / 1024 * SCREEN_WIDTH), int(805 / 1024 * SCREEN_HEIGHT)),
-            Station(192178, "Amsterdam Centraal", int(485 / 1024 * SCREEN_WIDTH), int(805 / 1024 * SCREEN_HEIGHT)),
+    Station(5704, "Zandvoort aan zee", 160, 805),
+    Station(2391, "Overveen", 210, 805),
+    Station(42040, "Haarlem", 255, 805),
+    Station(3090, "Haarlem Spaarnwoude", 300, 805),
+    Station(2730, "Halfweg-Zwanenburg", 360, 805),
+    Station(58008, "Amsterdam Sloterdijk", 420, 805),
+    Station(192178, "Amsterdam Centraal", 485, 805),
 ]
 
 extended_stations = [
@@ -75,5 +75,78 @@ extended_stations = [
             Station(0, "Hilversum Media Park", 696, 965),
             Station(0, "Hilversum", 704, 973),
             Station(0, "Baarn", 786, 970),       
-            
+
 ]
+
+# from config import SCREEN_HEIGHT, SCREEN_WIDTH
+# from station import Station
+#
+# stations_list_NH = [
+#             Station(5704, "Zandvoort aan zee", int(160 / 1024 * SCREEN_WIDTH), int(805 / 1024 * SCREEN_HEIGHT)),
+#             Station(2391, "Overveen", int(210 / 1024 * SCREEN_WIDTH), int(805 / 1024 * SCREEN_HEIGHT)),
+#             Station(42040, "Haarlem", int(255 / 1024 * SCREEN_WIDTH), int(805 / 1024 * SCREEN_HEIGHT)),
+#             Station(3090, "Haarlem Spaarnwoude", int(300 / 1024 * SCREEN_WIDTH), int(805 / 1024 * SCREEN_HEIGHT)),
+#             Station(2730, "Halfweg-Zwanenburg", int(360 / 1024 * SCREEN_WIDTH), int(805 / 1024 * SCREEN_HEIGHT)),
+#             Station(58008, "Amsterdam Sloterdijk", int(420 / 1024 * SCREEN_WIDTH), int(805 / 1024 * SCREEN_HEIGHT)),
+#             Station(192178, "Amsterdam Centraal", int(485 / 1024 * SCREEN_WIDTH), int(805 / 1024 * SCREEN_HEIGHT)),
+# ]
+#
+# extended_stations_NH = [
+#             Station(0, "Den Helder", int(258 / 1024 * SCREEN_WIDTH), int(80 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Den Helder Zuid", int(278 / 1024 * SCREEN_WIDTH), int(100 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Anna Paulowna", int(325 / 1024 * SCREEN_WIDTH), int(180 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Schagen", int(325 / 1024 * SCREEN_WIDTH), int(278 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Bloemendaal", int(252 / 1024 * SCREEN_WIDTH), int(769 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Santpoort Zuid", int(252 / 1024 * SCREEN_WIDTH), int(744 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Santpoort Noord", int(252 / 1024 * SCREEN_WIDTH), int(719 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Driehuis", int(252 / 1024 * SCREEN_WIDTH), int(700 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Beverwijk", int(271 / 1024 * SCREEN_WIDTH), int(668 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Heemskerk", int(293 / 1024 * SCREEN_WIDTH), int(646 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Uitgeest", int(287 / 1024 * SCREEN_WIDTH), int(599 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Castricum", int(269 / 1024 * SCREEN_WIDTH), int(563 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Heiloo", int(269 / 1024 * SCREEN_WIDTH), int(530 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Alkmaar", int(271 / 1024 * SCREEN_WIDTH), int(490 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Alkmaar Noord", int(277 / 1024 * SCREEN_WIDTH), int(472 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Heerhugowaard", int(307 / 1024 * SCREEN_WIDTH), int(437 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Krommenie-Assendelft", int(329 / 1024 * SCREEN_WIDTH), int(637 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Wormerveer", int(348 / 1024 * SCREEN_WIDTH), int(659 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Zaandijk Zaanse Schans", int(367 / 1024 * SCREEN_WIDTH), int(679 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Koog aan de Zaan", int(383 / 1024 * SCREEN_WIDTH), int(698 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Zaandam", int(411 / 1024 * SCREEN_WIDTH), int(731 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Zaandam Kogerveld", int(425 / 1024 * SCREEN_WIDTH), int(691 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Purmerend Weidevenne", int(505 / 1024 * SCREEN_WIDTH), int(608 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Purmerend", int(519 / 1024 * SCREEN_WIDTH), int(579 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Purmerend Overwhere", int(519 / 1024 * SCREEN_WIDTH), int(555 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Hoorn", int(519 / 1024 * SCREEN_WIDTH), int(416 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Hoorn Kersenboogerd", int(539 / 1024 * SCREEN_WIDTH), int(416 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Obdam", int(390 / 1024 * SCREEN_WIDTH), int(417 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Hoogkarspel", int(612 / 1024 * SCREEN_WIDTH), int(385 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Bovenkarspel-Grootebroek", int(650 / 1024 * SCREEN_WIDTH), int(368 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Bovenkarspel Flora", int(668 / 1024 * SCREEN_WIDTH), int(368 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Enkhuizen", int(701 / 1024 * SCREEN_WIDTH), int(368 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Lelystad Centrum", int(878 / 1024 * SCREEN_WIDTH), int(567 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Almere Oostvaarders", int(794 / 1024 * SCREEN_WIDTH), int(720 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Almere Buiten", int(771 / 1024 * SCREEN_WIDTH), int(734 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Almere Parkwijk", int(732 / 1024 * SCREEN_WIDTH), int(734 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Almere Centrum", int(710 / 1024 * SCREEN_WIDTH), int(758 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Almere Muziekwijk", int(700 / 1024 * SCREEN_WIDTH), int(767 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Almere Poort", int(670 / 1024 * SCREEN_WIDTH), int(798 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Weesp", int(577 / 1024 * SCREEN_WIDTH), int(849 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Diemen", int(532 / 1024 * SCREEN_WIDTH), int(849 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Amsterdam Muiderpoort", int(485 / 1024 * SCREEN_WIDTH), int(840 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Amsterdam Amstel", int(487 / 1024 * SCREEN_WIDTH), int(878 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Diemen Zuid", int(530 / 1024 * SCREEN_WIDTH), int(877 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Duivendrecht", int(510 / 1024 * SCREEN_WIDTH), int(899 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Amsterdam Bijlmer Arena", int(527 / 1024 * SCREEN_WIDTH), int(918 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Amsterdam Holendrecht", int(541 / 1024 * SCREEN_WIDTH), int(935 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Abcoude", int(557 / 1024 * SCREEN_WIDTH), int(945 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Amsterdam Zuid", int(419 / 1024 * SCREEN_WIDTH), int(884 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Amsterdam RAI", int(443 / 1024 * SCREEN_WIDTH), int(884 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Schiphol Airport", int(305 / 1024 * SCREEN_WIDTH), int(899 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Hoofddorp", int(278 / 1024 * SCREEN_WIDTH), int(916 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Nieuw Vennep", int(251 / 1024 * SCREEN_WIDTH), int(945 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Voorhout", int(173 / 1024 * SCREEN_WIDTH), int(982 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Hillegom", int(173 / 1024 * SCREEN_WIDTH), int(899 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Heemstede-Aerdenhout", int(214 / 1024 * SCREEN_WIDTH), int(844 / 1024 * SCREEN_HEIGHT)),
+#             Station(0, "Amsterdam Lelylaan", int(397 / 1024 * SCREEN_WIDTH), int(841 / 1024 * SCREEN_HEIGHT)),
+# ]

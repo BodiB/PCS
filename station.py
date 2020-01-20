@@ -52,7 +52,7 @@ class Station(SimulationEntity):
 
             if minute == t.get_departure():
                 # print(f"Dispatching train from {self._name} to {target.station._name}")
-                t.attach_rail(self.rails[target.station._name])
+                t.attach_rail(self.rails[target.station._name], ticks)
                 self.trains.remove(t)
 
     def get_people(self) -> int:

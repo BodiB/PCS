@@ -58,6 +58,7 @@ class Simulation:
         self.click_y = -1
 
         self.tick = 0
+        self.selected_train = None
 
     def _create_station_hash(self):
         """
@@ -77,6 +78,7 @@ class Simulation:
 
         if event == cv2.EVENT_LBUTTONDOWN:
             self.click_x, self.click_y = x, y
+            self.selected_train = None
 
     def clear_background(self):
         self.background = np.copy(self.background_image)
@@ -112,8 +114,18 @@ class Simulation:
                 x, y = t.get_pos()
                 cv2.rectangle(self.background, (x, y),
                               (x + w, y + h), TRAIN_COLOR, -1)
-                if self.ix <= x + w and self.ix >= x and self.iy <= y + h and self.iy >= y:
-                    cv2.putText(self.background, f"{t.get_target().station._name}", (20, 350), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
+                if self.click_x <= x + w and self.click_x >= x and self.click_y <= y + h and self.click_y >= y:
+                    self.selected_train = t
+                    self.click_x = -1
+                    self.click_y = -1
+
+            
+        if self.selected_train:
+            try:
+                cv2.putText(self.background, f"Current target: {self.selected_train.get_target().station._name}", (20, 350), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
+                cv2.putText(self.background, f"Current speed: {self.selected_train.get_speed_kph()}", (20, 400), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
+            except:
+                pass
 
     def _draw_stats(self):
         on_time = 0

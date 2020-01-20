@@ -25,6 +25,7 @@ class Train(SimulationEntity):
 
         self.on_time = 0
         self.delayed = 0
+        self.speed = 0
 
         self.rail = None
 
@@ -61,9 +62,17 @@ class Train(SimulationEntity):
 
         return temp
 
-    def attach_rail(self, rail):
+    def attach_rail(self, rail, tick):
         self.distance = 0
         self.rail = rail
+
+        time = self.get_arrival_tick() - tick
+        self.speed = rail.get_length() / time
+
+        self.speed = min(self.speed, rail.get_speed())
+
+        if self.speed <= 0:
+            self.speed = rail.get_speed()
 
     def add_schedule(self, schedule, ticks):
         self.arrival_ticks = []
@@ -99,6 +108,9 @@ class Train(SimulationEntity):
         if self.schedule:
             return self.schedule[self.current_schedule_place]
 
+    def get_speed_kph(self):
+        return round(self.speed / self._interval * 3.6, 1)
+
     def get_departure(self):
         return self.departure_time
 
@@ -110,14 +122,9 @@ class Train(SimulationEntity):
     def simulate(self, tick):
         if self.rail:
             # self.get_arrival_tick
-            time = self.get_arrival_tick() - tick
 
-            speed = (self.rail.get_length()) / time
-            speed = min(speed, self.rail.get_speed())
+            self.distance += self.speed
 
-            self.distance += speed
-
-            #self.distance += self.rail.get_speed()
             # train arrived at station
             if self.distance >= self.rail.get_length():
                 end = self.rail.end_station

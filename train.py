@@ -71,16 +71,22 @@ class Train(SimulationEntity):
         self.departure_time = schedule[0].departure
 
         current_minute = self.get_minutes(ticks)
+        curr = 0
         for s in self.schedule:
             diff_in_minutes = 0
             if s.arrival < current_minute:
                 diff_in_minutes = s.arrival + 60 - current_minute
             else:
                 diff_in_minutes = s.arrival - current_minute
-
+            diff_in_ticks = diff_in_minutes * 60 / self._interval
             current_minute = s.arrival
 
-            self.arrival_ticks.append(diff_in_minutes * 60 / self._interval)
+            if curr == 0:
+                self.arrival_ticks.append(ticks + diff_in_ticks)
+            else:   
+                self.arrival_ticks.append(self.arrival_ticks[curr - 1] + diff_in_ticks)
+
+            curr += 1
             
     def get_target(self):
         """
@@ -93,12 +99,14 @@ class Train(SimulationEntity):
         return self.departure_time
 
     def _is_on_time(self, tick):
-        return self.arrival_ticks[self.current_schedule_place] >= tick
+        sec = self.get_seconds(tick)
+
+        remainder = sec % 60 / self._interval
+        return self.arrival_ticks[self.current_schedule_place]  + remainder >= tick
 
     def simulate(self, tick):
         if self.rail:
             self.distance += self.rail.get_speed()
-            
             # train arrived at station
             if self.distance >= self.rail.get_length():
                 end = self.rail.end_station

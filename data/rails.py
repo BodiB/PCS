@@ -53,7 +53,7 @@ rail_list = [
     ("Bovenkarspel Flora", "Bovenkarspel-Grootebroek", 1.2, 100),
     ("Bovenkarspel-Grootebroek", "Hoogkarspel", 3.5, 100),
     ("Hoogkarspel", "Hoorn Kersenboogerd", 7.8, 100),
-    ("Hoorn Kersenboogerd", "Hoorn", 2, 4, 100),
+    ("Hoorn Kersenboogerd", "Hoorn", 2, 100),
     ("Hoorn", "Amsterdam Sloterdijk", 40.3, 100),
     ("Amsterdam Sloterdijk", "Amsterdam Centraal", 4.5, 100),
     ("Amsterdam Centraal", "Amsterdam Amstel", 5.8, 100),

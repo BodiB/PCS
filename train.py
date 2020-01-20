@@ -80,13 +80,12 @@ class Train(SimulationEntity):
             else:
                 diff_in_minutes = s.arrival - current_minute
             diff_in_ticks = diff_in_minutes * 60 / self._interval
-            current_minute = s.departure
 
             if curr == 0:
                 self.arrival_ticks.append(ticks + diff_in_ticks)
             else:
                 self.arrival_ticks.append(
-                    self.arrival_ticks[curr - 1] + diff_in_ticks)
+                    ticks + diff_in_ticks)
 
             curr += 1
 
@@ -113,7 +112,11 @@ class Train(SimulationEntity):
         if self.rail:
             # self.get_arrival_tick
             time = self.get_arrival_tick() - tick
-            self.distance += (self.rail.get_length() - self.distance) / time
+
+            speed = (self.rail.get_length()) / time
+            speed = min(speed, self.rail.get_speed())
+
+            self.distance += speed
 
             #self.distance += self.rail.get_speed()
             # train arrived at station

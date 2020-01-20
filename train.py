@@ -87,7 +87,10 @@ class Train(SimulationEntity):
                 self.arrival_ticks.append(self.arrival_ticks[curr - 1] + diff_in_ticks)
 
             curr += 1
-            
+    
+    def get_arrival_tick(self):
+        return self.arrival_ticks[self.current_schedule_place]
+
     def get_target(self):
         """
         Returns the current target Timeslot

@@ -69,4 +69,10 @@ extended_stations = [
     Station(0, "Hillegom", 173, 899),
     Station(0, "Heemstede-Aerdenhout", 214, 844),
     Station(0, "Amsterdam Lelylaan", 397, 841),
+    Station(0, "Amsterdam Science Park", 512, 851),
+    Station(0, "Naarden-Bussum", 644, 911),
+    Station(0, "Bussum Zuid", 654, 919),
+    Station(0, "Hilversum Media Park", 696, 965),
+    Station(0, "Hilversum", 704, 973),
+    Station(0, "Baarn", 786, 970),      
 ]

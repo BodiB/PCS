@@ -4,6 +4,7 @@ Class to describe a train on the network
 
 from simulationEntity import SimulationEntity
 
+
 class Train(SimulationEntity):
 
     def __init__(self, load_capacity: int = 0, load_rate: int = 0):
@@ -32,21 +33,21 @@ class Train(SimulationEntity):
         Parameters:
         -   amount: the amount of people to load
 
-        Returns: 
+        Returns:
             amount of people that could not enter the train
         """
 
         if self._current_load + amount > self._max_capacity:
-            temp = self._current_load + amount 
+            temp = self._current_load + amount
             self._current_load = self._max_capacity
             return temp - self._max_capacity
-        
+
         self._current_load += amount
 
         self.distance = 0
         return 0
 
-    def unload(self) -> int: 
+    def unload(self) -> int:
         """
         Unloads the max amount of people for a given timestep
         """
@@ -54,7 +55,7 @@ class Train(SimulationEntity):
         if self._current_load - self._load_rate > 0:
             self._current_load -= self._load_rate
             return self._load_rate
-        
+
         temp = self._current_load
         self._current_load = 0
 
@@ -83,11 +84,12 @@ class Train(SimulationEntity):
 
             if curr == 0:
                 self.arrival_ticks.append(ticks + diff_in_ticks)
-            else:   
-                self.arrival_ticks.append(self.arrival_ticks[curr - 1] + diff_in_ticks)
+            else:
+                self.arrival_ticks.append(
+                    self.arrival_ticks[curr - 1] + diff_in_ticks)
 
             curr += 1
-    
+
     def get_arrival_tick(self):
         return self.arrival_ticks[self.current_schedule_place]
 
@@ -103,13 +105,17 @@ class Train(SimulationEntity):
 
     def _is_on_time(self, tick):
         sec = self.get_seconds(tick)
-
         remainder = sec % 60 / self._interval
-        return self.arrival_ticks[self.current_schedule_place]  + remainder >= tick
+        print(f"Train arrived at {self.current_schedule_place} at {tick}, which should have been: {self.arrival_ticks[self.current_schedule_place] + remainder}")
+        return self.arrival_ticks[self.current_schedule_place] + remainder >= tick
 
     def simulate(self, tick):
         if self.rail:
-            self.distance += self.rail.get_speed()
+            # self.get_arrival_tick
+            time = self.get_arrival_tick() - tick
+            self.distance += (self.rail.get_length() - self.distance) / time
+
+            #self.distance += self.rail.get_speed()
             # train arrived at station
             if self.distance >= self.rail.get_length():
                 end = self.rail.end_station
@@ -121,7 +127,7 @@ class Train(SimulationEntity):
 
                 self.rail = None
                 self.departure_time = self.schedule[self.current_schedule_place].departure
-                self.current_schedule_place+= 1
+                self.current_schedule_place += 1
 
                 if self.current_schedule_place >= len(self.schedule):
                     self.schedule = []
@@ -143,12 +149,3 @@ class Train(SimulationEntity):
 
         else:
             return (-100, -100)
-
-        
-
-        
-
-
-
-
-

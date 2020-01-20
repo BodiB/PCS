@@ -121,11 +121,19 @@ class Simulation:
             on_time += s.on_time
             delayed += s.delayed
 
-        cv2.putText(self.background, f"On time: {on_time}", (20, 200), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
-        cv2.putText(self.background, f"Delayed: {delayed}", (20, 250), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
+        total = on_time + delayed
+
+        if total != 0:
+            on_time_percent = round(on_time / total, 1) * 100
+            delayed_percent = round(delayed / total, 1) * 100
+        else:
+            on_time_percent = 100
+            delayed_percent = 0
+
+        cv2.putText(self.background, f"On time: {on_time_percent} %", (20, 200), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
+        cv2.putText(self.background, f"Delayed: {delayed_percent} %", (20, 250), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
 
         
-
     def simulate_steps(self):
         for s in self.schedules:
             s.simulate(self.tick)

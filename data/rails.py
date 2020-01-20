@@ -24,5 +24,14 @@ rail_list = [
     ("Castricum", "Zaandam", 17.3, 100),
     ("Zaandam", "Amsterdam Sloterdijk", 7.7, 100),
     ("Amsterdam Centraal", "Amsterdam Amstel", 6, 100),
- 
+    
+    ("Amsterdam Centraal", "Amsterdam Muiderpoort", 3.7, 100),
+    ("Amsterdam Muiderpoort", "Amsterdam Science Park", 1.5, 100),
+    ("Amsterdam Science Park", "Diemen", 1.7, 100),
+    ("Diemen", "Weesp", 6.2, 100),
+    ("Weesp", "Naarden-Bussum", 8.9, 100),
+    ("Naarden-Bussum", "Bussum Zuid", 1.6, 100),
+    ("Bussum Zuid", "Hilversum Media Park", 3.2,100),
+    ("Hilversum Media Park", "Hilversum", 1.5, 100),
+    ("Hilversum", "Baarn", 7.1, 100),
 ]

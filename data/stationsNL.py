@@ -9,9 +9,6 @@ stations_list = [
     Station(2730, "Halfweg-Zwanenburg", 360, 805),
     Station(58008, "Amsterdam Sloterdijk", 420, 805),
     Station(192178, "Amsterdam Centraal", 485, 805),
-]
-
-extended_stations = [
     Station(0, "Den Helder", 614, 716),
     Station(0, "Den Helder Zuid", 644, 745),
     Station(0, "Anna Paulowna", 656, 795),
@@ -74,5 +71,5 @@ extended_stations = [
     Station(0, "Bussum Zuid", 654, 919),
     Station(0, "Hilversum Media Park", 696, 965),
     Station(0, "Hilversum", 704, 973),
-    Station(0, "Baarn", 786, 970),      
+    Station(0, "Baarn", 786, 970),
 ]

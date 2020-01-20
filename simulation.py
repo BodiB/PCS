@@ -16,12 +16,12 @@ class Simulation:
 
     def __init__(self, map="NH"):
         if map == "NL":
-            from data.stationsNL import extended_stations, stations_list
+            from data.stationsNL import stations_list
             timeslots.extend(timeslots_NL)
             rail_list.extend(rail_list_NL)
         else:
-            from data.stations import extended_stations, stations_list
-        self.stations = stations_list + extended_stations
+            from data.stations import stations_list
+        self.stations = stations_list
         self._create_station_hash()
 
         self.schedules = []

@@ -31,13 +31,13 @@ rail_list = [
     ("Diemen", "Weesp", 6.2, 100),
     ("Weesp", "Naarden-Bussum", 8.9, 100),
     ("Naarden-Bussum", "Bussum Zuid", 1.6, 100),
-    ("Bussum Zuid", "Hilversum Media Park", 3.2,100),
+    ("Bussum Zuid", "Hilversum Media Park", 3.2, 100),
     ("Hilversum Media Park", "Hilversum", 1.5, 100),
     ("Hilversum", "Baarn", 7.1, 100),
-    
+
     # SPR Leiden Centraal (Vanaf Nieuw Vennep) - Hoorn Kersenboogerd
-    ("Nieuw Vennep", "Hoofddorp", 5.1, 100), 
-    ("Hoofddorp", "Schiphol Airport", 4.7, 100), 
+    ("Nieuw Vennep", "Hoofddorp", 5.1, 100),
+    ("Hoofddorp", "Schiphol Airport", 4.7, 100),
     ("Schiphol Airport", "Amsterdam Lelylaan", 8.3, 100),
     ("Amsterdam Lelylaan", "Amsterdam Sloterdijk", 3.4, 100),
     ("Amsterdam Sloterdijk", "Zaandam", 7.6, 100),
@@ -47,13 +47,13 @@ rail_list = [
     ("Purmerend", "Purmerend Overwhere", 1.5, 100),
     ("Purmerend Overwhere", "Hoorn", 18, 100),
     ("Hoorn", "Hoorn Kersenboogerd", 2.4, 100),
-    
+
     # IC Enkhuizen - Heerlen (tot aan Amsterdam Amstel)
     ("Enkhuizen", "Bovenkarspel Flora", 2.2, 100),
     ("Bovenkarspel Flora", "Bovenkarspel-Grootebroek", 1.2, 100),
     ("Bovenkarspel-Grootebroek", "Hoogkarspel", 3.5, 100),
     ("Hoogkarspel", "Hoorn Kersenboogerd", 7.8, 100),
-    ("Hoorn Kersenboogerd", "Hoorn", 2,4, 100),
+    ("Hoorn Kersenboogerd", "Hoorn", 2, 4, 100),
     ("Hoorn", "Amsterdam Sloterdijk", 40.3, 100),
     ("Amsterdam Sloterdijk", "Amsterdam Centraal", 4.5, 100),
     ("Amsterdam Centraal", "Amsterdam Amstel", 5.8, 100),

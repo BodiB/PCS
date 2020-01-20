@@ -51,7 +51,7 @@ class Station(SimulationEntity):
             target = t.get_target()
 
             if minute == t.get_departure():
-                print(f"Dispatching train from {self._name} to {target.station._name}")
+                # print(f"Dispatching train from {self._name} to {target.station._name}")
                 t.attach_rail(self.rails[target.station._name])
                 self.trains.remove(t)
 
@@ -84,5 +84,5 @@ class Station(SimulationEntity):
         """
         Add train to this station
         """
-        print(f"adding traing at {self._name}")
+        # print(f"adding train at {self._name}")
         self.trains.append(train)

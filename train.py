@@ -12,6 +12,7 @@ class Train(SimulationEntity):
         -   load_capacity: total amount of people that fit in the train
         -   load_rate: number of people per timestep that can enter or leave the train
         """
+        super().__init__()
         self._max_capacity = load_capacity
         self._load_rate = load_rate
         self._current_load = 0
@@ -20,6 +21,9 @@ class Train(SimulationEntity):
         self.departure_time = -1
 
         self.current_schedule_place = 0
+
+        self.on_time = 0
+        self.delayed = 0
 
         self.rail = None
 
@@ -60,11 +64,24 @@ class Train(SimulationEntity):
         self.distance = 0
         self.rail = rail
 
-    def add_schedule(self, schedule):
+    def add_schedule(self, schedule, ticks):
+        self.arrival_ticks = []
         self.current_schedule_place = 1
         self.schedule = schedule
         self.departure_time = schedule[0].departure
 
+        current_minute = self.get_minutes(ticks)
+        for s in self.schedule:
+            diff_in_minutes = 0
+            if s.arrival < current_minute:
+                diff_in_minutes = s.arrival + 60 - current_minute
+            else:
+                diff_in_minutes = s.arrival - current_minute
+
+            current_minute = s.arrival
+
+            self.arrival_ticks.append(diff_in_minutes * 60 / self._interval)
+            
     def get_target(self):
         """
         Returns the current target Timeslot
@@ -75,6 +92,9 @@ class Train(SimulationEntity):
     def get_departure(self):
         return self.departure_time
 
+    def _is_on_time(self, tick):
+        return self.arrival_ticks[self.current_schedule_place] >= tick
+
     def simulate(self, tick):
         if self.rail:
             self.distance += self.rail.get_speed()
@@ -83,6 +103,11 @@ class Train(SimulationEntity):
             if self.distance >= self.rail.get_length():
                 end = self.rail.end_station
                 end.add_train(self)
+                if self._is_on_time(tick):
+                    self.on_time += 1
+                else:
+                    self.delayed += 1
+
                 self.rail = None
                 self.departure_time = self.schedule[self.current_schedule_place].departure
                 self.current_schedule_place+= 1

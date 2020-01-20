@@ -113,6 +113,19 @@ class Simulation:
                 cv2.rectangle(self.background, (x, y),
                               (x + w, y + h), TRAIN_COLOR, -1)
 
+    def _draw_stats(self):
+        on_time = 0
+        delayed = 0
+
+        for s in self.schedules:
+            on_time += s.on_time
+            delayed += s.delayed
+
+        cv2.putText(self.background, f"On time: {on_time}", (20, 200), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
+        cv2.putText(self.background, f"Delayed: {delayed}", (20, 250), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
+
+        
+
     def simulate_steps(self):
         for s in self.schedules:
             s.simulate(self.tick)
@@ -155,6 +168,7 @@ class Simulation:
             self._draw_rails()
             self._draw_stations()
             self._draw_trains()
+            self._draw_stats()
             cv2.imshow('Simulation', self.background)
 
             # clear background

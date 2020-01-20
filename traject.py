@@ -33,6 +33,9 @@ class Traject(SimulationEntity):
         # contains all trains currently running on this traject
         self.trains = []
 
+        self.on_time = 0
+        self.delayed = 0
+
     def __str__(self):
         string = ""
         for time in self.times:
@@ -50,14 +53,21 @@ class Traject(SimulationEntity):
     def simulate(self, tick):
         if self.get_minutes(tick) == self.times[0].departure:
             if self.times[0].station.is_free():
-                print(f"Spawning train at {self.times[0].station._name}")
+                # print(f"Spawning train at {self.times[0].station._name}")
                 t = Train()
-                t.add_schedule(self.times)
+                t.add_schedule(self.times, tick)
                 self.trains.append(t)
                 self.times[0].station.add_train(t)
         
         for t in self.trains:
             t.simulate(tick)
+
+            if t.is_terminated():
+                self.on_time += t.on_time
+                self.delayed += t.delayed
+
+                t.on_time = 0
+                t.delayed = 0
             
 
 

@@ -108,8 +108,12 @@ class Train(SimulationEntity):
         return self.arrival_ticks[self.current_schedule_place]  + remainder >= tick
 
     def simulate(self, tick):
-        if self.rail:
-            self.distance += self.rail.get_speed()
+        if self.rail: 
+            #self.get_arrival_tick
+            time = self.get_arrival_tick() - tick
+            self.distance += (self.rail.get_length() - self.distance)/ time
+            
+            #self.distance += self.rail.get_speed()
             # train arrived at station
             if self.distance >= self.rail.get_length():
                 end = self.rail.end_station

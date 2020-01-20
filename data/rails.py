@@ -50,8 +50,8 @@ rail_list = [
     
     # IC Enkhuizen - Heerlen (tot aan Amsterdam Amstel)
     ("Enkhuizen", "Bovenkarspel Flora", 2.2, 100),
-    ("Bovenkarspel Flora", "Bovenkarspel Grootebroek", 1.2, 100),
-    ("Bovenkarspel Grootebroek", "Hoogkarspel", 3.5, 100),
+    ("Bovenkarspel Flora", "Bovenkarspel-Grootebroek", 1.2, 100),
+    ("Bovenkarspel-Grootebroek", "Hoogkarspel", 3.5, 100),
     ("Hoogkarspel", "Hoorn Kersenboogerd", 7.8, 100),
     ("Hoorn Kersenboogerd", "Hoorn", 2,4, 100),
     ("Hoorn", "Amsterdam Sloterdijk", 40.3, 100),

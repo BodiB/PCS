@@ -112,6 +112,8 @@ class Simulation:
                 x, y = t.get_pos()
                 cv2.rectangle(self.background, (x, y),
                               (x + w, y + h), TRAIN_COLOR, -1)
+                if self.ix <= x + w and self.ix >= x and self.iy <= y + h and self.iy >= y:
+                    cv2.putText(self.background, f"{t.get_target().station._name}", (20, 350), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
 
     def _draw_stats(self):
         on_time = 0
@@ -133,7 +135,6 @@ class Simulation:
         cv2.putText(self.background, f"On time: {on_time_percent} %", (20, 200), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
         cv2.putText(self.background, f"Delayed: {delayed_percent} %", (20, 250), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
 
-        
     def simulate_steps(self):
         for s in self.schedules:
             s.simulate(self.tick)

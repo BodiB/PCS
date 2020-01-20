@@ -105,7 +105,6 @@ class Train(SimulationEntity):
     def _is_on_time(self, tick):
         sec = self.get_seconds(tick)
         remainder = sec % 60 / self._interval
-        print(f"Train arrived at {self.current_schedule_place} at {tick}, which should have been: {self.arrival_ticks[self.current_schedule_place] + remainder}")
         return self.arrival_ticks[self.current_schedule_place] + remainder >= tick
 
     def simulate(self, tick):

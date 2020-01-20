@@ -15,11 +15,6 @@ timeslots = [
     [("Den Helder", -1, 34), ("Den Helder Zuid", 38, 38), ("Anna Paulowna", 44, 45), ("Schagen", 52, 52), ("Heerhugowaard",  1, 1), ("Alkmaar Noord", 6, 6), ("Alkmaar", 11, 14), ("Heiloo", 19, 19), ("Castricum", 25, 25), ("Zaandam", 39, 39), ("Amsterdam Sloterdijk", 45, 45), ("Amsterdam Centraal", 51, 54), ("Amsterdam Amstel", 1, -1)],
     # Amsterdam Centraal - Baarn
     [("Amsterdam Centraal", -1, 11), ("Amsterdam Muiderpoort", 17, 17), ("Amsterdam Science Park", 19, 19), ("Diemen", 22, 22), ("Weesp", 27, 29), ("Naarden-Bussum", 35, 35), ("Bussum Zuid", 38, 38), ("Hilversum Media Park", 42, 42), ("Hilversum", 44, 45), ("Baarn", 51, -1)],
-    [("Amsterdam Centraal", -1, 41), ("Amsterdam Muiderpoort", 46, 46), ("Amsterdam Science Park", 49, 49), ("Diemen", 52, 52), ("Weesp", 57, 59), ("Naarden-Bussum", 5, 5), ("Bussum Zuid", 8, 8), ("Hilversum Media Park", 12, 12), ("Hilversum", 14, 15), ("Baarn", 21, -1)], ]
-                                                                                                                                                               41, 44), ("Heiloo", 49, 49), ("Castricum", 55, 55), ("Zaandam", 9, 9), ("Amsterdam Sloterdijk", 15, 15), ("Amsterdam Centraal", 21, 24), ("Amsterdam Amstel", 31, -1)],
-    [("Den Helder", -1, 34), ("Den Helder Zuid", 38, 38), ("Anna Paulowna", 44, 45), ("Schagen", 52, 52), ("Heerhugowaard",  1, 1), ("Alkmaar Noord", 6, 6), ("Alkmaar", 11,
-                                                                                                                                                              14), ("Heiloo", 19, 19), ("Castricum", 25, 25), ("Zaandam", 39, 39), ("Amsterdam Sloterdijk", 45, 45), ("Amsterdam Centraal", 51, 54), ("Amsterdam Amstel", 1, -1)],
->>>>>>> ba2b57f423e17766ddcf7d1d5fbe3e1afcba66e5
-]
+    [("Amsterdam Centraal", -1, 41), ("Amsterdam Muiderpoort", 46, 46), ("Amsterdam Science Park", 49, 49), ("Diemen", 52, 52), ("Weesp", 57, 59), ("Naarden-Bussum", 5, 5), ("Bussum Zuid", 8, 8), ("Hilversum Media Park", 12, 12), ("Hilversum", 14, 15), ("Baarn", 21, -1)], ] 
 
 timeslots_NL = []

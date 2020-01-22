@@ -74,7 +74,7 @@ class Train(SimulationEntity):
         time = self.get_arrival_tick() - tick
 
         if (time > 1):
-            if (len(self.schedule) < self.current_schedule_place and self.schedule[self.current_schedule_place + 1].skip):
+            if (len(self.schedule) - 1 > self.current_schedule_place and self.schedule[self.current_schedule_place + 1].skip):
                 self.speed = 500
             else:
                 self.speed = (rail.get_length() / time - 1)
@@ -87,6 +87,7 @@ class Train(SimulationEntity):
 
     def add_schedule(self, schedule, ticks):
         self.arrival_ticks = []
+        self.departure_ticks = []
         self.current_schedule_place = 1
         self.schedule = schedule
         self.start = [schedule[0].station._name, schedule[0].departure]
@@ -96,6 +97,19 @@ class Train(SimulationEntity):
         current_minute = self.get_minutes(ticks)
         curr = 0
         for s in self.schedule:
+            diff_in_minutes = 0
+            if s.departure > current_minute:
+                diff_in_minutes = s.departure + 60 - current_minute
+            else:
+                diff_in_minutes = s.departure - current_minute
+            diff_in_ticks = diff_in_minutes * 60 / self._interval
+
+            if curr == 0:
+                self.departure_ticks.append(ticks + diff_in_ticks)
+            else:
+                self.departure_ticks.append(
+                    ticks + diff_in_ticks)
+
             diff_in_minutes = 0
             if s.arrival < current_minute:
                 diff_in_minutes = s.arrival + 60 - current_minute

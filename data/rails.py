@@ -2,7 +2,7 @@
 # format: ("begin station name", "end station name", length in km, max speed in kph)
 
 connection = {
-    ("Hoorn", "Amsterdam Sloterdijk", 40.3, 100): [
+    ("Hoorn", "Amsterdam Sloterdijk", 40.3, 160): [
         # ("Hoorn", "Amsterdam Sloterdijk", 40.3, 160),
         ("Hoorn", "Purmerend Overwhere",  18, 160),
         ("Purmerend Overwhere", "Purmerend",  1.5, 160),
@@ -11,7 +11,7 @@ connection = {
         ("Zaandam Kogerveld", "Zaandam",  2.5, 160),
         ("Zaandam", "Amsterdam Sloterdijk", 7.6, 160), ],
 
-    ("Amsterdam Zuid", "Almere Centrum", 20, 100): [
+    ("Amsterdam Zuid", "Almere Centrum", 20, 160): [
         ("Amsterdam Zuid", "Amsterdam RAI",  1, 160),
         ("Amsterdam RAI", "Duivendrecht",  1, 160),
         ("Duivendrecht", "Diemen Zuid", 1, 160),
@@ -20,7 +20,7 @@ connection = {
         ("Almere Poort", "Almere Muziekwijk", 1, 160),
         ("Almere Muziekwijk", "Almere Centrum", 1, 160), ],
 
-    ("Almere Centrum", "Lelystad Centrum", 20, 100): [
+    ("Almere Centrum", "Lelystad Centrum", 20, 160): [
         ("Almere Centrum", "Almere Parkwijk",  1, 160),
         ("Almere Parkwijk", "Almere Buiten",  1, 160),
         ("Almere Buiten", "Almere Oostvaarders", 1, 160),
@@ -94,20 +94,20 @@ rail_list = [
     ("Amsterdam Sloterdijk", "Amsterdam Centraal", 4.5, 160),
     ("Amsterdam Centraal", "Amsterdam Amstel", 5.8, 160),
 
-    ("Lelystad Centrum", "Almere Oostvaarders", 1, 100),
-    ("Almere Oostvaarders", "Almere Buiten", 1, 100),
-    ("Almere Buiten", "Almere Parkwijk", 1, 100),
-    ("Almere Parkwijk", "Almere Centrum", 1, 100),
-    ("Almere Centrum", "Almere Muziekwijk", 1, 100),
-    ("Almere Muziekwijk", "Almere Poort", 1, 100),
-    ("Almere Poort", "Weesp", 1, 100),
-    ("Weesp", "Diemen", 6.2, 100),
+    ("Lelystad Centrum", "Almere Oostvaarders", 1, 160),
+    ("Almere Oostvaarders", "Almere Buiten", 1, 160),
+    ("Almere Buiten", "Almere Parkwijk", 1, 160),
+    ("Almere Parkwijk", "Almere Centrum", 1, 160),
+    ("Almere Centrum", "Almere Muziekwijk", 1, 160),
+    ("Almere Muziekwijk", "Almere Poort", 1, 160),
+    ("Almere Poort", "Weesp", 1, 160),
+    ("Weesp", "Diemen", 6.2, 160),
 
     #???
-    ("Weesp", "Diemen Zuid", 6.2, 100),
-    ("Diemen Zuid", "Duivendrecht", 6.2, 100),
-    ("Duivendrecht", "Amsterdam RAI", 6.2, 100),
-    ("Amsterdam RAI", "Amsterdam Zuid", 6.2, 100),
+    ("Weesp", "Diemen Zuid", 3, 160),
+    ("Diemen Zuid", "Duivendrecht", 3, 160),
+    ("Duivendrecht", "Amsterdam RAI", 2, 160),
+    ("Amsterdam RAI", "Amsterdam Zuid", 1, 160),
     ("Schiphol Airport", "Amsterdam Zuid", 8.3, 160),
 ]
 

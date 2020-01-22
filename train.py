@@ -74,11 +74,14 @@ class Train(SimulationEntity):
         time = self.get_arrival_tick() - tick
 
         if (time > 1):
-            if (len(self.schedule) - 1 > self.current_schedule_place and self.schedule[self.current_schedule_place + 1].skip):
-                self.speed = 500
+            if (len(self.schedule) - 1 > self.current_schedule_place):
+                if(self.schedule[self.current_schedule_place + 1].skip):
+                    self.speed = 500
             else:
                 self.speed = (rail.get_length() / time - 1) + 10
         else:
+            self.speed = 500
+        if self.skip:
             self.speed = 500
         self.speed = min(self.speed, rail.get_speed())
 
@@ -142,7 +145,7 @@ class Train(SimulationEntity):
         return self.departure_time
 
     def get_data(self):
-        return f"This train departed {self.start[0]} at {self.start[1]} heading for {self.end}"
+        return f"This train departed {self.start[0]} at {self.start[1]} heading for {self.end}, skipping: {self.skip}"
 
     def get_skip(self):
         return self.skip

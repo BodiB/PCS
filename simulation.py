@@ -40,6 +40,8 @@ class Simulation:
                     slot3 = False
                 else:
                     slot3 = slot[3]
+                if slot1 < 0 and slot2 < 0:
+                    slot3 = True
                 if ((slot1 > slot2 and slot2 >= 0) or (slot1 < last and slot1 >= 0)):
                     hour = True
                 if hour:
@@ -51,11 +53,9 @@ class Simulation:
                         slot2 += 60
                         if slot2 < slot1 and slot2 >= 0:
                             slot2 += 60
-                    print(f"{slot[0]} arrive {slot1} depart {slot2} hour? {hour}")
                     current.append(TimeSlot(self._get_station(
                         slot[0]), slot1, slot2, slot3))
                 else:
-                    print(f"{slot[0]} arrive {slot1} depart {slot2} hour? {hour}")
                     current.append(TimeSlot(self._get_station(
                         slot[0]), slot1, slot2, slot3))
                 if slot2 >= 0:

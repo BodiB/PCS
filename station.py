@@ -41,6 +41,8 @@ class Station(SimulationEntity):
         # keep a list of times at which to spawn trains
         self.spawn_times = []
 
+        self.delay = 0
+
     def simulate(self, ticks):
         if self.get_random() <= self._spawn_rate:
             self._people += self._people_per_spawn
@@ -50,7 +52,7 @@ class Station(SimulationEntity):
         for t in self.trains:
             target = t.get_target()
 
-            if minute == t.get_departure():
+            if minute == (t.get_departure() + self.delay) % 60:
                 # print(f"Dispatching train from {self._name} to {target.station._name}")
                 t.attach_rail(self.rails[target.station._name], ticks)
                 self.trains.remove(t)

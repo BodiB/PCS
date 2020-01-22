@@ -4,9 +4,10 @@ Class to describe a traject, with begin and end station and spawn times for the 
 from simulationEntity import SimulationEntity
 from train import Train
 
+
 class TimeSlot:
 
-    def __init__(self, station, arrival, departure):
+    def __init__(self, station, arrival, departure, skip=False):
         """
         Parameters:
         -   station: the station for which these times are valid
@@ -17,6 +18,7 @@ class TimeSlot:
         self.station = station
         self.arrival = arrival
         self.departure = departure
+
 
 class Traject(SimulationEntity):
 
@@ -40,7 +42,7 @@ class Traject(SimulationEntity):
         string = ""
         for time in self.times:
             string += f"{time.station._name}: arrival at {time.arrival}, departure at {time.departure}\n"
-        
+
         return string
 
     def add_timeslot(self, timeslot):
@@ -58,7 +60,7 @@ class Traject(SimulationEntity):
                 t.add_schedule(self.times, tick)
                 self.trains.append(t)
                 self.times[0].station.add_train(t)
-        
+
         for t in self.trains:
             t.simulate(tick)
 
@@ -68,6 +70,3 @@ class Traject(SimulationEntity):
 
                 t.on_time = 0
                 t.delayed = 0
-            
-
-

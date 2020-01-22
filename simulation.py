@@ -40,7 +40,7 @@ class Simulation:
                     slot3 = False
                 else:
                     slot3 = slot[3]
-                if hour:
+                if hour and slot[1] >= 0:
                     current.append(TimeSlot(self._get_station(
                         slot[0]), slot[1] + 60, slot[2] + 60, slot3))
                 else:
@@ -67,7 +67,6 @@ class Simulation:
             background_image = cv2.imread("background.png")
             self.background_image = cv2.resize(
                 background_image, (SCREEN_WIDTH, SCREEN_HEIGHT))
-
 
         self.train_image = cv2.imread("logo.png")
 
@@ -158,7 +157,7 @@ class Simulation:
         for s in self.schedules:
             for t in s.trains:
                 x, y = t.get_pos()
-                self.background[y:y+h, x:x+w, :] = self.train_image[:, :]
+                self.background[y:y + h, x:x + w, :] = self.train_image[:, :]
                 # cv2.rectangle(self.background, (x, y),
                 #               (x + w, y + h), TRAIN_COLOR, -1)
                 if self.click_x <= x + w and self.click_x >= x and self.click_y <= y + h and self.click_y >= y:

@@ -2,7 +2,7 @@
 # format: ("begin station name", "end station name", length in km, max speed in kph)
 
 connection = {
-    ("Hoorn", "Amsterdam Sloterdijk", 40.3, 160): [
+    ("Hoorn", "Amsterdam Sloterdijk", 40.3, 10): [
         # ("Hoorn", "Amsterdam Sloterdijk", 40.3, 160),
         ("Hoorn", "Purmerend Overwhere",  18, 160),
         ("Purmerend Overwhere", "Purmerend",  1.5, 160),
@@ -75,7 +75,7 @@ rail_list = [
 
     ("Hoogkarspel", "Hoorn Kersenboogerd", 7.8, 160),
     ("Hoorn Kersenboogerd", "Hoorn", 2, 160),
-    ("Hoorn", "Amsterdam Sloterdijk", 40.3, 160),
+    # ("Hoorn", "Amsterdam Sloterdijk", 40.3, 160),
     ("Amsterdam Sloterdijk", "Amsterdam Centraal", 4.5, 160),
     ("Amsterdam Centraal", "Amsterdam Amstel", 5.8, 160),
 

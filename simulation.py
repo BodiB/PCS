@@ -160,8 +160,8 @@ class Simulation:
         total = on_time + delayed
 
         if total != 0:
-            on_time_percent = round(on_time / total, 3) * 100
-            delayed_percent = round(delayed / total, 3) * 100
+            on_time_percent = round(on_time / total * 100, 1)
+            delayed_percent = round(delayed / total * 100, 1)
         else:
             on_time_percent = 100
             delayed_percent = 0

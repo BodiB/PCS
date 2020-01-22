@@ -38,9 +38,9 @@ timeslots = [
     #  ("Zaandam Kogerveld", 8, 8), ("Purmerend Weidevenne", 14, 14), ("Purmerend", 17, 17), ("Purmerend Overwhere", 20, 20), ("Hoorn", 31, 33), ("Hoorn Kersenboogerd", 36, -1)],
     # IC Enkhuizen - Heerlen (tot aan Amsterdam Amstel)
     [("Enkhuizen", -1, 9), ("Bovenkarspel Flora", 13, 13), ("Bovenkarspel-Grootebroek", 15, 18), ("Hoogkarspel", 21, 23), ("Hoorn Kersenboogerd",
-                                                                                                                           30, 30), ("Hoorn", 33, 40), ("Purmerend Overwhere", 0, 0, True), ("Purmerend", 0, 0, True), ("Purmerend Weidevenne", 0, 0, True), ("Zaandam Kogerveld",  0, 0, True), ("Zaandam",  0, 0, True), ("Amsterdam Sloterdijk", 5, 5), ("Amsterdam Centraal", 11, 14), ("Amsterdam Amstel", 22, -1)],
+                                                                                                                           30, 30), ("Hoorn", 33, 40), ("Purmerend Overwhere", -2, -2, True), ("Purmerend", -2, -2, True), ("Purmerend Weidevenne", -2, -2, True), ("Zaandam Kogerveld",  -2, -2, True), ("Zaandam",  -2, -2, True), ("Amsterdam Sloterdijk", 5, 5), ("Amsterdam Centraal", 11, 14), ("Amsterdam Amstel", 22, -1)],
     [("Enkhuizen", -1, 39), ("Bovenkarspel Flora", 43, 43), ("Bovenkarspel-Grootebroek", 45, 48), ("Hoogkarspel", 51, 53), ("Hoorn Kersenboogerd",
-                                                                                                                            0, 0), ("Hoorn", 3, 10), ("Purmerend Overwhere", 0, 0, True), ("Purmerend", 0, 0, True), ("Purmerend Weidevenne", 0, 0, True), ("Zaandam Kogerveld",  0, 0, True), ("Zaandam",  0, 0, True), ("Amsterdam Sloterdijk",  35, 35), ("Amsterdam Centraal", 41, 45), ("Amsterdam Amstel", 53, -1)],
+                                                                                                                            0, 0), ("Hoorn", 3, 10), ("Purmerend Overwhere", -2, -2, True), ("Purmerend", -2, -2, True), ("Purmerend Weidevenne", -2, -2, True), ("Zaandam Kogerveld",  -2, -2, True), ("Zaandam",  -2, -2, True), ("Amsterdam Sloterdijk",  35, 35), ("Amsterdam Centraal", 41, 45), ("Amsterdam Amstel", 53, -1)],
 ]
 
 timeslots_NL = []

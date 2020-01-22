@@ -109,6 +109,30 @@ rail_list = [
     ("Duivendrecht", "Amsterdam RAI", 2, 160),
     ("Amsterdam RAI", "Amsterdam Zuid", 1, 160),
     ("Schiphol Airport", "Amsterdam Zuid", 8.3, 160),
+    
+    # SPR Amsterdam Centraal - Hoorn
+    ("Amsterdam Centraal", "Amsterdam Sloterdijk", 4.5, 160),
+    ("Amsterdam Sloterdijk", "Halfweg-Zwanenburg", 6.4, 160),
+    ("Halfweg-Zwanenburg", "Haarlem Spaarnwoude", 5, 160),
+    ("Haarlem Spaarnwoude", "Haarlem", 2.6, 160),
+    ("Haarlem", "Bloemendaal", 2.5, 160),
+    ("Bloemendaal", "Santpoort Zuid", 1.9, 160),
+    ("Santpoort Zuid", "Santpoort Noord", 1.5, 160),
+    ("Santpoort Noord", "Driehuis", 1, 160),
+    ("Driehuis", "Beverwijk", 2.9, 160),
+    ("Beverwijk",  "Heemskerk", 2.8, 160),
+    ("Heemskerk", "Uitgeest", 3.8, 160),
+    ("Uitgeest", "Castricum", 3.8, 160),
+    ("Castricum", "Heiloo", 6.8, 160),
+    ("Heiloo", "Alkmaar", 5.1, 160),
+    ("Alkmaar", "Alkmaar Noord", 1.8, 160),
+    ("Alkmaar Noord", "Heerhugowaard", 4.9, 160),
+    ("Heerhugowaard", "Obdam", 6.1, 160),
+    ("Obdam", "Hoorn", 10.7, 160),
+    
+    
+    
+    
 ]
 
 rail_list_NL = []

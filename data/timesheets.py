@@ -131,7 +131,24 @@ timeslots = [
      ("Almere Poort", -2, -2, True),  ("Almere Muziekwijk", -2, -2, True),
      ("Almere Centrum", 47, 49), ("Almere Parkwijk", -2, -2, True),
      ("Almere Buiten", 54, 54), ("Almere Oostvaarders", -2, -2, True),
-     ("Lelystad Centrum", 6, -1), ]
+     ("Lelystad Centrum", 6, -1), ],
+    
+    # SP Amsterdam Centraal - Hoorn
+    [("Amsterdam Centraal", -1, 11), ("Amsterdam Sloterdijk", 16, 16), 
+     ("Halfweg-Zwanenburg", 21, 21), ("Haarlem Spaarnwoude", 26,26), ("Haarlem", 30, 31), 
+     ("Bloemendaal", 35, 35), ("Santpoort Zuid", 37, 37), ("Santpoort Noord", 40, 40), 
+     ("Driehuis", 42, 42), ("Beverwijk", 48, 48), ("Heemskerk", 51, 51), ("Uitgeest", 56, 56), 
+     ("Castricum", 0, 0), ("Heiloo", 6, 6), ("Alkmaar", 11, 13), ("Alkmaar Noord", 16, 16),
+     ("Heerhugowaard", 21, 21), ("Obdam", 26, 28), ("Hoorn", 37,-1), ],
+    
+    [("Amsterdam Centraal", -1, 41), ("Amsterdam Sloterdijk", 46, 46), 
+     ("Halfweg-Zwanenburg", 51, 51), ("Haarlem Spaarnwoude", 56,56), ("Haarlem", 0, 1), 
+     ("Bloemendaal", 5, 5), ("Santpoort Zuid", 7, 7), ("Santpoort Noord", 10, 10), 
+     ("Driehuis", 12, 12), ("Beverwijk", 18, 18), ("Heemskerk", 21, 21), ("Uitgeest", 26, 26), 
+     ("Castricum", 30, 30), ("Heiloo", 36, 36), ("Alkmaar", 41, 43), ("Alkmaar Noord", 46, 46),
+     ("Heerhugowaard", 51, 51), ("Obdam", 56, 58), ("Hoorn", 7,-1), ]
+    
+    
 ]
 
 timeslots_NL = []

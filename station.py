@@ -50,7 +50,7 @@ class Station(SimulationEntity):
         for t in self.trains:
             target = t.get_target()
 
-            if minute == t.get_departure():
+            if minute == t.get_departure() or t.get_departure() == -2:
                 # print(f"Dispatching train from {self._name} to {target.station._name}")
                 t.attach_rail(self.rails[target.station._name], ticks)
                 self.trains.remove(t)

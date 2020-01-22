@@ -51,11 +51,11 @@ class Station(SimulationEntity):
         trainlist = []
         for t in self.trains:
             target = t.get_target()
-
-            if ((minute == (t.get_departure() + self.delay) % 60) or t.get_skip()):
-                # print(f"Dispatching train from {self._name} to {target.station._name}")
-                t.attach_rail(self.rails[target.station._name], ticks)
-                trainlist.append(t)
+            if target:
+                if ((minute == (t.get_departure() + self.delay) % 60) or t.get_skip()):
+                    # print(f"Dispatching train from {self._name} to {target.station._name}")
+                    t.attach_rail(self.rails[target.station._name], ticks)
+                    trainlist.append(t)
         self.derail_train(trainlist)
 
     def get_people(self) -> int:

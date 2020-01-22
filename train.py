@@ -23,6 +23,8 @@ class Train(SimulationEntity):
 
         self.current_schedule_place = 0
 
+        self.skip = False
+
         self.on_time = 0
         self.delayed = 0
         self.speed = 0
@@ -67,7 +69,8 @@ class Train(SimulationEntity):
         self.rail = rail
 
         time = self.get_arrival_tick() - tick
-        self.speed = rail.get_length() / time
+        if time > 0:
+            self.speed = rail.get_length() / time
 
         self.speed = min(self.speed, rail.get_speed())
 
@@ -114,6 +117,9 @@ class Train(SimulationEntity):
     def get_departure(self):
         return self.departure_time
 
+    def get_skip(self):
+        return self.skip
+
     def _is_on_time(self, tick):
         sec = self.get_seconds(tick)
         remainder = sec % 60 / self._interval
@@ -136,6 +142,7 @@ class Train(SimulationEntity):
 
                 self.rail = None
                 self.departure_time = self.schedule[self.current_schedule_place].departure
+                self.skip = self.schedule[self.current_schedule_place].skip
                 self.current_schedule_place += 1
 
                 if self.current_schedule_place >= len(self.schedule):

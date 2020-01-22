@@ -30,8 +30,12 @@ class Simulation:
         for schedule in timeslots:
             current = []
             for slot in schedule:
-                current.append(
-                    TimeSlot(self._get_station(slot[0]), slot[1], slot[2]))
+                if len(slot) > 3:
+                    current.append(
+                        TimeSlot(self._get_station(slot[0]), slot[1], slot[2], slot[3]))
+                else:
+                    current.append(
+                        TimeSlot(self._get_station(slot[0]), slot[1], slot[2]))
             self.schedules.append(Traject(current))
 
         # attach rails to stations
@@ -132,6 +136,7 @@ class Simulation:
             try:
                 cv2.putText(self.background, f"Current target: {self.selected_train.get_target().station._name}", (20, 350), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
                 cv2.putText(self.background, f"Current speed: {self.selected_train.get_speed_kph()}", (20, 400), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
+                # cv2.putText(self.background, f"Current speed: {self.selected_train.get_skip()}", (20, 450), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
             except:
                 pass
 

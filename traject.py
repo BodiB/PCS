@@ -18,6 +18,7 @@ class TimeSlot:
         self.station = station
         self.arrival = arrival
         self.departure = departure
+        self.skip = skip
 
 
 class Traject(SimulationEntity):

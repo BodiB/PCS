@@ -56,6 +56,8 @@ class Station(SimulationEntity):
                     # print(f"Dispatching train from {self._name} to {target.station._name}")
                     t.attach_rail(self.rails[target.station._name], ticks)
                     trainlist.append(t)
+            if  t.is_terminated():
+                trainlist.append(t)
         self.derail_train(trainlist)
 
     def get_people(self) -> int:

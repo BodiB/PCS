@@ -3,14 +3,14 @@
 
 connection = {
     ("Hoorn", "Amsterdam Sloterdijk", 40.3, 100): [
-    # ("Hoorn", "Amsterdam Sloterdijk", 40.3, 100),
-    ("Hoorn","Purmerend Overwhere",  18, 100),
-    ("Purmerend Overwhere", "Purmerend",  1.5, 100),
-    ("Purmerend", "Purmerend Weidevenne", 1.6, 100),
-    ("Purmerend Weidevenne", "Zaandam Kogerveld", 9.4, 100),
-    ("Zaandam Kogerveld", "Zaandam",  2.5, 100),
-    ("Zaandam", "Amsterdam Sloterdijk",7.6, 100),]
-    
+        # ("Hoorn", "Amsterdam Sloterdijk", 40.3, 100),
+        ("Hoorn", "Purmerend Overwhere",  18, 100),
+        ("Purmerend Overwhere", "Purmerend",  1.5, 100),
+        ("Purmerend", "Purmerend Weidevenne", 1.6, 100),
+        ("Purmerend Weidevenne", "Zaandam Kogerveld", 9.4, 100),
+        ("Zaandam Kogerveld", "Zaandam",  2.5, 100),
+        ("Zaandam", "Amsterdam Sloterdijk", 7.6, 100), ]
+
 }
 
 
@@ -26,6 +26,12 @@ rail_list = [
     ("Schiphol Airport", "Amsterdam Lelylaan", 8.3, 100),
     ("Amsterdam Lelylaan", "Amsterdam Sloterdijk", 3.5, 100),
 
+    ("Hoorn", "Purmerend Overwhere",  18, 100),
+    ("Purmerend Overwhere", "Purmerend",  1.5, 100),
+    ("Purmerend", "Purmerend Weidevenne", 1.6, 100),
+    ("Purmerend Weidevenne", "Zaandam Kogerveld", 9.4, 100),
+    ("Zaandam Kogerveld", "Zaandam",  2.5, 100),
+    ("Zaandam", "Amsterdam Sloterdijk", 7.6, 100),
 
     ("Den Helder", "Den Helder Zuid", 2.7, 100),
     ("Den Helder Zuid", "Anna Paulowna", 8.9, 100),
@@ -48,8 +54,6 @@ rail_list = [
     ("Bussum Zuid", "Hilversum Media Park", 3.2, 100),
     ("Hilversum Media Park", "Hilversum", 1.5, 100),
     ("Hilversum", "Baarn", 7.1, 100),
-    
-    
 
     # SPR Leiden Centraal (Vanaf Nieuw Vennep) - Hoorn Kersenboogerd
     ("Nieuw Vennep", "Hoofddorp", 5.1, 100),
@@ -71,8 +75,8 @@ rail_list = [
 
     ("Hoogkarspel", "Hoorn Kersenboogerd", 7.8, 100),
     ("Hoorn Kersenboogerd", "Hoorn", 2, 100),
-    ("Amsterdam Sloterdijk", "Amsterdam Centraal", 4.5, 100),
     ("Hoorn", "Amsterdam Sloterdijk", 40.3, 100),
+    ("Amsterdam Sloterdijk", "Amsterdam Centraal", 4.5, 100),
     ("Amsterdam Centraal", "Amsterdam Amstel", 5.8, 100),
 
 

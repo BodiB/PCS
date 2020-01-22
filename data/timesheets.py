@@ -32,10 +32,10 @@ timeslots = [
     # [("Amsterdam Centraal", -1, 41), ("Amsterdam Muiderpoort", 46, 46), ("Amsterdam Science Park", 49, 49), ("Diemen", 52, 52), ("Weesp",
     #                                                                                                                              57, 59), ("Naarden-Bussum", 5, 5), ("Bussum Zuid", 8, 8), ("Hilversum Media Park", 12, 12), ("Hilversum", 14, 15), ("Baarn", 21, -1)],
     # SPR Leiden Centraal (Vanaf Nieuw Vennep) - Hoorn Kersenboogerd
-    [("Nieuw Vennep", -1, 4), ("Hoofddorp", 9, 9), ("Schiphol Airport", 13, 15), ("Amsterdam Lelylaan", 22, 22), ("Amsterdam Sloterdijk", 26, 28), ("Zaandam", 34, 34),
-     ("Zaandam Kogerveld", 38, 38), ("Purmerend Weidevenne", 44, 44), ("Purmerend", 47, 47), ("Purmerend Overwhere", 50, 50), ("Hoorn", 1, 3), ("Hoorn Kersenboogerd", 6, -1)],
-    [("Nieuw Vennep", -1, 34), ("Hoofddorp", 9, 39), ("Schiphol Airport", 43, 45), ("Amsterdam Lelylaan", 52, 52), ("Amsterdam Sloterdijk", 56, 58), ("Zaandam", 4, 4),
-     ("Zaandam Kogerveld", 8, 8), ("Purmerend Weidevenne", 14, 14), ("Purmerend", 17, 17), ("Purmerend Overwhere", 20, 20), ("Hoorn", 31, 33), ("Hoorn Kersenboogerd", 36, -1)],
+    # [("Nieuw Vennep", -1, 4), ("Hoofddorp", 9, 9), ("Schiphol Airport", 13, 15), ("Amsterdam Lelylaan", 22, 22), ("Amsterdam Sloterdijk", 26, 28), ("Zaandam", 34, 34),
+    #  ("Zaandam Kogerveld", 38, 38), ("Purmerend Weidevenne", 44, 44), ("Purmerend", 47, 47), ("Purmerend Overwhere", 50, 50), ("Hoorn", 1, 3), ("Hoorn Kersenboogerd", 6, -1)],
+    # [("Nieuw Vennep", -1, 34), ("Hoofddorp", 9, 39), ("Schiphol Airport", 43, 45), ("Amsterdam Lelylaan", 52, 52), ("Amsterdam Sloterdijk", 56, 58), ("Zaandam", 4, 4),
+    #  ("Zaandam Kogerveld", 8, 8), ("Purmerend Weidevenne", 14, 14), ("Purmerend", 17, 17), ("Purmerend Overwhere", 20, 20), ("Hoorn", 31, 33), ("Hoorn Kersenboogerd", 36, -1)],
     # IC Enkhuizen - Heerlen (tot aan Amsterdam Amstel)
     [("Enkhuizen", -1, 9), ("Bovenkarspel Flora", 13, 13), ("Bovenkarspel-Grootebroek", 15, 18), ("Hoogkarspel", 21, 23), ("Hoorn Kersenboogerd",
                                                                                                                            30, 30), ("Hoorn", 33, 40), ("Amsterdam Sloterdijk", 5, 5), ("Amsterdam Centraal", 11, 14), ("Amsterdam Amstel", 22, -1)],

@@ -4,12 +4,13 @@ import numpy as np
 from config import *
 from config import (BACKGROUND_COLOR, SCREEN_HEIGHT, SCREEN_HEIGHT_B,
                     SCREEN_WIDTH, SCREEN_WIDTH_B, SECONDS_PER_TICK)
-from data.rails import rail_list, rail_list_NL
+from data.rails import rail_list, rail_list_NL, connection
 from data.timesheets import timeslots, timeslots_NL
 from railway import Railway
 from station import Station
 from train import Train
 from traject import TimeSlot, Traject
+import numpy as np
 
 
 class Simulation:
@@ -35,9 +36,22 @@ class Simulation:
             self.schedules.append(Traject(current))
 
         # attach rails to stations
+        #for r in rail_list:
+        #    self._get_station(r[0]).attach_rail(
+        #        Railway(r[2], r[3], self._get_station(r[0]), self._get_station(r[1])))
+            
+            
         for r in rail_list:
-            self._get_station(r[0]).attach_rail(
-                Railway(r[2], r[3], self._get_station(r[0]), self._get_station(r[1])))
+            if r in connection.keys():
+                print(connection[r])
+                for c in connection[r]:
+                    self._get_station(c[0]).attach_rail(Railway(c[2], c[3], self._get_station(c[0]), self._get_station(c[1])))
+            else:
+                self._get_station(r[0]).attach_rail(Railway(r[2], r[3], self._get_station(r[0]), self._get_station(r[1])))
+    
+
+
+                    
 
         # create white background
         if map == "NL":

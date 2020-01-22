@@ -1,5 +1,19 @@
 
 # format: ("begin station name", "end station name", length in km, max speed in kph)
+
+connection = {
+    ("Hoorn", "Amsterdam Sloterdijk", 40.3, 100): [
+        # ("Hoorn", "Amsterdam Sloterdijk", 40.3, 100),
+        ("Hoorn", "Purmerend Overwhere",  18, 100),
+        ("Purmerend Overwhere", "Purmerend",  1.5, 100),
+        ("Purmerend", "Purmerend Weidevenne", 1.6, 100),
+        ("Purmerend Weidevenne", "Zaandam Kogerveld", 9.4, 100),
+        ("Zaandam Kogerveld", "Zaandam",  2.5, 100),
+        ("Zaandam", "Amsterdam Sloterdijk", 7.6, 100), ]
+
+}
+
+
 rail_list = [
     ("Zandvoort aan zee", "Overveen", 6.3, 100),
     ("Overveen", "Haarlem", 2, 100),
@@ -12,6 +26,12 @@ rail_list = [
     ("Schiphol Airport", "Amsterdam Lelylaan", 8.3, 100),
     ("Amsterdam Lelylaan", "Amsterdam Sloterdijk", 3.5, 100),
 
+    ("Hoorn", "Purmerend Overwhere",  18, 100),
+    ("Purmerend Overwhere", "Purmerend",  1.5, 100),
+    ("Purmerend", "Purmerend Weidevenne", 1.6, 100),
+    ("Purmerend Weidevenne", "Zaandam Kogerveld", 9.4, 100),
+    ("Zaandam Kogerveld", "Zaandam",  2.5, 100),
+    ("Zaandam", "Amsterdam Sloterdijk", 7.6, 100),
 
     ("Den Helder", "Den Helder Zuid", 2.7, 100),
     ("Den Helder Zuid", "Anna Paulowna", 8.9, 100),
@@ -52,6 +72,7 @@ rail_list = [
     ("Enkhuizen", "Bovenkarspel Flora", 2.2, 100),
     ("Bovenkarspel Flora", "Bovenkarspel-Grootebroek", 1.2, 100),
     ("Bovenkarspel-Grootebroek", "Hoogkarspel", 3.5, 100),
+
     ("Hoogkarspel", "Hoorn Kersenboogerd", 7.8, 100),
     ("Hoorn Kersenboogerd", "Hoorn", 2, 100),
     ("Hoorn", "Amsterdam Sloterdijk", 40.3, 100),

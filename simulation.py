@@ -161,11 +161,13 @@ class Simulation:
 
         if self.selected_train:
             try:
+                cv2.putText(self.background, self.selected_train.get_data(
+                ), (20, 450), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 0), 2, cv2.LINE_AA)
                 cv2.putText(self.background, f"Current target: {self.selected_train.get_target().station._name}", (20, 350), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
                 cv2.putText(self.background, f"Current speed: {self.selected_train.get_speed_kph()}", (20, 400), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
                 # cv2.putText(self.background, f"Current speed: {self.selected_train.get_skip()}", (20, 450), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
-            except:
-                pass
+            except ValueError as e:
+                print(e)
 
     def _draw_stats(self):
         on_time = 0

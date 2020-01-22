@@ -79,7 +79,14 @@ rail_list = [
     ("Amsterdam Sloterdijk", "Amsterdam Centraal", 4.5, 160),
     ("Amsterdam Centraal", "Amsterdam Amstel", 5.8, 160),
 
-
+    ("Lelystad Centrum", "Almere Oostvaarders", 1, 100),
+    ("Almere Oostvaarders", "Almere Buiten", 1, 100),
+    ("Almere Buiten", "Almere Parkwijk", 1, 100),
+    ("Almere Parkwijk", "Almere Centrum", 1, 100),
+    ("Almere Centrum", "Almere Muziekwijk", 1, 100),
+    ("Almere Muziekwijk", "Almere Poort", 1, 100),
+    ("Almere Poort", "Weesp", 1, 100),
+    ("Weesp", "Diemen", 6.2, 100),
 ]
 
 rail_list_NL = []

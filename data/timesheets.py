@@ -1,7 +1,7 @@
 from traject import TimeSlot, Traject
 
 timeslots = [
-    # Zandvoort aan zee - Amsterdam Centraal
+    # SPR Zandvoort aan zee - Amsterdam Centraal
     [("Zandvoort aan zee", -1, 4), ("Overveen", 11, 11), ("Haarlem", 15, 16),
      ("Haarlem Spaarnwoude", 19, 19), ("Halfweg-Zwanenburg", 24, 24),
      ("Amsterdam Sloterdijk", 29, 29), ("Amsterdam Centraal", 35, -1)],
@@ -11,7 +11,7 @@ timeslots = [
      ("Amsterdam Sloterdijk", 59, 59), ("Amsterdam Centraal", 5, -1)],
 
 
-    # Hoofddorp - Amsterdam Centraal
+    # SPR Hoofddorp - Amsterdam Centraal
     # [("Hoofddorp", -1, 4), ("Schiphol Airport", 9, 11), ("Amsterdam Lelylaan", 17, 17),
     #  ("Amsterdam Sloterdijk", 21, 23), ("Amsterdam Centraal", 29, -1)],
 
@@ -39,7 +39,7 @@ timeslots = [
      ("Amsterdam Sloterdijk", 11, 11), ("Amsterdam Centraal", 18, -1)],
 
 
-    # Den Helder - Amsterdam Amstel (Eig tot Nijmegen)
+    # IC Den Helder - Amsterdam Amstel (Eig tot Nijmegen)
     [("Den Helder", -1, 4), ("Den Helder Zuid", 8, 8), ("Anna Paulowna", 14, 15),
      ("Schagen", 22, 22), ("Heerhugowaard",  31, 31), ("Alkmaar Noord", 36, 36),
      ("Alkmaar", 41, 44), ("Heiloo", 49, 49), ("Castricum", 55, 55),
@@ -53,7 +53,7 @@ timeslots = [
      ("Amsterdam Centraal", 51, 54), ("Amsterdam Amstel", 1, -1)],
 
 
-    # Amsterdam Centraal - Baarn (Momenteel in de actieve 4 en 34 sprinters Hoofddorp-Amsterdam Centraal verwerkt, behalve de eerste.)
+    # SPR Amsterdam Centraal - Baarn (Momenteel in de actieve 4 en 34 sprinters Hoofddorp-Amsterdam Centraal verwerkt, behalve de eerste.)
     [("Amsterdam Centraal", -1, 11), ("Amsterdam Muiderpoort", 17, 17),
      ("Amsterdam Science Park", 19, 19), ("Diemen", 22, 22), ("Weesp", 27, 29),
      ("Naarden-Bussum", 35, 35), ("Bussum Zuid", 38, 38),
@@ -97,6 +97,21 @@ timeslots = [
      ("Purmerend Weidevenne", -2, -2, True), ("Zaandam Kogerveld",  -2, -2, True),
      ("Zaandam",  -2, -2, True), ("Amsterdam Sloterdijk",  35, 35),
      ("Amsterdam Centraal", 41, 45), ("Amsterdam Amstel", 53, -1)],
+
+    # SPR Zwolle - Amsterdam Centraal (RIJDT NORMAAL DOOR NAAR DEN HAAG CENTRAAL)
+    [("Lelystad Centrum", -1, 37), ("Almere Oostvaarders", 50, 55),
+     ("Almere Buiten", 58, 58), ("Almere Parkwijk", 1, 1),
+     ("Almere Centrum", 4, 6), ("Almere Muziekwijk", 9, 9),
+     ("Almere Poort", 13, 13), ("Weesp", 20, 21),
+     ("Diemen", 26, 26), ("Amsterdam Science Park", 28, 28),
+     ("Amsterdam Muiderpoort", 31, 31), ("Amsterdam Centraal", 37, 37), ],
+
+    [("Lelystad Centrum", -1, 7), ("Almere Oostvaarders", 20, 25),
+     ("Almere Buiten", 28, 28), ("Almere Parkwijk", 31, 31),
+     ("Almere Centrum", 34, 36), ("Almere Muziekwijk", 39, 39),
+     ("Almere Poort", 43, 43), ("Weesp", 50, 51),
+     ("Diemen", 56, 56), ("Amsterdam Science Park", 58, 58),
+     ("Amsterdam Muiderpoort", 61, 61), ("Amsterdam Centraal", 67, 67), ],
 ]
 
 timeslots_NL = []

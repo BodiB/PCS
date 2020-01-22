@@ -26,6 +26,8 @@ class Simulation:
 
         self.schedules = []
 
+        self.pause = False
+
         # create timeslots
         for schedule in timeslots:
             current = []
@@ -204,7 +206,8 @@ class Simulation:
 
         # start simulation loop
         while(1):
-            self.simulate_steps()
+            if not self.pause:
+                self.simulate_steps()
             self.draw_time()
             self._draw_rails()
             self._draw_stations()
@@ -217,6 +220,8 @@ class Simulation:
 
             # aquire user input
             k = cv2.waitKey(20) & 0xFF
+            if k == ord('p'):
+                self.pause = not self.pause
             if k == 27:
                 break
             elif k == ord('a'):

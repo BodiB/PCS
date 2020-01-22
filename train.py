@@ -136,10 +136,12 @@ class Train(SimulationEntity):
             if self.distance >= self.rail.get_length():
                 end = self.rail.end_station
                 end.add_train(self)
-                if self._is_on_time(tick):
-                    self.on_time += 1
-                else:
-                    self.delayed += 1
+                if not self.skip:
+                    if self._is_on_time(tick):
+                        self.on_time += 1
+                    else:
+                        self.delayed += 1
+                        print(f"DELAY: FROM: {self.schedule[self.current_schedule_place-1].station._name} TO: {self.schedule[self.current_schedule_place].station._name} with {tick - self.arrival_ticks[self.current_schedule_place]}")
 
                 self.rail = None
                 self.departure_time = self.schedule[self.current_schedule_place].departure

@@ -105,6 +105,14 @@ class Simulation:
             if self.ix <= x + w and self.ix >= x and self.iy <= y + h and self.iy >= y:
                 cv2.putText(self.background, f"{s.get_people()}", (20, 350), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
                 cv2.putText(self.background, f"{s._name}", (20, 300), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
+                cv2.putText(self.background, f"Delay: {s.delay} minutes", (20, 400), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
+            
+            if self.click_x <= x + w and self.click_x >= x and self.click_y <= y + h and self.click_y >= y:
+                self.click_x = -1
+                self.click_y = -1
+
+                s.delay += 1
+            
 
     def _draw_rails(self):
         """

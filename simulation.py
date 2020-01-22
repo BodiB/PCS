@@ -31,13 +31,22 @@ class Simulation:
         # create timeslots
         for schedule in timeslots:
             current = []
+            last = -1
+            hour = False
             for slot in schedule:
-                if len(slot) > 3:
-                    current.append(
-                        TimeSlot(self._get_station(slot[0]), slot[1], slot[2], slot[3]))
+                if slot[1] > slot[2] or slot[1] < last:
+                    hour = True
+                if len(slot) <= 3:
+                    slot3 = False
                 else:
-                    current.append(
-                        TimeSlot(self._get_station(slot[0]), slot[1], slot[2]))
+                    slot3 = slot[3]
+                if hour:
+                    current.append(TimeSlot(self._get_station(
+                        slot[0]), slot[1] + 60, slot[2] + 60, slot3))
+                else:
+                    current.append(TimeSlot(self._get_station(
+                        slot[0]), slot[1], slot[2], slot3))
+                last = slot[2]
             self.schedules.append(Traject(current))
 
         for r in rail_list:
@@ -93,8 +102,6 @@ class Simulation:
         elif event == cv2.EVENT_LBUTTONDOWN:
             self.click_x, self.click_y = x, y
             self.selected_train = None
-
-        
 
     def clear_background(self):
         self.background = np.copy(self.background_image)
@@ -156,8 +163,8 @@ class Simulation:
                 cv2.putText(self.background, f"Current target: {self.selected_train.get_target().station._name}", (20, 350), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
                 cv2.putText(self.background, f"Current speed: {self.selected_train.get_speed_kph()}", (20, 400), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
                 # cv2.putText(self.background, f"Current speed: {self.selected_train.get_skip()}", (20, 450), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
-            except ValueError as e:
-                print(e)
+            except:
+                pass
 
     def _draw_stats(self):
         on_time = 0

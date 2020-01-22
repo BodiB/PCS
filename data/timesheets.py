@@ -74,7 +74,7 @@ timeslots = [
      ("Purmerend Overwhere", 50, 50), ("Hoorn", 1, 3),
      ("Hoorn Kersenboogerd", 6, -1)],
 
-    [("Nieuw Vennep", -1, 34), ("Hoofddorp", 9, 39), ("Schiphol Airport", 43, 45),
+    [("Nieuw Vennep", -1, 34), ("Hoofddorp", 39, 39), ("Schiphol Airport", 43, 45),
      ("Amsterdam Lelylaan", 52, 52), ("Amsterdam Sloterdijk", 56, 58),
      ("Zaandam", 4, 4), ("Zaandam Kogerveld", 8, 8),
      ("Purmerend Weidevenne", 14, 14), ("Purmerend", 17, 17),

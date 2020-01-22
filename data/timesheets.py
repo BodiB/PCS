@@ -16,11 +16,10 @@ timeslots = [
     #  ("Amsterdam Sloterdijk", 21, 23), ("Amsterdam Centraal", 29, -1)],
 
     [("Hoofddorp", -1, 4), ("Schiphol Airport", 9, 11), ("Amsterdam Lelylaan", 17, 17),
-     ("Amsterdam Sloterdijk", 21, 23), ("Amsterdam Centraal",
-                                        29, 41), ("Amsterdam Muiderpoort", 46, 46),
-     ("Amsterdam Science Park", 49, 49), ("Diemen", 52, 52), ("Weesp", 57, 59),
-     ("Naarden-Bussum", 5, 5), ("Bussum Zuid",
-                                8, 8), ("Hilversum Media Park", 12, 12),
+     ("Amsterdam Sloterdijk", 21, 23), ("Amsterdam Centraal", 29, 41),
+     ("Amsterdam Muiderpoort", 46, 46), ("Amsterdam Science Park", 49, 49),
+     ("Diemen", 52, 52), ("Weesp", 57, 59), ("Naarden-Bussum", 5, 5),
+     ("Bussum Zuid", 8, 8), ("Hilversum Media Park", 12, 12),
      ("Hilversum", 14, 15), ("Baarn", 21, -1)],
 
     [("Hoofddorp", -1, 25), ("Schiphol Airport", 29, 30), ("Amsterdam Lelylaan", 37, 37),

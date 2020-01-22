@@ -43,10 +43,14 @@ class Simulation:
                 if ((slot1 > slot2 and slot2 >= 0) or (slot1 < last)):
                     hour = True
                 if hour:
-                    if slot[1] >= 0:
+                    if slot1 >= 0 and (slot1 <= slot2 or slot2 < 0):
                         slot1 += 60
+                        if slot1 < last and slot1 >= 0:
+                            slot1 += 60
                     if slot[2] >= 0:
                         slot2 += 60
+                        if slot2 < slot1 and slot2 >= 0:
+                            slot2 += 60
                     print(f"{slot[0]} arrive {slot1} depart {slot2} hour? {hour}")
                     current.append(TimeSlot(self._get_station(
                         slot[0]), slot1, slot2, slot3))
@@ -54,7 +58,7 @@ class Simulation:
                     print(f"{slot[0]} arrive {slot1} depart {slot2} hour? {hour}")
                     current.append(TimeSlot(self._get_station(
                         slot[0]), slot1, slot2, slot3))
-                last = slot[2]
+                last = slot2
             self.schedules.append(Traject(current))
 
         for r in rail_list:

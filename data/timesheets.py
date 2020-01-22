@@ -112,6 +112,26 @@ timeslots = [
      ("Almere Poort", 43, 43), ("Weesp", 50, 51),
      ("Diemen", 56, 56), ("Amsterdam Science Park", 58, 58),
      ("Amsterdam Muiderpoort", 61, 61), ("Amsterdam Centraal", 67, 67), ],
+
+    # IC (Leeuwarden) Lelystad - Schiphol (Den Haag Centraal)
+    [("Lelystad Centrum", -1, 43), ("Almere Oostvaarders", -2, -2, True),
+     ("Almere Buiten", -2, -2, True), ("Almere Parkwijk", -2, -2, True),
+     ("Almere Centrum", 57, 59, True), ("Almere Muziekwijk", -2, -2, True),
+     ("Almere Poort", -2, -2, True), ("Weesp", -2, -2, True),
+     ("Diemen Zuid", -2, -2, True), ("Duivendrecht", -2, -2, True),
+     ("Amsterdam RAI", -2, -2, True),
+     ("Amsterdam Zuid", 18, 19), ("Schiphol Airport", 25, 27), ],
+
+
+
+    # IC (Dordrecht) Schiphol - Lelystad Centrum
+    [("Schiphol Airport", -1, 18), ("Amsterdam Zuid", 24, 26),
+     ("Amsterdam RAI", -2, -2, True), ("Duivendrecht", 31, 31),
+     ("Diemen Zuid", -2, -2, True), ("Weesp", -2, -2, True),
+     ("Almere Poort", -2, -2, True),  ("Almere Muziekwijk", -2, -2, True),
+     ("Almere Centrum", 47, 49), ("Almere Parkwijk", -2, -2, True),
+     ("Almere Buiten", 54, 54), ("Almere Oostvaarders", -2, -2, True),
+     ("Lelystad Centrum", 6, -1), ]
 ]
 
 timeslots_NL = []

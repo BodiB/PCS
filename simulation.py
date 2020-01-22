@@ -40,11 +40,6 @@ class Simulation:
                         TimeSlot(self._get_station(slot[0]), slot[1], slot[2]))
             self.schedules.append(Traject(current))
 
-        # attach rails to stations
-        # for r in rail_list:
-        #    self._get_station(r[0]).attach_rail(
-        #        Railway(r[2], r[3], self._get_station(r[0]), self._get_station(r[1])))
-
         for r in rail_list:
             if r in connection.keys():
                 for c in connection[r]:

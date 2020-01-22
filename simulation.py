@@ -68,6 +68,15 @@ class Simulation:
             self.background_image = cv2.resize(
                 background_image, (SCREEN_WIDTH, SCREEN_HEIGHT))
 
+
+        self.train_image = cv2.imread("logo.png")
+
+        self.train_image = cv2.resize(self.train_image, (30, 16))
+
+        black = np.all(self.train_image == [0, 0, 0], axis=-1)
+
+        self.train_image[black] = [0, 190, 255]
+
         self.background = np.copy(self.background_image)
 
         self.ix = -1
@@ -144,13 +153,14 @@ class Simulation:
                          RAIL_COLOR, thickness=RAIL_THICKNESS)
 
     def _draw_trains(self):
-        w = 15
-        h = 8
+        w = 30
+        h = 16
         for s in self.schedules:
             for t in s.trains:
                 x, y = t.get_pos()
-                cv2.rectangle(self.background, (x, y),
-                              (x + w, y + h), TRAIN_COLOR, -1)
+                self.background[y:y+h, x:x+w, :] = self.train_image[:, :]
+                # cv2.rectangle(self.background, (x, y),
+                #               (x + w, y + h), TRAIN_COLOR, -1)
                 if self.click_x <= x + w and self.click_x >= x and self.click_y <= y + h and self.click_y >= y:
                     self.selected_train = t
                     self.click_x = -1

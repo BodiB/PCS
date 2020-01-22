@@ -40,11 +40,6 @@ class Simulation:
                         TimeSlot(self._get_station(slot[0]), slot[1], slot[2]))
             self.schedules.append(Traject(current))
 
-        # attach rails to stations
-        # for r in rail_list:
-        #    self._get_station(r[0]).attach_rail(
-        #        Railway(r[2], r[3], self._get_station(r[0]), self._get_station(r[1])))
-
         for r in rail_list:
             if r in connection.keys():
                 for c in connection[r]:
@@ -72,6 +67,9 @@ class Simulation:
         self.click_x = -1
         self.click_y = -1
 
+        self.clickr_x = -1
+        self.clickr_y = -1
+
         self.tick = 0
         self.selected_train = None
 
@@ -90,10 +88,13 @@ class Simulation:
     def handle_mouse(self, event, x, y, flags, param):
         if event == cv2.EVENT_MOUSEMOVE:
             self.ix, self.iy = x, y
-
-        if event == cv2.EVENT_LBUTTONDOWN:
+        if event == cv2.EVENT_LBUTTONDOWN and flags == (cv2.EVENT_FLAG_SHIFTKEY + cv2.EVENT_FLAG_LBUTTON):
+            self.clickr_x, self.clickr_y = x, y
+        elif event == cv2.EVENT_LBUTTONDOWN:
             self.click_x, self.click_y = x, y
             self.selected_train = None
+
+        
 
     def clear_background(self):
         self.background = np.copy(self.background_image)
@@ -109,15 +110,22 @@ class Simulation:
                           (x + w, y + h), (0, 0, 255), -1)
 
             if self.ix <= x + w and self.ix >= x and self.iy <= y + h and self.iy >= y:
-                cv2.putText(self.background, f"{s.get_people()}", (20, 350), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
-                cv2.putText(self.background, f"{s._name}", (20, 300), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
-                cv2.putText(self.background, f"Delay: {s.delay} minutes", (20, 400), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
+                cv2.putText(self.background, f"Trains: {len(s.trains)}", (20, 400), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
+                cv2.putText(self.background, f"{s._name}", (20, 350), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
+                cv2.putText(self.background, f"Delay: {s.delay} minutes", (20, 450), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
 
             if self.click_x <= x + w and self.click_x >= x and self.click_y <= y + h and self.click_y >= y:
                 self.click_x = -1
                 self.click_y = -1
 
                 s.delay += 1
+
+            if self.clickr_x <= x + w and self.clickr_x >= x and self.clickr_y <= y + h and self.clickr_y >= y:
+                self.clickr_x = -1
+                self.clickr_y = -1
+
+                s.delay -= 1
+                s.delay = max(s.delay, 0)
 
     def _draw_rails(self):
         """

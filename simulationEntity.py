@@ -18,6 +18,9 @@ class SimulationEntity:
 
     def get_seconds(self, ticks) -> float:
         return ticks * self._interval
+
+    def get_seconds_remaining(self, ticks) -> float:
+        return ticks * self._interval % 60
         
     def get_minutes(self, ticks) -> int:
         seconds = self.get_seconds(ticks)

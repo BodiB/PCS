@@ -69,7 +69,7 @@ class Train(SimulationEntity):
         self.rail = rail
 
         time = self.get_arrival_tick() - tick
-        if time > 1:
+        if time > 1 and not self.skip:
             self.speed = (rail.get_length() / time - 1)
         else:
             self.speed = 500

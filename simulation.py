@@ -72,6 +72,9 @@ class Simulation:
         self.click_x = -1
         self.click_y = -1
 
+        self.clickr_x = -1
+        self.clickr_y = -1
+
         self.tick = 0
         self.selected_train = None
 
@@ -90,10 +93,13 @@ class Simulation:
     def handle_mouse(self, event, x, y, flags, param):
         if event == cv2.EVENT_MOUSEMOVE:
             self.ix, self.iy = x, y
-
-        if event == cv2.EVENT_LBUTTONDOWN:
+        if event == cv2.EVENT_LBUTTONDOWN and flags == (cv2.EVENT_FLAG_SHIFTKEY + cv2.EVENT_FLAG_LBUTTON):
+            self.clickr_x, self.clickr_y = x, y
+        elif event == cv2.EVENT_LBUTTONDOWN:
             self.click_x, self.click_y = x, y
             self.selected_train = None
+
+        
 
     def clear_background(self):
         self.background = np.copy(self.background_image)
@@ -118,6 +124,13 @@ class Simulation:
                 self.click_y = -1
 
                 s.delay += 1
+
+            if self.clickr_x <= x + w and self.clickr_x >= x and self.clickr_y <= y + h and self.clickr_y >= y:
+                self.clickr_x = -1
+                self.clickr_y = -1
+
+                s.delay -= 1
+                s.delay = max(s.delay, 0)
 
     def _draw_rails(self):
         """

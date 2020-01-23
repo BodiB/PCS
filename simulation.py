@@ -294,13 +294,13 @@ class Simulation:
 
 
 if __name__ == "__main__":
-    # choice = input("""
-    #               A: North Holland Rail
-    #               B: Entire dutch rail network operated by NS
-    #               Please enter your choice: """)
-    # if choice == "B" or choice == "b":
-    #     sim = Simulation("NL")
-    # else:
-    sim = Simulation()
+    choice = input("""
+                   A: North Holland Rail
+                   B: Entire dutch rail network operated by NS
+                   Please enter your choice: """)
+    if choice == "B" or choice == "b":
+         sim = Simulation("NL")
+    else:
+        sim = Simulation()
     sim.start()
     # sim.test()

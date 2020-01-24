@@ -129,8 +129,24 @@ class Simulation:
         if event == cv2.EVENT_LBUTTONDOWN and flags == (cv2.EVENT_FLAG_SHIFTKEY + cv2.EVENT_FLAG_LBUTTON):
             self.clickr_x, self.clickr_y = x, y
         elif event == cv2.EVENT_LBUTTONDOWN:
+            train = False
+            w = 15
+            h = 15
             self.click_x, self.click_y = x, y
-            self.selected_train = None
+            for s in self.stations:
+                x = s.x - w // 2
+                y = s.y - h // 2
+                if self.click_x <= x + w and self.click_x >= x and self.click_y <= y + h and self.click_y >= y:
+                    train = True
+            w = 30
+            h = 16
+            for s in self.schedules:
+                for t in s.trains:
+                    x, y = t.get_pos()
+                    if self.click_x <= x + w and self.click_x >= x and self.click_y <= y + h and self.click_y >= y:
+                        train = True
+            if not train:
+                self.selected_train = None
 
     def clear_background(self):
         self.background = np.copy(self.background_image)
@@ -154,7 +170,6 @@ class Simulation:
             if self.click_x <= x + w and self.click_x >= x and self.click_y <= y + h and self.click_y >= y:
                 self.click_x = -1
                 self.click_y = -1
-
                 s.delay += 1
 
             if self.clickr_x <= x + w and self.clickr_x >= x and self.clickr_y <= y + h and self.clickr_y >= y:

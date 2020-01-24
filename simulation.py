@@ -65,17 +65,17 @@ class Simulation:
             self.schedules.append(Traject(current))
 
         for r in rail_list:
-            if r in connection.keys():
-                for c in connection[r]:
-                    self._get_station(c[0]).attach_rail(
-                        Railway(c[2], c[3], self._get_station(c[0]), self._get_station(c[1])))
-                    self._get_station(c[1]).attach_rail(
-                        Railway(c[2], c[3], self._get_station(c[1]), self._get_station(c[0])))
-            else:
-                self._get_station(r[0]).attach_rail(
-                    Railway(r[2], r[3], self._get_station(r[0]), self._get_station(r[1])))
-                self._get_station(r[1]).attach_rail(
-                    Railway(r[2], r[3], self._get_station(r[1]), self._get_station(r[0])))
+            # if r in connection.keys():
+            #     for c in connection[r]:
+            #         self._get_station(c[0]).attach_rail(
+            #             Railway(c[2], c[3], self._get_station(c[0]), self._get_station(c[1])))
+            #         self._get_station(c[1]).attach_rail(
+            #             Railway(c[2], c[3], self._get_station(c[1]), self._get_station(c[0])))
+            # else:
+            self._get_station(r[0]).attach_rail(
+                Railway(r[2], r[3], self._get_station(r[0]), self._get_station(r[1])))
+            self._get_station(r[1]).attach_rail(
+                Railway(r[2], r[3], self._get_station(r[1]), self._get_station(r[0])))
 
         # create white background
         if map == "NL":

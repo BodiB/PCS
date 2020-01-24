@@ -26,6 +26,8 @@ class Simulation:
 
         self.schedules = []
 
+        self.map = map
+
         self.pause = False
 
         # create timeslots
@@ -86,7 +88,9 @@ class Simulation:
                 background_image, (SCREEN_WIDTH, SCREEN_HEIGHT))
 
         self.train_image = cv2.imread("logo.png")
-
+        self.background2 = cv2.imread("logo.png")
+        self.background2 = cv2.resize(self.background2, (400, 300))
+        self.background_image2 = np.copy(self.background2)
         self.train_image = cv2.resize(self.train_image, (30, 16))
 
         black = np.all(self.train_image == [0, 0, 0], axis=-1)
@@ -130,6 +134,7 @@ class Simulation:
 
     def clear_background(self):
         self.background = np.copy(self.background_image)
+        self.background2 = np.copy(self.background_image2)
 
     def _draw_stations(self):
         w = 15
@@ -142,9 +147,9 @@ class Simulation:
                           (x + w, y + h), (0, 0, 255), -1)
 
             if self.ix <= x + w and self.ix >= x and self.iy <= y + h and self.iy >= y:
-                cv2.putText(self.background, f"Trains: {len(s.trains)}", (20, 400), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
-                cv2.putText(self.background, f"{s._name}", (20, 350), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
-                cv2.putText(self.background, f"Delay: {s.delay} minutes", (20, 450), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
+                cv2.putText(self.background2, f"Trains: {len(s.trains)}", (20, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
+                cv2.putText(self.background2, f"{s._name}", (20, 75), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
+                cv2.putText(self.background2, f"Delay: {s.delay} minutes", (20, 100), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
 
             if self.click_x <= x + w and self.click_x >= x and self.click_y <= y + h and self.click_y >= y:
                 self.click_x = -1
@@ -185,10 +190,10 @@ class Simulation:
         if self.selected_train:
             try:
                 cv2.putText(self.background, self.selected_train.get_data(
-                ), (20, 450), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 0), 2, cv2.LINE_AA)
-                cv2.putText(self.background, f"Current target: {self.selected_train.get_target().station._name}", (20, 350), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
-                cv2.putText(self.background, f"Current speed: {self.selected_train.get_speed_kph()}", (20, 400), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
-                # cv2.putText(self.background, f"Current speed: {self.selected_train.get_skip()}", (20, 450), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
+                ), (20, 450), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2, cv2.LINE_AA)
+                cv2.putText(self.background2, f"Current target: {self.selected_train.get_target().station._name}", (20, 140), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
+                cv2.putText(self.background2, f"Current speed: {self.selected_train.get_speed_kph()}", (20, 165), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
+                # cv2.putText(self.background, f"Current speed: {self.selected_train.get_skip()}", (20, 450), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
             except:
                 pass
 
@@ -209,8 +214,8 @@ class Simulation:
             on_time_percent = 100
             delayed_percent = 0
 
-        cv2.putText(self.background, f"On time: {on_time_percent} %", (20, 200), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
-        cv2.putText(self.background, f"Delayed: {delayed_percent} %", (20, 250), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
+        cv2.putText(self.background2, f"On time: {on_time_percent} %", (20, 200), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
+        cv2.putText(self.background2, f"Delayed: {delayed_percent} %", (20, 225), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
 
     def simulate_steps(self):
         for s in self.schedules:
@@ -238,13 +243,19 @@ class Simulation:
         # timestring = f"day: {day} {hour}:{minute}:{second}"
 
         timestring = f"day: {day} {hour}:{minute}"
-        cv2.putText(self.background, timestring, (20, 100),
-                    cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2, cv2.LINE_AA)
+        cv2.putText(self.background2, timestring, (20, 25),
+                    cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2, cv2.LINE_AA)
 
     def start(self):
 
         # setup simulation window
-        cv2.namedWindow('Simulation')
+        if self.map == "NL":
+            cv2.namedWindow("Simulation", cv2.WND_PROP_FULLSCREEN)
+            cv2.namedWindow("Data")
+            # cv2.setWindowProperty(
+            #     "Simulation", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
+        else:
+            cv2.namedWindow('Simulation')
         cv2.setMouseCallback('Simulation', self.handle_mouse)
 
         # start simulation loop
@@ -257,6 +268,7 @@ class Simulation:
             self._draw_trains()
             self._draw_stats()
             cv2.imshow('Simulation', self.background)
+            cv2.imshow('Data', self.background2)
 
             # clear background
             self.clear_background()
@@ -299,7 +311,7 @@ if __name__ == "__main__":
                    B: Entire dutch rail network operated by NS
                    Please enter your choice: """)
     if choice == "B" or choice == "b":
-         sim = Simulation("NL")
+        sim = Simulation("NL")
     else:
         sim = Simulation()
     sim.start()

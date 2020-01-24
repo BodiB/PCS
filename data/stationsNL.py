@@ -75,32 +75,68 @@ stations_list = [
     Station(0, "Amersfoort", 1075, 1280),
     Station(0, "Amersfoort Schothorst", 1105, 1251),
     Station(0, "Amersfoort Vathorst", 1125, 1230),
-    
+    Station(0, "Sassenheim", 573, 1352),
+    Station(0, "Leiden Centraal", 540, 1385),
+    Station(0, "De Vink", 520, 1405),
+    Station(0, "Voorschoten", 498, 1425),
+    Station(0, "Den Haag Mariahoeve", 475, 1449),
+    Station(0, "Den Haag Laan van NOI", 443, 1481),
+    Station(0, "Den Haag Centraal", 399, 1481),
+    Station(0, "Den Haag HS", 399, 1525),
+    Station(0, "Den Haag Moerwijk", 399, 1564),
+    Station(0, "Rijswijk", 413, 1581),
+    Station(0, "Delft", 431, 1599),
+    Station(0, "Delft Zuid", 455, 1622),
+    Station(0, "Schiedam Centrum", 520, 1690),
+    Station(0, "Rotterdam Centraal", 549, 1691),
+    Station(0, "Voorburg", 428, 1510),
+    Station(0, "Den Haag Ypenburg", 463, 1519),
+    Station(0, "Zoetermeer", 502, 1519),
+    Station(0, "Zoetermeer Oost", 537, 1519),
+    Station(0, "Gouda", 685, 1519),
+    Station(0, "Breukelen", 827, 1367),
+    Station(0, "Maarssen", 851, 1390),
+    Station(0, "Utrecht Zuilen", 878, 1417),
+    Station(0, "Utrecht Centraal", 916, 1455),
+    Station(0, "Leiden Lammeschans", 564, 1384),
+    Station(0, "Alphen a/d Rijn", 665, 1413),
+    Station(0, "Bodegraven", 718, 1422),
+    Station(0, "Woerden", 750, 1455),
+    Station(0, "Gouda Goverwelle", 715, 1490),
+    Station(0, "Vleuten", 836, 1455),
+    Station(0, "Utrecht Terwijde", 863, 1455),
+    Station(0, "Utrecht Leidsche Rijn", 889, 1455),
+    Station(0, "Hilversum Sportpark", 957, 1308),
+    Station(0, "Hollandsche Rading", 957, 1334),
+    Station(0, "Utrecht Overvecht", 951, 1405),
+    Station(0, "Bilthoven", 981, 1375),
+    Station(0, "Den Dolder", 1013, 1343),
+    Station(0, "Soest Zuid", 1023, 1322),
+    Station(0, "Soest", 1023, 1307),
+    Station(0, "Soestdijk", 1023, 1292),
+
+    # Station(0, "Vleuten", 836, 1455),
+    # Station(0, "Vleuten", 836, 1455),
+    # Station(0, "Vleuten", 836, 1455),
+    # Station(0, "Vleuten", 836, 1455),
+    # Station(0, "Vleuten", 836, 1455),
+    # Station(0, "Vleuten", 836, 1455),
+    # Station(0, "Vleuten", 836, 1455),
+    # Station(0, "Vleuten", 836, 1455),
+    # Station(0, "Vleuten", 836, 1455),
+    # Station(0, "Vleuten", 836, 1455),
+    # Station(0, "Vleuten", 836, 1455),
+    # Station(0, "Vleuten", 836, 1455),
+    # Station(0, "Vleuten", 836, 1455),
+    # Station(0, "Vleuten", 836, 1455),
+    # Station(0, "Vleuten", 836, 1455),
+    # Station(0, "Vleuten", 836, 1455),
+    # Station(0, "Vleuten", 836, 1455),
+    # Station(0, "Vleuten", 836, 1455),
+    # Station(0, "Vleuten", 836, 1455),
+    # Station(0, "Vleuten", 836, 1455),
+    # Station(0, "Vleuten", 836, 1455),
+    # Station(0, "Vleuten", 836, 1455),
+    # Station(0, "Vleuten", 836, 1455),
+
 ]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

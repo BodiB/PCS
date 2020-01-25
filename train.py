@@ -145,7 +145,12 @@ class Train(SimulationEntity):
         return self.departure_time
 
     def get_data(self):
-        return f"This train departed {self.start[0]} at {self.start[1]} heading for {self.end}, skipping: {self.skip}"
+        type = "Sprinter"
+        for check_skip in self.schedule:
+            if check_skip.skip == True:
+                type = "Intercity"
+                break
+        return [f"This train departed {self.start[0]} at {self.start[1]}", f"As {type} heading for {self.end}."]
 
     def get_skip(self):
         return self.skip

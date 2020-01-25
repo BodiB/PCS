@@ -10,46 +10,72 @@ timeslots = [
      ("Haarlem Spaarnwoude", 49, 49), ("Halfweg-Zwanenburg", 54, 54),
      ("Amsterdam Sloterdijk", 59, 59), ("Amsterdam Centraal", 5, -1)],
 
+    # SPR Amsterdam Centraal - Zandvoort aan zee # TODO SPAWNT NIET OP CS!!
+    [("Amsterdam Centraal", -1, 56), ("Amsterdam Sloterdijk", 1, 1),
+     ("Halfweg-Zwanenburg", 6, 6), ("Haarlem Spaarnwoude", 11, 11),
+     ("Haarlem", 15, 16), ("Overveen", 20, 20), ("Zandvoort aan zee", 26, -1),
+     ],
+    # TODO SPAWNT NIET OP CS!!
+    [("Amsterdam Centraal", -1, 26), ("Amsterdam Sloterdijk", 31, 31),
+     ("Halfweg-Zwanenburg", 36, 36), ("Haarlem Spaarnwoude", 41, 41),
+     ("Haarlem", 45, 46), ("Overveen", 50, 50), ("Zandvoort aan zee", 56, -1),
+     ],
 
-    # SPR Hoofddorp - Amsterdam Centraal
-    # [("Hoofddorp", -1, 4), ("Schiphol Airport", 9, 11), ("Amsterdam Lelylaan", 17, 17),
-    #  ("Amsterdam Sloterdijk", 21, 23), ("Amsterdam Centraal", 29, -1)],
 
+    # SPR Hoofddorp - Amersfoort Vathorst
     [("Hoofddorp", -1, 4), ("Schiphol Airport", 9, 11), ("Amsterdam Lelylaan", 17, 17),
      ("Amsterdam Sloterdijk", 21, 23), ("Amsterdam Centraal", 29, 41),
      ("Amsterdam Muiderpoort", 46, 46), ("Amsterdam Science Park", 49, 49),
      ("Diemen", 52, 52), ("Weesp", 57, 59), ("Naarden-Bussum", 5, 5),
      ("Bussum Zuid", 8, 8), ("Hilversum Media Park", 12, 12),
-     ("Hilversum", 14, 15), ("Baarn", 21, -1)],
-
-    [("Hoofddorp", -1, 25), ("Schiphol Airport", 29, 30), ("Amsterdam Lelylaan", 37, 37),
-     ("Amsterdam Sloterdijk", 41, 41), ("Amsterdam Centraal", 48, -1)],
-
-    # [("Hoofddorp", -1, 34), ("Schiphol Airport", 39, 41), ("Amsterdam Lelylaan", 47, 47),
-    # ("Amsterdam Sloterdijk", 51, 53), ("Amsterdam Centraal", 59, -1)],
+     ("Hilversum", 14, 15), ("Baarn", 21, 21), ("Amersfoort", 28, 29),
+     ("Amersfoort Schothorst", 32, 32), ("Amersfoort Vathorst", 36, -1)],
 
     [("Hoofddorp", -1, 34), ("Schiphol Airport", 39, 41), ("Amsterdam Lelylaan", 47, 47),
      ("Amsterdam Sloterdijk", 51, 53), ("Amsterdam Centraal", 59, 11),
      ("Amsterdam Muiderpoort", 17, 17), ("Amsterdam Science Park", 19, 19),
      ("Diemen", 22, 22), ("Weesp", 27, 29), ("Naarden-Bussum", 35, 35),
      ("Bussum Zuid", 38, 38), ("Hilversum Media Park", 42, 42),
-     ("Hilversum", 44, 45), ("Baarn", 51, -1)],
+     ("Hilversum", 44, 45), ("Baarn", 51, 51), ("Amersfoort", 58, 59),
+     ("Amersfoort Schothorst", 2, 2), ("Amersfoort Vathorst", 6, -1)],
 
-    [("Hoofddorp", -1, 55), ("Schiphol Airport", 59, 0), ("Amsterdam Lelylaan", 7, 7),
-     ("Amsterdam Sloterdijk", 11, 11), ("Amsterdam Centraal", 18, -1)],
+    # SPR Hoofddorp - Zwolle
+    [("Hoofddorp", -1, 25), ("Schiphol Airport", 29, 30),
+     ("Amsterdam Lelylaan", 37, 37), ("Amsterdam Sloterdijk", 41, 41),
+     ("Amsterdam Centraal", 48, 53), ("Amsterdam Muiderpoort", 58, 58),
+     ("Amsterdam Science Park", 1, 1), ("Diemen", 4, 4), ("Weesp", 9, 10),
+     ("Almere Poort", 17, 17), ("Almere Muziekwijk", 21, 21),
+     ("Almere Centrum", 24, 25), ("Almere Parkwijk", 28, 28),
+     ("Almere Buiten", 31, 31), ("Almere Oostvaarders", 34, 39),
+     ("Lelystad Centrum", 50, 54), ("Dronten", 6, 6), ("Kampen Zuid", 14, 14),
+     ("Zwolle", 24, -1), ],
+
+    [("Hoofddorp", -1, 55), ("Schiphol Airport", 59, 0),
+     ("Amsterdam Lelylaan", 7, 7), ("Amsterdam Sloterdijk", 11, 11),
+     ("Amsterdam Centraal", 18, 23), ("Amsterdam Muiderpoort", 28, 28),
+     ("Amsterdam Science Park", 31, 31), ("Diemen", 34, 34), ("Weesp", 39, 40),
+     ("Almere Poort", 47, 47), ("Almere Muziekwijk", 51, 51),
+     ("Almere Centrum", 54, 55), ("Almere Parkwijk", 58, 58),
+     ("Almere Buiten", 1, 1), ("Almere Oostvaarders", 4, 9),
+     ("Lelystad Centrum", 20, 24), ("Dronten", 36, 36), ("Kampen Zuid", 44, 44),
+     ("Zwolle", 54, -1), ],
 
 
     # IC Den Helder - Amsterdam Amstel (Eig tot Nijmegen)
     [("Den Helder", -1, 4), ("Den Helder Zuid", 8, 8), ("Anna Paulowna", 14, 15),
      ("Schagen", 22, 22), ("Heerhugowaard",  31, 31), ("Alkmaar Noord", 36, 36),
      ("Alkmaar", 41, 44), ("Heiloo", 49, 49), ("Castricum", 55, 55),
-     #
+     # Stations die niet worden aangedaan maar wel gepasseerd:
      ("Uitgeest",  -2, -2, True), ("Krommenie-Assendelft",  -2, -2, True),
      ("Wormerveer",  -2, -2, True), ("Zaandijk Zaanse Schans",  -2, -2, True),
      ("Koog aan de Zaan",  -2, -2, True),
      #
      ("Zaandam", 9, 9), ("Amsterdam Sloterdijk", 15, 15),
-     ("Amsterdam Centraal", 21, 24), ("Amsterdam Amstel", 31, -1)],
+     ("Amsterdam Centraal", 21, 24),
+     # Stations die niet worden aangedaan maar wel gepasseerd:
+     ("Amsterdam Muiderpoort", -2, -2, True),
+     #
+     ("Amsterdam Amstel", 31, -1)],
 
     [("Den Helder", -1, 34), ("Den Helder Zuid", 38, 38), ("Anna Paulowna", 44, 45),
      ("Schagen", 52, 52), ("Heerhugowaard",  1, 1), ("Alkmaar Noord", 6, 6),
@@ -60,19 +86,11 @@ timeslots = [
      ("Koog aan de Zaan",  -2, -2, True),
      #
      ("Zaandam", 39, 39), ("Amsterdam Sloterdijk", 45, 45),
-     ("Amsterdam Centraal", 51, 54), ("Amsterdam Amstel", 1, -1)],
-
-
-    # SPR Amsterdam Centraal - Baarn (Momenteel in de actieve 4 en 34 sprinters Hoofddorp-Amsterdam Centraal verwerkt, behalve de eerste.)
-    [("Amsterdam Centraal", -1, 11), ("Amsterdam Muiderpoort", 17, 17),
-     ("Amsterdam Science Park", 19, 19), ("Diemen", 22, 22), ("Weesp", 27, 29),
-     ("Naarden-Bussum", 35, 35), ("Bussum Zuid", 38, 38),
-     ("Hilversum Media Park", 42, 42), ("Hilversum", 44, 45), ("Baarn", 51, -1)],
-
-    # [("Amsterdam Centraal", -1, 41), ("Amsterdam Muiderpoort", 46, 46),
-    #  ("Amsterdam Science Park", 49, 49), ("Diemen", 52, 52), ("Weesp", 57, 59),
-    #  ("Naarden-Bussum", 5, 5), ("Bussum Zuid", 8, 8), ("Hilversum Media Park", 12, 12),
-    #  ("Hilversum", 14, 15), ("Baarn", 21, -1)],
+     ("Amsterdam Centraal", 51, 54),
+     # Stations die niet worden aangedaan maar wel gepasseerd:
+     ("Amsterdam Muiderpoort", -2, -2, True),
+     #
+     ("Amsterdam Amstel", 1, -1)],
 
 
     # SPR Leiden Centraal (Vanaf Nieuw Vennep) - Hoorn Kersenboogerd
@@ -95,18 +113,30 @@ timeslots = [
     [("Enkhuizen", -1, 9), ("Bovenkarspel Flora", 13, 13),
      ("Bovenkarspel-Grootebroek", 15, 18), ("Hoogkarspel", 21, 23),
      ("Hoorn Kersenboogerd", 30, 30), ("Hoorn", 33, 40),
+     # Stations die niet worden aangedaan maar wel gepasseerd:
      ("Purmerend Overwhere", -2, -2, True), ("Purmerend", -2, -2, True),
      ("Purmerend Weidevenne", -2, -2, True), ("Zaandam Kogerveld",  -2, -2, True),
-     ("Zaandam",  -2, -2, True), ("Amsterdam Sloterdijk", 5, 5),
-     ("Amsterdam Centraal", 11, 14), ("Amsterdam Amstel", 22, -1)],
+     ("Zaandam",  -2, -2, True),
+     #
+     ("Amsterdam Sloterdijk", 5, 5), ("Amsterdam Centraal", 11, 14),
+     # Stations die niet worden aangedaan maar wel gepasseerd:
+     ("Amsterdam Muiderpoort", -2, -2, True),
+     #
+     ("Amsterdam Amstel", 22, -1)],
 
     [("Enkhuizen", -1, 39), ("Bovenkarspel Flora", 43, 43),
      ("Bovenkarspel-Grootebroek", 45, 48), ("Hoogkarspel", 51, 53),
      ("Hoorn Kersenboogerd", 0, 0), ("Hoorn", 3, 10),
+     # Stations die niet worden aangedaan maar wel gepasseerd:
      ("Purmerend Overwhere", -2, -2, True), ("Purmerend", -2, -2, True),
      ("Purmerend Weidevenne", -2, -2, True), ("Zaandam Kogerveld",  -2, -2, True),
-     ("Zaandam",  -2, -2, True), ("Amsterdam Sloterdijk",  35, 35),
-     ("Amsterdam Centraal", 41, 45), ("Amsterdam Amstel", 53, -1)],
+     ("Zaandam",  -2, -2, True),
+     #
+     ("Amsterdam Sloterdijk",  35, 35), ("Amsterdam Centraal", 41, 45),
+     # Stations die niet worden aangedaan maar wel gepasseerd:
+     ("Amsterdam Muiderpoort", -2, -2, True),
+     #
+     ("Amsterdam Amstel", 53, -1)],
 
     # SPR Zwolle - Amsterdam Centraal (RIJDT NORMAAL DOOR NAAR DEN HAAG CENTRAAL)
     [("Lelystad Centrum", -1, 37), ("Almere Oostvaarders", 50, 55),
@@ -133,7 +163,6 @@ timeslots = [
      ("Amsterdam Zuid", 18, 19), ("Schiphol Airport", 25, 27), ],
 
 
-
     # IC (Dordrecht) Schiphol - Lelystad Centrum
     [("Schiphol Airport", -1, 18), ("Amsterdam Zuid", 24, 26),
      ("Amsterdam RAI", -2, -2, True), ("Duivendrecht", 31, 31),
@@ -145,23 +174,19 @@ timeslots = [
 
     # SP Amsterdam Centraal - Hoorn
     [("Amsterdam Centraal", -1, 11), ("Amsterdam Sloterdijk", 16, 16),
-     ("Halfweg-Zwanenburg", 21, 21), ("Haarlem Spaarnwoude",
-                                      26, 26), ("Haarlem", 30, 31),
-     ("Bloemendaal", 35, 35), ("Santpoort Zuid",
-                               37, 37), ("Santpoort Noord", 40, 40),
-     ("Driehuis", 42, 42), ("Beverwijk", 48,
-                            48), ("Heemskerk", 51, 51), ("Uitgeest", 56, 56),
-     ("Castricum", 0, 0), ("Heiloo", 6, 6), ("Alkmaar",
-                                             11, 13), ("Alkmaar Noord", 16, 16),
+     ("Halfweg-Zwanenburg", 21, 21), ("Haarlem Spaarnwoude", 26, 26),
+     ("Haarlem", 30, 31), ("Bloemendaal", 35, 35), ("Santpoort Zuid", 37, 37),
+     ("Santpoort Noord", 40, 40), ("Driehuis", 42, 42), ("Beverwijk", 48, 48),
+     ("Heemskerk", 51, 51), ("Uitgeest", 56, 56), ("Castricum", 0, 0),
+     ("Heiloo", 6, 6), ("Alkmaar", 11, 13), ("Alkmaar Noord", 16, 16),
      ("Heerhugowaard", 21, 21), ("Obdam", 26, 28), ("Hoorn", 37, -1), ],
 
     [("Amsterdam Centraal", -1, 41), ("Amsterdam Sloterdijk", 46, 46),
-     ("Halfweg-Zwanenburg", 51, 51), ("Haarlem Spaarnwoude", 56, 56), ("Haarlem", 0, 1),
-     ("Bloemendaal", 5, 5), ("Santpoort Zuid", 7, 7), ("Santpoort Noord", 10, 10),
-     ("Driehuis", 12, 12), ("Beverwijk", 18,
-                            18), ("Heemskerk", 21, 21), ("Uitgeest", 26, 26),
-     ("Castricum", 30, 30), ("Heiloo", 36,
-                             36), ("Alkmaar", 41, 43), ("Alkmaar Noord", 46, 46),
+     ("Halfweg-Zwanenburg", 51, 51), ("Haarlem Spaarnwoude", 56, 56),
+     ("Haarlem", 0, 1), ("Bloemendaal", 5, 5), ("Santpoort Zuid", 7, 7),
+     ("Santpoort Noord", 10, 10), ("Driehuis", 12, 12), ("Beverwijk", 18, 18),
+     ("Heemskerk", 21, 21), ("Uitgeest", 26, 26), ("Castricum", 30, 30),
+     ("Heiloo", 36, 36), ("Alkmaar", 41, 43), ("Alkmaar Noord", 46, 46),
      ("Heerhugowaard", 51, 51), ("Obdam", 56, 58), ("Hoorn", 7, -1), ]
 
 

@@ -4,7 +4,7 @@ import numpy as np
 from config import *
 from config import (BACKGROUND_COLOR, SCREEN_HEIGHT, SCREEN_HEIGHT_B,
                     SCREEN_WIDTH, SCREEN_WIDTH_B, SECONDS_PER_TICK)
-from data.rails import connection, rail_list, rail_list_NL
+from data.rails import rail_list, rail_list_NL
 from data.timesheets import timeslots, timeslots_NL
 from railway import Railway
 from station import Station
@@ -204,11 +204,13 @@ class Simulation:
 
         if self.selected_train:
             try:
-                cv2.putText(self.background, self.selected_train.get_data(
-                ), (20, 450), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2, cv2.LINE_AA)
                 cv2.putText(self.background2, f"Current target: {self.selected_train.get_target().station._name}", (20, 140), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
                 cv2.putText(self.background2, f"Current speed: {self.selected_train.get_speed_kph()}", (20, 165), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
-                # cv2.putText(self.background, f"Current speed: {self.selected_train.get_skip()}", (20, 450), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
+                cv2.putText(self.background2, self.selected_train.get_data()[
+                            0], (20, 180), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0, 0, 255), 1, cv2.LINE_AA)
+                cv2.putText(self.background2, self.selected_train.get_data()[
+                            1], (20, 200), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0, 0, 255), 1, cv2.LINE_AA)
+                # cv2.putText(self.background2, f"Intercity: {self.selected_train.get_skip()}", (20, 180), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
             except:
                 pass
 
@@ -229,8 +231,8 @@ class Simulation:
             on_time_percent = 100
             delayed_percent = 0
 
-        cv2.putText(self.background2, f"On time: {on_time_percent} %", (20, 200), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
-        cv2.putText(self.background2, f"Delayed: {delayed_percent} %", (20, 225), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
+        cv2.putText(self.background2, f"On time: {on_time_percent} %", (20, 230), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
+        cv2.putText(self.background2, f"Delayed: {delayed_percent} %", (20, 255), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
 
     def simulate_steps(self):
         for s in self.schedules:

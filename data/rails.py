@@ -196,6 +196,14 @@ rail_list = [
     ("Delft Zuid", "Schiedam Centrum", 1, 160),  # TODO
     ("Schiedam Centrum", "Rotterdam Centraal", 1, 160),  # TODO
 
+    # Rotterdam Centraal - Dordrecht
+    ("Rotterdam Centraal", "Rotterdam Blaak", 1, 160),  # TODO
+    ("Rotterdam Blaak", "Rotterdam Zuid", 1, 160),  # TODO
+    ("Rotterdam Zuid", "Rotterdam Lombardijen", 1, 160),  # TODO
+    ("Rotterdam Lombardijen", "Barendrecht", 1, 160),  # TODO
+    ("Barendrecht", "Zwijndrecht", 1, 160),  # TODO
+    ("Zwijndrecht", "Dordrecht", 1, 160),  # TODO
+
     # Amsterdam RAI - Amsterdam Bijlmer Arena
     ("Amsterdam RAI", "Amsterdam Bijlmer Arena", 4.8, 160),
 
@@ -209,6 +217,17 @@ rail_list = [
     ("Maarssen", "Utrecht Zuilen", 5.3, 160),
     ("Utrecht Zuilen", "Utrecht Centraal", 2.0, 160),
 
+    # Utrecht Centraal - Nijmegen (KORT)
+    ("Utrecht Centraal", "Veenendaal-De Klomp", 1, 160),  # TODO
+    ("Veenendaal-De Klomp", "Ede-Wageningen", 1, 160),  # TODO
+    ("Ede-Wageningen", "Arnhem Centraal", 1, 160),  # TODO
+    ("Arnhem Centraal", "Nijmegen", 1, 160),  # TODO
+
+    # Utrecht Centraal - Nijmegen (HOE HET ZOU MOETEN)
+    ("Utrecht Centraal", "Veenendaal-De Klomp", 1, 160),  # TODO
+    ("Veenendaal-De Klomp", "Ede-Wageningen", 1, 160),  # TODO
+    ("Ede-Wageningen", "Arnhem Centraal", 1, 160),  # TODO
+    ("Arnhem Centraal", "Nijmegen", 1, 160),  # TODO
 
     # ("Voorhout", "Voorhout", 1, 160), #TODO
 

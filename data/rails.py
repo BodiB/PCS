@@ -229,7 +229,19 @@ rail_list = [
     ("Ede-Wageningen", "Arnhem Centraal", 1, 130),  # TODO
     ("Arnhem Centraal", "Nijmegen", 1, 130),  # TODO
 
-    # ("Voorhout", "Voorhout", 1, 130), #TODO
+    # Rotterdam Centraal - Gouda
+    ("Rotterdam Centraal", "Rotterdam Noord", 1, 130),  # TODO
+    ("Rotterdam Noord", "Rotterdam Alexander", 1, 130),  # TODO
+    ("Rotterdam Alexander", "Capelle Schollevaar", 1, 130),  # TODO
+    ("Capelle Schollevaar", "Nieuwerkerk a/d IJssel", 1, 130),  # TODO
+    ("Nieuwerkerk a/d IJssel", "Gouda", 1, 130),  # TODO
+
+    # Gouda - Woerden
+    ("Gouda", "Gouda Goverwelle", 1, 130),  # TODO
+    ("Gouda Goverwelle", "Woerden", 1, 130),  # TODO
+
+    # Woerden - Breukelen
+    ("Woerden", "Breukelen", 1, 130),  # TODO
 
 ]
 

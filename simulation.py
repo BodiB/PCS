@@ -35,6 +35,8 @@ class Simulation:
             current = []
             last = -1
             hour = False
+            firststop = schedule[0]
+            laststop = schedule[-1]
             for slot in schedule:
                 slot1 = slot[1]
                 slot2 = slot[2]
@@ -49,12 +51,16 @@ class Simulation:
                 if hour:
                     if slot1 >= 0 and (slot1 <= slot2 or slot2 < 0):
                         slot1 += 60
-                        if slot1 < last and slot1 >= 0:
-                            slot1 += 60
+                        if slot1 >= 0:
+                            while slot1 < last:
+                                slot1 += 60
+                                # print(f"+60, slot1 {slot1} op {slot[0]} orig{firststop[0]}@{firststop[2]} dest{laststop[0]}")
                     if slot[2] >= 0:
                         slot2 += 60
-                        if slot2 < slot1 and slot2 >= 0:
-                            slot2 += 60
+                        if slot2 >= 0:
+                            while slot2 < slot1:
+                                slot2 += 60
+                                # print(f"+60, slot2 {slot2} op {slot[0]} orig{firststop[0]}@{firststop[2]} dest{laststop[0]}")
                     current.append(TimeSlot(self._get_station(
                         slot[0]), slot1, slot2, slot3))
                 else:
@@ -204,7 +210,7 @@ class Simulation:
 
         if self.selected_train:
             try:
-                cv2.putText(self.background2, f"Current target: {self.selected_train.get_target().station._name}", (20, 140), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
+                cv2.putText(self.background2, f"Current target: {self.selected_train.get_next_stop().station._name}", (20, 140), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
                 cv2.putText(self.background2, f"Current speed: {self.selected_train.get_speed_kph()}", (20, 165), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
                 cv2.putText(self.background2, self.selected_train.get_data()[
                             0], (20, 180), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0, 0, 255), 1, cv2.LINE_AA)

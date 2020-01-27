@@ -1,5 +1,54 @@
 from traject import TimeSlot, Traject
 
+# TIMESHEET VERTREK CENTRAAL:
+# 00 14B Sprinter Hoofddorp
+# 00 10A IC Berlijn
+# 04 2A IC Vlissingen
+# 05 4B IC Maastricht
+# 08 5B Sprinter Rhenen
+# 08 14A ICD Breda #TODO
+# 08 11B IC Almere #TODO
+# 09 8A IC Den Helder #TODO
+# 11 11A Sprinter Amersfoort Vathorst
+# 11 14B Sprinter Den Haag Centraal
+# 11 1 Sprinter Hoorn
+# 13 7A Sprinter Uitgeest #TODO
+# 14 4B IC Heerlen
+# 15 15A Thalys Paris-Nord #TODO
+# 19 8A IC Enkhuizen #TODO
+# 19 5B Sprinter Rotterdam Centraal #TODO
+# 20 2A IC Den Haag Centraal
+# 22 10A ICD Rotterdam Centraal #TODO
+# 23 7A Sprinter Uitgeest #TODO
+# 23 10B Sprinter Zwolle
+# 24 4B IC Nijmegen
+# 25 15A ICD Brussel-Zuid/Midi #TODO
+# 26 1 Sprinter Zandvoort
+# 29 8A IC Alkmaar #TODO
+# 30 11B Amersfoort Centraal #TODO
+# 30 14B Sprinter Hoofddorp
+# 34 2A IC Vlissingen
+# 35 4B IC Maastricht
+# 38 14A ICD Breda #TODO
+# 38 11B IC Almere #TODO
+# 39 8A IC Den Helder #TODO
+# 39 5B Sprinter Rhenen
+# 41 11A Sprinter Amersfoort Vathorst
+# 41 14B Sprinter Den Haag Centraal
+# 41 1 Sprinter Hoorn
+# 43 7A Sprinter Uitgeest #TODO
+# 44 4B IC Heerlen
+# 49 8A IC Enkhuizen #TODO
+# 49 5B Sprinter Rotterdam Centraal #TODO
+# 50 2A IC Den Haag Centraal
+# 53 10A ICD Rotterdam Centraal #TODO
+# 53 7A Sprinter Uitgeest #TODO
+# 53 10B Sprinter Zwolle
+# 54 4B IC Nijmegen
+# 56 1 Sprinter Zandvoort
+# 59 8A IC Alkmaar #TODO
+
+
 # ("", 5, 5),
 # CODE: "CS8A" beteken CS SPOOR 8A
 # Omdat we CS als centraal punt pakken moeten we iig alle treinen
@@ -55,43 +104,208 @@ timeslots = [
      ("Haarlem", 45, 46), ("Overveen", 50, 50), ("Zandvoort aan zee", 56, -1),
      ],
 
+    # CS2A IC Den Haag Centraal - Amsterdam Centraal
+    [("Den Haag Centraal", -1, 17), ("Den Haag Laan van NOI", -2, -2, True),
+     ("Den Haag Mariahoeve", -2, -2, True), ("Voorschoten", -2, -2, True),
+     ("De Vink", -2, -2, True), ("Leiden Centraal", 29, 33),
+     ("Voorhout", -2, -2, True), ("Hillegom", -2, -2, True),
+     ("Heemstede-Aerdenhout", 48, 48), ("Haarlem", 53, 55),
+     ("Haarlem Spaarnwoude", -2, -2, True), ("Halfweg-Zwanenburg", -2, -2, True),
+     ("Amsterdam Sloterdijk", 4, 4),
+     ("Amsterdam Centraal", 10, 20), ("Amsterdam Sloterdijk", 25, 25),
+     ("Halfweg-Zwanenburg", -2, -2, True), ("Haarlem Spaarnwoude", -2, -2, True),
+     ("Haarlem", 35, 37), ("Heemstede-Aerdenhout", 42, 42),
+     ("Hillegom", -2, -2, True), ("Voorhout", -2, -2, True),
+     ("Leiden Centraal", 56, 60), ("De Vink", -2, -2, True),
+     ("Voorschoten", -2, -2, True), ("Den Haag Mariahoeve", -2, -2, True),
+     ("Den Haag Laan van NOI", -2, -2, True), ("Den Haag Centraal", 11, -1)],
 
+    [("Den Haag Centraal", -1, 47), ("Den Haag Laan van NOI", -2, -2, True),
+     ("Den Haag Mariahoeve", -2, -2, True), ("Voorschoten", -2, -2, True),
+     ("De Vink", -2, -2, True), ("Leiden Centraal", 59, 3),
+     ("Voorhout", -2, -2, True), ("Hillegom", -2, -2, True),
+     ("Heemstede-Aerdenhout", 18, 18), ("Haarlem", 23, 25),
+     ("Haarlem Spaarnwoude", -2, -2, True), ("Halfweg-Zwanenburg", -2, -2, True),
+     ("Amsterdam Sloterdijk", 34, 34),
+     ("Amsterdam Centraal", 40, 50), ("Amsterdam Sloterdijk", 55, 55),
+     ("Halfweg-Zwanenburg", -2, -2, True), ("Haarlem Spaarnwoude", -2, -2, True),
+     ("Haarlem", 5, 7), ("Heemstede-Aerdenhout", 12, 12),
+     ("Hillegom", -2, -2, True), ("Voorhout", -2, -2, True),
+     ("Leiden Centraal", 26, 30), ("De Vink", -2, -2, True),
+     ("Voorschoten", -2, -2, True), ("Den Haag Mariahoeve", -2, -2, True),
+     ("Den Haag Laan van NOI", -2, -2, True), ("Den Haag Centraal", 41, -1)],
 
+    # CS2A IC (Vlissingen) Dordrecht - Amsterdam Centraal - v.v.#verlengen
+    [("Dordrecht", -1, 25), ("Zwijndrecht", -2, -2, True),
+     ("Barendrecht", -2, -2, True), ("Rotterdam Lombardijen", -2, -2, True),
+     ("Rotterdam Zuid", -2, -2, True), ("Rotterdam Blaak", 36, 36),
+     ("Rotterdam Centraal", 39, 42), ("Schiedam Centrum", 46, 46),
+     ("Delft Zuid", -2, -2, True), ("Delft", 54, 54), ("Rijswijk", -2, -2, True),
+     ("Den Haag Moerwijk", -2, -2, True), ("Den Haag HS", 1, 3),
+     ("Den Haag Laan van NOI", 6, 6),
+     ("Den Haag Mariahoeve", -2, -2, True), ("Voorschoten", -2, -2, True),
+     ("De Vink", -2, -2, True), ("Leiden Centraal", 15, 19),
+     ("Voorhout", -2, -2, True), ("Hillegom", -2, -2, True),
+     ("Heemstede-Aerdenhout", 34, 34), ("Haarlem", 39, 40),
+     ("Haarlem Spaarnwoude", -2, -2, True), ("Halfweg-Zwanenburg", -2, -2, True),
+     ("Amsterdam Sloterdijk", 49, 49),
+     ("Amsterdam Centraal", 55, 64), ("Amsterdam Sloterdijk", 9, 9),
+     ("Halfweg-Zwanenburg", -2, -2, True), ("Haarlem Spaarnwoude", -2, -2, True),
+     ("Haarlem", 19, 20), ("Heemstede-Aerdenhout", 25, 25),
+     ("Hillegom", -2, -2, True), ("Voorhout", -2, -2, True),
+     ("Leiden Centraal", 40, 45), ("De Vink", -2, -2, True),
+     ("Voorschoten", -2, -2, True), ("Den Haag Mariahoeve", -2, -2, True),
+     ("Den Haag Laan van NOI", 54, 54), ("Den Haag HS", 57, 59),
+     ("Den Haag Moerwijk", -2, -2, True), ("Rijswijk", -2, -2, True),
+     ("Delft", 5, 5),  ("Delft Zuid", -2, -2, True),
+     ("Schiedam Centrum", 13, 13), ("Rotterdam Centraal", 18, 21),
+     ("Rotterdam Blaak", 24, 24), ("Rotterdam Zuid", -2, -2, True),
+     ("Rotterdam Lombardijen", -2, -2, True),  ("Barendrecht", -2, -2, True),
+     ("Zwijndrecht", -2, -2, True), ("Dordrecht", 36, -1), ],
 
-    # CS8A IC Den Helder - Amsterdam Amstel (Eig tot Nijmegen)
+    [("Dordrecht", -1, 55), ("Zwijndrecht", -2, -2, True),
+     ("Barendrecht", -2, -2, True), ("Rotterdam Lombardijen", -2, -2, True),
+     ("Rotterdam Zuid", -2, -2, True), ("Rotterdam Blaak", 6, 6),
+     ("Rotterdam Centraal", 9, 12), ("Schiedam Centrum", 16, 16),
+     ("Delft Zuid", -2, -2, True), ("Delft", 24, 24), ("Rijswijk", -2, -2, True),
+     ("Den Haag Moerwijk", -2, -2, True), ("Den Haag HS", 31, 33),
+     ("Den Haag Laan van NOI", 36, 36),
+     ("Den Haag Mariahoeve", -2, -2, True), ("Voorschoten", -2, -2, True),
+     ("De Vink", -2, -2, True), ("Leiden Centraal", 45, 49),
+     ("Voorhout", -2, -2, True), ("Hillegom", -2, -2, True),
+     ("Heemstede-Aerdenhout", 4, 4), ("Haarlem", 9, 10),
+     ("Haarlem Spaarnwoude", -2, -2, True), ("Halfweg-Zwanenburg", -2, -2, True),
+     ("Amsterdam Sloterdijk", 19, 19),
+     ("Amsterdam Centraal", 25, 34), ("Amsterdam Sloterdijk", 39, 39),
+     ("Halfweg-Zwanenburg", -2, -2, True), ("Haarlem Spaarnwoude", -2, -2, True),
+     ("Haarlem", 49, 50), ("Heemstede-Aerdenhout", 55, 55),
+     ("Hillegom", -2, -2, True), ("Voorhout", -2, -2, True),
+     ("Leiden Centraal", 10, 15), ("De Vink", -2, -2, True),
+     ("Voorschoten", -2, -2, True), ("Den Haag Mariahoeve", -2, -2, True),
+     ("Den Haag Laan van NOI", 24, 24), ("Den Haag HS", 27, 29),
+     ("Den Haag Moerwijk", -2, -2, True), ("Rijswijk", -2, -2, True),
+     ("Delft", 35, 35),  ("Delft Zuid", -2, -2, True),
+     ("Schiedam Centrum", 43, 43), ("Rotterdam Centraal", 48, 51),
+     ("Rotterdam Blaak", 54, 54), ("Rotterdam Zuid", -2, -2, True),
+     ("Rotterdam Lombardijen", -2, -2, True),  ("Barendrecht", -2, -2, True),
+     ("Zwijndrecht", -2, -2, True), ("Dordrecht", 6, -1), ],
+
+    # CS4B IC Den Helder - Utrecht Centraal (Nijmegen)#verlengen
     [("Den Helder", -1, 4), ("Den Helder Zuid", 8, 8), ("Anna Paulowna", 14, 15),
      ("Schagen", 22, 22), ("Heerhugowaard",  31, 31), ("Alkmaar Noord", 36, 36),
      ("Alkmaar", 41, 44), ("Heiloo", 49, 49), ("Castricum", 55, 55),
-     # Stations die niet worden aangedaan maar wel gepasseerd:
      ("Uitgeest",  -2, -2, True), ("Krommenie-Assendelft",  -2, -2, True),
      ("Wormerveer",  -2, -2, True), ("Zaandijk Zaanse Schans",  -2, -2, True),
      ("Koog aan de Zaan",  -2, -2, True),
-     #
      ("Zaandam", 9, 9), ("Amsterdam Sloterdijk", 15, 15),
      ("Amsterdam Centraal", 21, 24),
-     # Stations die niet worden aangedaan maar wel gepasseerd:
      ("Amsterdam Muiderpoort", -2, -2, True),
-     #
-     ("Amsterdam Amstel", 31, 33), ],
-    # ("Utrecht Centraal", 51, -54), #TODO AFMAKEN NAAR NIJMEGEN
-    # ("Veenendaal-De Klomp", 11, 11), ("Ede-Wageningen", 18, 18),
-    # ("Arnhem Centraal", 28, 35), ],
+     ("Amsterdam Amstel", 31, 33),  ("Duivendrecht", -2, -2, True),
+     ("Amsterdam Bijlmer Arena", -2, -2, True),
+     ("Amsterdam Holendrecht", -2, -2, True), ("Abcoude", -2, -2, True),
+     ("Breukelen", -2, -2, True), ("Maarssen", -2, -2, True),
+     ("Utrecht Zuilen", -2, -2, True), ("Utrecht Centraal", 51, -1), ],
 
     [("Den Helder", -1, 34), ("Den Helder Zuid", 38, 38), ("Anna Paulowna", 44, 45),
      ("Schagen", 52, 52), ("Heerhugowaard",  1, 1), ("Alkmaar Noord", 6, 6),
      ("Alkmaar", 11, 14), ("Heiloo", 19, 19), ("Castricum", 25, 25),
-     #
      ("Uitgeest",  -2, -2, True), ("Krommenie-Assendelft",  -2, -2, True),
      ("Wormerveer",  -2, -2, True), ("Zaandijk Zaanse Schans",  -2, -2, True),
      ("Koog aan de Zaan",  -2, -2, True),
-     #
      ("Zaandam", 39, 39), ("Amsterdam Sloterdijk", 45, 45),
      ("Amsterdam Centraal", 51, 54),
-     # Stations die niet worden aangedaan maar wel gepasseerd:
      ("Amsterdam Muiderpoort", -2, -2, True),
-     #
-     ("Amsterdam Amstel", 1, -1)],
+     ("Amsterdam Amstel", 1, 3), ("Duivendrecht", -2, -2, True),
+     ("Amsterdam Bijlmer Arena", -2, -2, True),
+     ("Amsterdam Holendrecht", -2, -2, True),
+     ("Abcoude", -2, -2, True), ("Breukelen", -2, -2, True),
+     ("Maarssen", -2, -2, True), ("Utrecht Zuilen", -2, -2, True),
+     ("Utrecht Centraal", 21, -1), ],
 
+    # CS4B IC Alkmaar - Utrecht Centraal (Maastricht)#verlengen
+    [("Alkmaar", -1, 27), ("Heiloo", -2, -2, True), ("Castricum", 35, 35),
+     ("Uitgeest",  -2, -2, True), ("Krommenie-Assendelft",  -2, -2, True),
+     ("Wormerveer",  -2, -2, True), ("Zaandijk Zaanse Schans",  -2, -2, True),
+     ("Koog aan de Zaan",  -2, -2, True),
+     ("Zaandam", 49, 49), ("Amsterdam Sloterdijk", 55, 55),
+     ("Amsterdam Centraal", 1, 5),
+     ("Amsterdam Muiderpoort", -2, -2, True),
+     ("Amsterdam Amstel", 13, 13),  ("Duivendrecht", -2, -2, True),
+     ("Amsterdam Bijlmer Arena", -2, -2, True),
+     ("Amsterdam Holendrecht", -2, -2, True), ("Abcoude", -2, -2, True),
+     ("Breukelen", -2, -2, True), ("Maarssen", -2, -2, True),
+     ("Utrecht Zuilen", -2, -2, True), ("Utrecht Centraal", 31, -1), ],
+
+    [("Alkmaar", -1, 57), ("Heiloo", -2, -2, True), ("Castricum", 5, 5),
+     ("Uitgeest",  -2, -2, True), ("Krommenie-Assendelft",  -2, -2, True),
+     ("Wormerveer",  -2, -2, True), ("Zaandijk Zaanse Schans",  -2, -2, True),
+     ("Koog aan de Zaan",  -2, -2, True),
+     ("Zaandam", 19, 19), ("Amsterdam Sloterdijk", 25, 25),
+     ("Amsterdam Centraal", 31, 35),
+     ("Amsterdam Muiderpoort", -2, -2, True),
+     ("Amsterdam Amstel", 43, 43),  ("Duivendrecht", -2, -2, True),
+     ("Amsterdam Bijlmer Arena", -2, -2, True),
+     ("Amsterdam Holendrecht", -2, -2, True), ("Abcoude", -2, -2, True),
+     ("Breukelen", -2, -2, True), ("Maarssen", -2, -2, True),
+     ("Utrecht Zuilen", -2, -2, True), ("Utrecht Centraal", 1, -1), ],
+
+
+    # CS5B IC Enkhuizen - Utrecht Centraal (Heerlen)#verlengen
+    [("Enkhuizen", -1, 9), ("Bovenkarspel Flora", 13, 13),
+     ("Bovenkarspel-Grootebroek", 15, 18), ("Hoogkarspel", 21, 23),
+     ("Hoorn Kersenboogerd", 30, 30), ("Hoorn", 33, 40),
+     ("Purmerend Overwhere", -2, -2, True), ("Purmerend", -2, -2, True),
+     ("Purmerend Weidevenne", -2, -2, True), ("Zaandam Kogerveld",  -2, -2, True),
+     ("Zaandam",  -2, -2, True),
+     ("Amsterdam Sloterdijk", 5, 5), ("Amsterdam Centraal", 11, 14),
+     ("Amsterdam Muiderpoort", -2, -2, True),
+     ("Amsterdam Amstel", 22, 22),  ("Duivendrecht", -2, -2, True),
+     ("Amsterdam Bijlmer Arena", -2, -2, True),
+     ("Amsterdam Holendrecht", -2, -2, True), ("Abcoude", -2, -2, True),
+     ("Breukelen", -2, -2, True), ("Maarssen", -2, -2, True),
+     ("Utrecht Zuilen", -2, -2, True), ("Utrecht Centraal", 40, -1), ],
+
+    [("Enkhuizen", -1, 39), ("Bovenkarspel Flora", 43, 43),
+     ("Bovenkarspel-Grootebroek", 45, 48), ("Hoogkarspel", 51, 53),
+     ("Hoorn Kersenboogerd", 60, 60), ("Hoorn", 3, 10),
+     ("Purmerend Overwhere", -2, -2, True), ("Purmerend", -2, -2, True),
+     ("Purmerend Weidevenne", -2, -2, True), ("Zaandam Kogerveld",  -2, -2, True),
+     ("Zaandam",  -2, -2, True),
+     ("Amsterdam Sloterdijk",  35, 35), ("Amsterdam Centraal", 41, 46),
+     ("Amsterdam Muiderpoort", -2, -2, True),
+     ("Amsterdam Amstel", 54, 54), ("Duivendrecht", -2, -2, True),
+     ("Amsterdam Bijlmer Arena", -2, -2, True),
+     ("Amsterdam Holendrecht", -2, -2, True), ("Abcoude", -2, -2, True),
+     ("Breukelen", -2, -2, True), ("Maarssen", -2, -2, True),
+     ("Utrecht Zuilen", -2, -2, True), ("Utrecht Centraal", 12, -1), ],
+
+    # CS5B Sprinter Uitgeest - Amsterdam Centraal - Utrecht Centraal (Rhenen)
+    [("Uitgeest", -1, 33), ("Krommenie-Assendelft", 37, 37),
+     ("Wormerveer", 40, 45), ("Zaandijk Zaanse Schans", 48, 48),
+     ("Koog aan de Zaan", 51, 51), ("Zaandam", 54, 54),
+     ("Amsterdam Sloterdijk", 60, 60), ("Amsterdam Centraal", 6, 8),
+     ("Amsterdam Muiderpoort", 13, 13), ("Amsterdam Amstel", 16, 16),
+     ("Duivendrecht", 20, 20), ("Amsterdam Bijlmer Arena", 23, 26),
+     ("Amsterdam Holendrecht", 29, 29), ("Abcoude", 32, 32),
+     ("Breukelen", 41, 41), ("Maarssen", 46, 46), ("Utrecht Zuilen", 50, 50),
+     ("Utrecht Centraal", 54, -1)],
+
+    [("Uitgeest", -1, 3), ("Krommenie-Assendelft", 7, 7),
+     ("Wormerveer", 10, 15), ("Zaandijk Zaanse Schans", 18, 18),
+     ("Koog aan de Zaan", 21, 21), ("Zaandam", 24, 24),
+     ("Amsterdam Sloterdijk", 30, 30), ("Amsterdam Centraal", 36, 38),
+     ("Amsterdam Muiderpoort", 43, 43), ("Amsterdam Amstel", 46, 46),
+     ("Duivendrecht", 50, 50), ("Amsterdam Bijlmer Arena", 53, 56),
+     ("Amsterdam Holendrecht", 59, 59), ("Abcoude", 2, 2),
+     ("Breukelen", 11, 11), ("Maarssen", 16, 16), ("Utrecht Zuilen", 20, 20),
+     ("Utrecht Centraal", 24, -1)],
+
+    # CS10A IC Amsterdam Centraal - Amersfoort(Berlijn)
+    [("Amsterdam Centraal", -1, 0), ("Amsterdam Muiderpoort", -2, -2, True),
+     ("Amsterdam Science Park", -2, -2, True), ("Diemen",  -2, -2, True),
+     ("Weesp",  -2, -2, True), ("Naarden-Bussum",  -2, -2, True),
+     ("Bussum Zuid", -2, -2, True), ("Hilversum Media Park",  -2, -2, True),
+     ("Hilversum", 20, 23), ("Baarn",  -2, -2, True), ("Amersfoort", 34, -1), ],
 
     # CS10B SPR Hoofddorp - Amersfoort Vathorst
     [("Hoofddorp", -1, 4), ("Schiphol Airport", 9, 11), ("Amsterdam Lelylaan", 17, 17),
@@ -131,77 +345,114 @@ timeslots = [
      ("Lelystad Centrum", 20, 24), ("Dronten", 36, 36), ("Kampen Zuid", 44, 44),
      ("Zwolle", 54, -1), ],
 
-    # SPR Leiden Centraal (Vanaf Nieuw Vennep) - Hoorn Kersenboogerd
-    [("Nieuw Vennep", -1, 4), ("Hoofddorp", 9, 9), ("Schiphol Airport", 13, 15),
-     ("Amsterdam Lelylaan", 22, 22), ("Amsterdam Sloterdijk", 26, 28),
-     ("Zaandam", 34, 34), ("Zaandam Kogerveld", 38, 38),
-     ("Purmerend Weidevenne", 44, 44), ("Purmerend", 47, 47),
-     ("Purmerend Overwhere", 50, 50), ("Hoorn", 1, 3),
-     ("Hoorn Kersenboogerd", 6, -1)],
-
-    [("Nieuw Vennep", -1, 34), ("Hoofddorp", 39, 39), ("Schiphol Airport", 43, 45),
-     ("Amsterdam Lelylaan", 52, 52), ("Amsterdam Sloterdijk", 56, 58),
-     ("Zaandam", 4, 4), ("Zaandam Kogerveld", 8, 8),
-     ("Purmerend Weidevenne", 14, 14), ("Purmerend", 17, 17),
-     ("Purmerend Overwhere", 20, 20), ("Hoorn", 31, 33),
-     ("Hoorn Kersenboogerd", 36, -1)],
-
-
-    # IC Enkhuizen - Heerlen (tot aan Amsterdam Amstel)
-    [("Enkhuizen", -1, 9), ("Bovenkarspel Flora", 13, 13),
-     ("Bovenkarspel-Grootebroek", 15, 18), ("Hoogkarspel", 21, 23),
-     ("Hoorn Kersenboogerd", 30, 30), ("Hoorn", 33, 40),
-     # Stations die niet worden aangedaan maar wel gepasseerd:
-     ("Purmerend Overwhere", -2, -2, True), ("Purmerend", -2, -2, True),
-     ("Purmerend Weidevenne", -2, -2, True), ("Zaandam Kogerveld",  -2, -2, True),
-     ("Zaandam",  -2, -2, True),
-     #
-     ("Amsterdam Sloterdijk", 5, 5), ("Amsterdam Centraal", 11, 14),
-     # Stations die niet worden aangedaan maar wel gepasseerd:
-     ("Amsterdam Muiderpoort", -2, -2, True),
-     #
-     ("Amsterdam Amstel", 22, -1)],
-
-    [("Enkhuizen", -1, 39), ("Bovenkarspel Flora", 43, 43),
-     ("Bovenkarspel-Grootebroek", 45, 48), ("Hoogkarspel", 51, 53),
-     ("Hoorn Kersenboogerd", 60, 60), ("Hoorn", 3, 10),
-     # Stations die niet worden aangedaan maar wel gepasseerd:
-     ("Purmerend Overwhere", -2, -2, True), ("Purmerend", -2, -2, True),
-     ("Purmerend Weidevenne", -2, -2, True), ("Zaandam Kogerveld",  -2, -2, True),
-     ("Zaandam",  -2, -2, True),
-     #
-     ("Amsterdam Sloterdijk",  35, 35), ("Amsterdam Centraal", 41, 45),
-     # Stations die niet worden aangedaan maar wel gepasseerd:
-     ("Amsterdam Muiderpoort", -2, -2, True),
-     #
-     ("Amsterdam Amstel", 53, -1)],
-
-    # SPR Zwolle - Amsterdam Centraal (RIJDT NORMAAL DOOR NAAR DEN HAAG CENTRAAL)
-    [("Lelystad Centrum", -1, 37), ("Almere Oostvaarders", 50, 55),
+    # CS14B SPR Zwolle - Den Haag Centraal
+    [("Zwolle", -1, 7), ("Kampen Zuid", 17, 17), ("Dronten", 25, 25),
+     ("Lelystad Centrum", 37, 40), ("Almere Oostvaarders", 50, 55),
      ("Almere Buiten", 58, 58), ("Almere Parkwijk", 1, 1),
      ("Almere Centrum", 4, 6), ("Almere Muziekwijk", 9, 9),
      ("Almere Poort", 13, 13), ("Weesp", 20, 21),
      ("Diemen", 26, 26), ("Amsterdam Science Park", 28, 28),
-     ("Amsterdam Muiderpoort", 31, 31), ("Amsterdam Centraal", 37, 37), ],
+     ("Amsterdam Muiderpoort", 31, 31), ("Amsterdam Centraal", 37, 41),
+     ("Amsterdam Sloterdijk", 48, 48), ("Amsterdam Lelylaan", 52, 52),
+     ("Schiphol Airport", 58, 60), ("Hoofddorp", 4, 4),
+     ("Nieuw Vennep", 9, 9), ("Sassenheim", 16, 16),
+     ("Leiden Centraal", 21, 34), ("De Vink", 37, 37), ("Voorschoten", 41, 41),
+     ("Den Haag Mariahoeve", 46, 46), ("Den Haag Laan van NOI", 49, 49),
+     ("Den Haag Centraal", 52, 52), ],
 
-    [("Lelystad Centrum", -1, 7), ("Almere Oostvaarders", 20, 25),
+    [("Zwolle", -1, 37), ("Kampen Zuid", 47, 47), ("Dronten", 55, 55),
+     ("Lelystad Centrum", 7, 10), ("Almere Oostvaarders", 20, 25),
      ("Almere Buiten", 28, 28), ("Almere Parkwijk", 31, 31),
      ("Almere Centrum", 34, 36), ("Almere Muziekwijk", 39, 39),
      ("Almere Poort", 43, 43), ("Weesp", 50, 51),
      ("Diemen", 56, 56), ("Amsterdam Science Park", 58, 58),
-     ("Amsterdam Muiderpoort", 61, 61), ("Amsterdam Centraal", 67, 67), ],
+     ("Amsterdam Muiderpoort", 1, 1), ("Amsterdam Centraal", 7, 11),
+     ("Amsterdam Sloterdijk", 18, 18), ("Amsterdam Lelylaan", 22, 22),
+     ("Schiphol Airport", 28, 30), ("Hoofddorp", 34, 34),
+     ("Nieuw Vennep", 39, 39), ("Sassenheim", 46, 46),
+     ("Leiden Centraal", 51, 64), ("De Vink", 7, 7), ("Voorschoten", 11, 11),
+     ("Den Haag Mariahoeve", 16, 16), ("Den Haag Laan van NOI", 19, 19),
+     ("Den Haag Centraal", 22, 22), ],
 
-    # IC (Leeuwarden) Lelystad - Schiphol (Den Haag Centraal)
-    [("Lelystad Centrum", -1, 43), ("Almere Oostvaarders", -2, -2, True),
+    # CS14B SPR Amersfoort Vathorst - Hoofddorp
+    [("Amersfoort Vathorst", -1, 54), ("Amersfoort Schothorst", 57, 57),
+     ("Amersfoort", 1, 2), ("Baarn", 9, 9), ("Hilversum", 15, 16),
+     ("Hilversum Media Park", 18, 18), ("Bussum Zuid", 22, 22),
+     ("Naarden-Bussum", 25, 25), ("Weesp", 31, 33),
+     ("Diemen", 38, 38), ("Amsterdam Science Park", 40, 40),
+     ("Amsterdam Muiderpoort", 43, 43), ("Amsterdam Centraal", 49, 60),
+     ("Amsterdam Sloterdijk", 6, 8), ("Amsterdam Lelylaan", 11, 11),
+     ("Schiphol Airport", 18, 20), ("Hoofddorp", 24, -1), ],
+
+    [("Amersfoort Vathorst", -1, 24), ("Amersfoort Schothorst", 27, 27),
+     ("Amersfoort", 31, 32), ("Baarn", 39, 39), ("Hilversum", 45, 46),
+     ("Hilversum Media Park", 48, 48), ("Bussum Zuid", 52, 52),
+     ("Naarden-Bussum", 55, 55), ("Weesp", 1, 3),
+     ("Diemen", 8, 8), ("Amsterdam Science Park", 10, 10),
+     ("Amsterdam Muiderpoort", 13, 13), ("Amsterdam Centraal", 19, 30),
+     ("Amsterdam Sloterdijk", 36, 38), ("Amsterdam Lelylaan", 41, 41),
+     ("Schiphol Airport", 48, 50), ("Hoofddorp", 54, -1), ],
+
+    # ======================EINDE TREINEN VIA CENTRAAL=============================
+    # ======================EINDE TREINEN VIA CENTRAAL=============================
+    # ======================EINDE TREINEN VIA CENTRAAL=============================
+    # ======================EINDE TREINEN VIA CENTRAAL=============================
+    # ======================EINDE TREINEN VIA CENTRAAL=============================
+    # ======================EINDE TREINEN VIA CENTRAAL=============================
+
+    # IC (Leeuwarden) Zwolle - Den Haag Centraal #TODO (Verlengen?)
+    [("Zwolle", -1, 17), ("Kampen Zuid", -2, -2, True),
+     ("Dronten", -2, -2, True),
+     ("Lelystad Centrum", 42, 43), ("Almere Oostvaarders", -2, -2, True),
      ("Almere Buiten", -2, -2, True), ("Almere Parkwijk", -2, -2, True),
      ("Almere Centrum", 57, 59, True), ("Almere Muziekwijk", -2, -2, True),
      ("Almere Poort", -2, -2, True), ("Weesp", -2, -2, True),
      ("Diemen Zuid", -2, -2, True), ("Duivendrecht", -2, -2, True),
      ("Amsterdam RAI", -2, -2, True),
-     ("Amsterdam Zuid", 18, 19), ("Schiphol Airport", 25, 27), ],
+     ("Amsterdam Zuid", 18, 19), ("Schiphol Airport", 25, 27),
+     ("Hoofddorp", -2, -2, True), ("Nieuw Vennep", -2, -2, True),
+     ("Sassenheim", -2, -2, True), ("Leiden Centraal", 43, 45),
+     ("De Vink", -2, -2, True), ("Voorschoten", -2, -2, True),
+     ("Den Haag Mariahoeve", -2, -2, True),
+     ("Den Haag Laan van NOI", -2, -2, True),
+     ("Den Haag Centraal", 56, -1), ],
+
+    # IC (Groningen) Zwolle - Den Haag Centraal #TODO (Verlengen?)
+    [("Zwolle", -1, 47), ("Kampen Zuid", -2, -2, True),
+     ("Dronten", -2, -2, True),
+     ("Lelystad Centrum", 12, 13), ("Almere Oostvaarders", -2, -2, True),
+     ("Almere Buiten", -2, -2, True), ("Almere Parkwijk", -2, -2, True),
+     ("Almere Centrum", 27, 29, True), ("Almere Muziekwijk", -2, -2, True),
+     ("Almere Poort", -2, -2, True), ("Weesp", -2, -2, True),
+     ("Diemen Zuid", -2, -2, True), ("Duivendrecht", -2, -2, True),
+     ("Amsterdam RAI", -2, -2, True),
+     ("Amsterdam Zuid", 48, 49), ("Schiphol Airport", 55, 57),
+     ("Hoofddorp", -2, -2, True), ("Nieuw Vennep", -2, -2, True),
+     ("Sassenheim", -2, -2, True), ("Leiden Centraal", 13, 15),
+     ("De Vink", -2, -2, True), ("Voorschoten", -2, -2, True),
+     ("Den Haag Mariahoeve", -2, -2, True),
+     ("Den Haag Laan van NOI", -2, -2, True),
+     ("Den Haag Centraal", 26, -1), ],
+
+    # SPR Leiden Centraal - Hoorn Kersenboogerd
+    [("Leiden Centraal", -1, 52), ("Sassenheim", 57, 57, True),
+     ("Nieuw Vennep", 4, 4), ("Hoofddorp", 9, 9),
+     ("Schiphol Airport", 13, 15), ("Amsterdam Lelylaan", 22, 22),
+     ("Amsterdam Sloterdijk", 26, 28), ("Zaandam", 34, 34),
+     ("Zaandam Kogerveld", 38, 38), ("Purmerend Weidevenne", 44, 44),
+     ("Purmerend", 47, 47), ("Purmerend Overwhere", 50, 50),
+     ("Hoorn", 1, 3), ("Hoorn Kersenboogerd", 6, -1)],
+
+    [("Leiden Centraal", -1, 22), ("Sassenheim", 27, 27, True),
+     ("Nieuw Vennep", 34, 34), ("Hoofddorp", 39, 39),
+     ("Schiphol Airport", 43, 45), ("Amsterdam Lelylaan", 52, 52),
+     ("Amsterdam Sloterdijk", 56, 58), ("Zaandam", 4, 4),
+     ("Zaandam Kogerveld", 8, 8), ("Purmerend Weidevenne", 14, 14),
+     ("Purmerend", 17, 17), ("Purmerend Overwhere", 20, 20),
+     ("Hoorn", 31, 33), ("Hoorn Kersenboogerd", 36, -1)],
 
 
-    # IC (Dordrecht) Schiphol - Lelystad Centrum #TODO 2x per uur
+    # IC Schiphol - Lelystad Centrum
     [("Dordrecht", -1, 8), ("Zwijndrecht", -2, -2, True),
      ("Barendrecht", -2, -2, True), ("Rotterdam Lombardijen", -2, -2, True),
      ("Rotterdam Zuid", -2, -2, True), ("Rotterdam Blaak", 20, 21),
@@ -220,6 +471,25 @@ timeslots = [
      ("Almere Centrum", 47, 49), ("Almere Parkwijk", -2, -2, True),
      ("Almere Buiten", 54, 54), ("Almere Oostvaarders", -2, -2, True),
      ("Lelystad Centrum", 6, -1), ],
+
+    [("Dordrecht", -1, 38), ("Zwijndrecht", -2, -2, True),
+     ("Barendrecht", -2, -2, True), ("Rotterdam Lombardijen", -2, -2, True),
+     ("Rotterdam Zuid", -2, -2, True), ("Rotterdam Blaak", 50, 51),
+     ("Rotterdam Centraal", 54, 57), ("Schiedam Centrum", 1, 1),
+     ("Delft Zuid", -2, -2, True), ("Delft", 9, 9),
+     ("Rijswijk", -2, -2, True), ("Den Haag Moerwijk", -2, -2, True),
+     ("Den Haag HS", 16, 18), ("Den Haag Laan van NOI", 21, 21),
+     ("Den Haag Mariahoeve", -2, -2, True), ("Voorschoten", -2, -2, True),
+     ("De Vink", -2, -2, True), ("Leiden Centraal", 30, 31),
+     ("Sassenheim", -2, -2, True), ("Nieuw Vennep", -2, -2, True),
+     ("Hoofddorp", -2, -2, True),  ("Schiphol Airport", 46, 48),
+     ("Amsterdam Zuid", 54, 56), ("Amsterdam RAI", -2, -2, True),
+     ("Duivendrecht", 1, 1), ("Diemen Zuid", -2, -2, True),
+     ("Weesp", -2, -2, True),
+     ("Almere Poort", -2, -2, True),  ("Almere Muziekwijk", -2, -2, True),
+     ("Almere Centrum", 17, 19), ("Almere Parkwijk", -2, -2, True),
+     ("Almere Buiten", 24, 24), ("Almere Oostvaarders", -2, -2, True),
+     ("Lelystad Centrum", 36, -1), ],
 
 
 ]

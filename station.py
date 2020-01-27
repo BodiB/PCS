@@ -53,7 +53,6 @@ class Station(SimulationEntity):
             target = t.get_target()
             if target:
                 if ((minute == (t.get_departure() + self.delay) % 60) or t.get_skip()):
-                    # print(f"Dispatching train from {self._name} to {target.station._name}")
                     t.attach_rail(self.rails[target.station._name], ticks)
                     trainlist.append(t)
             if t.is_terminated():

@@ -2,6 +2,8 @@
 Class to describe a train on the network
 """
 
+from math import floor
+
 from simulationEntity import SimulationEntity
 
 
@@ -138,6 +140,16 @@ class Train(SimulationEntity):
         if self.schedule:
             return self.schedule[self.current_schedule_place]
 
+    def get_next_stop(self):
+        """
+        Returns the next place the train will call at.
+        """
+        place = self.current_schedule_place
+        if self.schedule:
+            while self.schedule[place].skip:
+                place = place + 1
+            return self.schedule[place]
+
     def get_speed_kph(self):
         return round(self.speed / self._interval * 3.6, 1)
 
@@ -150,7 +162,13 @@ class Train(SimulationEntity):
             if check_skip.skip == True:
                 type = "Intercity"
                 break
-        return [f"This train departed {self.start[0]} at {self.start[1]}", f"As {type} heading for {self.end}."]
+        if self.start[0] == self.end:
+            place = floor(len(self.schedule) / 2)
+            if self.current_schedule_place < place:
+                return [f"This train departed {self.start[0]} at {self.start[1]}", f"As {type} to {self.schedule[place].station._name}."]
+            else:
+                return [f"This train departed {self.start[0]} at {self.start[1]}", f"As {type} to {self.end} from {self.schedule[place].station._name}."]
+        return [f"This train departed {self.start[0]} at {self.start[1]}", f"As {type} to {self.end}."]
 
     def get_skip(self):
         return self.skip

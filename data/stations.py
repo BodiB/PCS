@@ -72,5 +72,4 @@ stations_list = [
     Station(0, "Hilversum Media Park", 696, 965),
     Station(0, "Hilversum", 704, 973),
     Station(0, "Baarn", 786, 970),
-
 ]

@@ -211,4 +211,5 @@ stations_list = [
     Station(0, "Elst", 1270, 1557),
     Station(0, "Nijmegen Lent", 1270, 1587),
     Station(0, "Nijmegen", 1270, 1620),
+    Station(0, "Paris-Nord", 617, 2376),
 ]

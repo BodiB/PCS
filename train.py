@@ -157,11 +157,20 @@ class Train(SimulationEntity):
         return self.departure_time
 
     def get_data(self):
+        previous = "NULL"
+        ICD = ["Schiphol Airport", "Rotterdam Centraal"]
         type = "Sprinter"
-        for check_skip in self.schedule:
-            if check_skip.skip == True:
+        for check_type in self.schedule:
+            if check_type.skip == True:
                 type = "Intercity"
                 break
+        if type == "Intercity":
+            for check_type in self.schedule:
+                if ((check_type.station._name in ICD) and (previous in ICD)):
+                    type = "Intercity Direct"
+                previous = check_type.station._name
+        if self.schedule[-1].station._name == "Paris-Nord":
+            type = "Thalys"
         if self.start[0] == self.end:
             place = floor(len(self.schedule) / 2)
             if self.current_schedule_place < place:
@@ -194,6 +203,7 @@ class Train(SimulationEntity):
                     else:
                         self.delayed += 1
                         print(f"DELAY: FROM: {self.schedule[self.current_schedule_place-1].station._name} TO: {self.schedule[self.current_schedule_place].station._name} with {tick} {self.arrival_ticks[self.current_schedule_place]} {tick - self.arrival_ticks[self.current_schedule_place]}")
+                        print(f"This train departed {self.start[0]} at {self.start[1]}")
 
                 self.rail = None
                 self.departure_time = self.schedule[self.current_schedule_place].departure

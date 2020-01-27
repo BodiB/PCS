@@ -1,41 +1,6 @@
 
 # format: ("begin station name", "end station name", length in km, max speed in kph)
 
-# connection = {
-#     ("Hoorn", "Amsterdam Sloterdijk", 40.3, 130): [
-#         ("Hoorn", "Purmerend Overwhere",  18, 130),
-#         ("Purmerend Overwhere", "Purmerend",  1.5, 130),
-#         ("Purmerend", "Purmerend Weidevenne", 1.6, 130),
-#         ("Purmerend Weidevenne", "Zaandam Kogerveld", 9.4, 130),
-#         ("Zaandam Kogerveld", "Zaandam",  2.5, 130),
-#         ("Zaandam", "Amsterdam Sloterdijk", 7.6, 130), ],
-#
-#     # TODO Afstanden
-#     ("Amsterdam Zuid", "Almere Centrum", 20, 130): [
-#         ("Amsterdam Zuid", "Amsterdam RAI",  1, 130),
-#         ("Amsterdam RAI", "Duivendrecht",  1, 130),
-#         ("Duivendrecht", "Diemen Zuid", 1, 130),
-#         ("Diemen Zuid", "Weesp", 1, 130),
-#         ("Weesp", "Almere Poort",  1, 130),
-#         ("Almere Poort", "Almere Muziekwijk", 1, 130),
-#         ("Almere Muziekwijk", "Almere Centrum", 1, 130), ],
-#
-#     ("Almere Centrum", "Lelystad Centrum", 24.6, 130): [
-#         ("Almere Centrum", "Almere Parkwijk",  1.8, 130),
-#         ("Almere Parkwijk", "Almere Buiten",  3.0, 130),
-#         ("Almere Buiten", "Almere Oostvaarders", 1.8, 130),
-#         ("Almere Oostvaarders", "Lelystad Centrum", 18.0, 130), ],
-#
-#     ("Castricum", "Zaandam", 17.3, 130): [
-#         ("Castricum", "Uitgeest", 4.0, 130),
-#         ("Uitgeest", "Krommenie-Assendelft",  4.6, 130),
-#         ("Krommenie-Assendelft", "Wormerveer",  2.7, 130),
-#         ("Wormerveer", "Zaandijk Zaanse Schans",  2.5, 130),
-#         ("Zaandijk Zaanse Schans", "Koog aan de Zaan",  1.3, 130),
-#         ("Koog aan de Zaan", "Zaandam",  2.2, 130), ],
-# }
-
-
 rail_list = [
     # Hoorn - Zaandam
     ("Hoorn", "Purmerend Overwhere",  18, 130),
@@ -111,10 +76,13 @@ rail_list = [
     ("Hoofddorp", "Schiphol Airport", 4.7, 130),  # (Dubbel spoor)
 
     # Schiphol - Rotterdam Centraal (HSL)
-    ("Rotterdam Centraal", "Schiphol Airport", 52.4, 130),
+    ("Rotterdam Centraal", "Schiphol Airport", 52.4, 350),
 
     # Rotterdam Centraal - Breda (HSL)
-    ("Rotterdam Centraal", "Breda", 45.6, 130),
+    ("Rotterdam Centraal", "Breda", 45.6, 350),
+
+    # Rotterdam Centraal - Parijs (HSL)
+    ("Rotterdam Centraal", "Paris-Nord", 470, 350),
 
     # Zaandam - Hoorn
     ("Zaandam", "Zaandam Kogerveld", 2.5, 130),

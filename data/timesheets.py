@@ -591,7 +591,7 @@ timeslots = [
      ("Amsterdam Sloterdijk", 36, 38), ("Amsterdam Lelylaan", 41, 41),
      ("Schiphol Airport", 48, 50), ("Hoofddorp", 54, -1), ],
 
-    # CS15A Thalys Amsterdam Centraal - Rotterdam Centraal (Brussel-Zuid/Midi)#verlengen
+    # CS15A ICD Amsterdam Centraal - Rotterdam Centraal (Brussel-Zuid/Midi)#verlengen
     [("Amsterdam Centraal", -1, 25), ("Amsterdam Sloterdijk", -2, -2, True),
      ("Amsterdam Lelylaan", -2, -2, True), ("Schiphol Airport", 38, 40),
      ("Rotterdam Centraal", 6, 10), ("Breda", 34, -1)],
@@ -599,7 +599,7 @@ timeslots = [
     # CS15A Thalys Amsterdam Centraal - Rotterdam Centraal (Paris-Nord)#verlengen
     [("Amsterdam Centraal", -1, 15), ("Amsterdam Sloterdijk", -2, -2, True),
      ("Amsterdam Lelylaan", -2, -2, True), ("Schiphol Airport", 31, 34),
-     ("Rotterdam Centraal", 54, -1)],
+     ("Rotterdam Centraal", 54, 54), ("Paris-Nord", 160, -1)],
     # ======================EINDE TREINEN NAAR CENTRAAL============================
     # =========================AANKOMSTEN CENTRAAL=================================
     # CS11A Rotterdam Centraal - Amsterdam Centraal
@@ -615,7 +615,7 @@ timeslots = [
      ('Hilversum Media Park', -2, -2, True), ('Bussum Zuid', -2, -2, True),
      ('Naarden-Bussum', -2, -2, True), ('Weesp', -2, -2, True),
      ('Diemen', -2, -2, True), ('Amsterdam Science Park', -2, -2, True),
-     ('Amsterdam Muiderpoort', -2, -2, True), ('Amsterdam Centraal', 30, -1)]
+     ('Amsterdam Muiderpoort', -2, -2, True), ('Amsterdam Centraal', 30, -1)],
 
 
     # CS14A ICD Breda - Amsterdam Centraal

@@ -1,0 +1,211 @@
+NAME, TRAINS_PASSED, TRAINS_DELAYED
+Zandvoort aan zee, 24, 0
+Overveen, 44, 0
+Haarlem, 173, 44
+Haarlem Spaarnwoude, 88, 0
+Halfweg-Zwanenburg, 88, 0
+Amsterdam Sloterdijk, 511, 25
+Amsterdam Centraal, 521, 0
+Den Helder, 24, 0
+Den Helder Zuid, 45, 0
+Anna Paulowna, 45, 0
+Schagen, 45, 0
+Bloemendaal, 44, 0
+Santpoort Zuid, 44, 0
+Santpoort Noord, 44, 0
+Driehuis, 44, 0
+Beverwijk, 44, 0
+Heemskerk, 44, 0
+Uitgeest, 92, 0
+Castricum, 135, 0
+Heiloo, 89, 0
+Alkmaar, 113, 0
+Alkmaar Noord, 89, 0
+Heerhugowaard, 89, 0
+Krommenie-Assendelft, 90, 0
+Wormerveer, 90, 0
+Zaandijk Zaanse Schans, 91, 0
+Koog aan de Zaan, 90, 0
+Zaandam, 202, 0
+Zaandam Kogerveld, 22, 0
+Purmerend Weidevenne, 22, 0
+Purmerend, 22, 0
+Purmerend Overwhere, 22, 0
+Hoorn, 90, 0
+Hoorn Kersenboogerd, 46, 0
+Obdam, 45, 0
+Hoogkarspel, 45, 0
+Bovenkarspel-Grootebroek, 45, 0
+Bovenkarspel Flora, 45, 0
+Enkhuizen, 24, 0
+Lelystad Centrum, 67, 0
+Almere Oostvaarders, 44, 0
+Almere Buiten, 65, 0
+Almere Parkwijk, 44, 0
+Almere Centrum, 65, 0
+Almere Muziekwijk, 44, 0
+Almere Poort, 44, 0
+Weesp, 89, 0
+Diemen, 89, 0
+Amsterdam Muiderpoort, 179, 0
+Amsterdam Amstel, 225, 0
+Diemen Zuid, 0, 0
+Duivendrecht, 111, 0
+Amsterdam Bijlmer Arena, 90, 0
+Amsterdam Holendrecht, 90, 0
+Abcoude, 90, 0
+Amsterdam Zuid, 44, 22
+Amsterdam RAI, 0, 0
+Schiphol Airport, 294, 22
+Hoofddorp, 91, 23
+Nieuw Vennep, 43, 23
+Voorhout, 0, 0
+Hillegom, 0, 0
+Heemstede-Aerdenhout, 85, 44
+Amsterdam Lelylaan, 112, 0
+Amsterdam Science Park, 89, 0
+Naarden-Bussum, 45, 0
+Bussum Zuid, 45, 0
+Hilversum Media Park, 45, 0
+Hilversum, 80, 0
+Baarn, 45, 0
+Amersfoort, 57, 0
+Amersfoort Schothorst, 45, 0
+Amersfoort Vathorst, 24, 0
+Sassenheim, 43, 23
+Leiden Centraal, 169, 169
+De Vink, 19, 19
+Voorschoten, 19, 19
+Den Haag Mariahoeve, 19, 19
+Den Haag Laan van NOI, 82, 37
+Den Haag Centraal, 24, 0
+Den Haag HS, 63, 18
+Den Haag Moerwijk, 0, 0
+Rijswijk, 0, 0
+Delft, 64, 18
+Delft Zuid, 0, 0
+Schiedam Centrum, 64, 0
+Rotterdam Centraal, 204, 0
+Voorburg, 0, 0
+Den Haag Ypenburg, 0, 0
+Zoetermeer, 0, 0
+Zoetermeer Oost, 0, 0
+Gouda, 44, 0
+Breukelen, 90, 0
+Maarssen, 46, 0
+Utrecht Zuilen, 46, 0
+Utrecht Centraal, 96, 0
+Leiden Lammeschans, 0, 0
+Alphen a/d Rijn, 0, 0
+Bodegraven, 0, 0
+Woerden, 44, 0
+Gouda Goverwelle, 44, 0
+Vleuten, 0, 0
+Utrecht Terwijde, 0, 0
+Utrecht Leidsche Rijn, 0, 0
+Hilversum Sportpark, 0, 0
+Hollandsche Rading, 0, 0
+Utrecht Overvecht, 0, 0
+Bilthoven, 0, 0
+Den Dolder, 0, 0
+Soest Zuid, 0, 0
+Soest, 0, 0
+Soestdijk, 0, 0
+Rotterdam Noord, 45, 0
+Rotterdam Alexander, 44, 0
+Capelle Schollevaar, 44, 0
+Nieuwerkerk a/d IJssel, 44, 0
+Rotterdam Blaak, 65, 0
+Rotterdam Zuid, 0, 0
+Rotterdam Lombardijen, 0, 0
+Barendrecht, 0, 0
+Zwijndrecht, 0, 0
+Dordrecht, 48, 0
+Dordrecth Zuid, 0, 0
+Lage Zwaluwe, 0, 0
+Zevenbergen, 0, 0
+Oudenbosch, 0, 0
+Roosendaal, 0, 0
+Bergen op Zoom, 0, 0
+Rilland-Bath, 0, 0
+Krabbendijke, 0, 0
+Kruiningen-Yerseke, 0, 0
+Kapelle-Biezelinge, 0, 0
+Goes, 0, 0
+Arnemuiden, 0, 0
+Middelburg, 0, 0
+Vlissingen Souburg, 0, 0
+Vlissingen, 0, 0
+Dronten, 44, 0
+Kampen Zuid, 44, 0
+Zwolle, 48, 0
+Meppel, 0, 0
+Steenwijk, 0, 0
+Wolvega, 0, 0
+Heerenveen, 0, 0
+Akkrum, 0, 0
+Grou-Jirnsum, 0, 0
+Leeuwarden, 0, 0
+Hoogeveen, 0, 0
+Beilen, 0, 0
+Assen, 0, 0
+Haren, 0, 0
+Groningen Europapark, 0, 0
+Groningen, 0, 0
+Nijkerk, 0, 0
+Putten, 0, 0
+Ermelo, 0, 0
+Harderwijk, 0, 0
+Nunspeet, 0, 0
+'t Harde, 0, 0
+Wezep, 0, 0
+Wijhe, 0, 0
+Olst, 0, 0
+Deventer, 0, 0
+Twello, 0, 0
+Apeldoorn Osseveld, 0, 0
+Apeldoorn, 0, 0
+Deventer Colmschate, 0, 0
+Holten, 0, 0
+Rijssen, 0, 0
+Wierden, 0, 0
+Almelo, 0, 0
+Almelo de Riet, 0, 0
+Borne, 0, 0
+Hengelo, 0, 0
+Enschede Kennispark, 0, 0
+Enschede, 0, 0
+Breda-Prinsenbeek, 0, 0
+Breda, 36, 0
+Gilze-Rijen, 0, 0
+Tilburg Reeshof, 0, 0
+Tilburg Universiteit, 0, 0
+Tilburg, 0, 0
+Oisterwijk, 0, 0
+Etten-Leur, 0, 0
+Utrecht Vaartsche Rijn, 0, 0
+Utrecht Lunetten, 0, 0
+Houten, 0, 0
+Houten Castellum, 0, 0
+Culemborg, 0, 0
+Geldermalsen, 0, 0
+Zaltbommel, 0, 0
+'s-Hertogenbosch', 0, 0
+Vught, 0, 0
+Boxtel, 0, 0
+Best, 0, 0
+Eindhoven Strijp-s, 0, 0
+Eindhoven, 0, 0
+Bunnik, 0, 0
+Driebergen-Zeist, 0, 0
+Maarn, 0, 0
+Veenendaal-De Klomp, 0, 0
+Ede-Wageningen, 0, 0
+Wolfheze, 0, 0
+Oosterbeek, 0, 0
+Arnhem Centraal, 0, 0
+Arnhem Zuid, 0, 0
+Elst, 0, 0
+Nijmegen Lent, 0, 0
+Nijmegen, 0, 0
+Paris-Nord, 12, 0

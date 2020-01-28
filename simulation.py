@@ -174,11 +174,12 @@ class Simulation:
 
     def _draw_stations(self):
         """
+        Draws the stations onto the background
+
         Parameters:
             None
         Returns:
             None
-        Draws the stations onto the background
         """
         w = 15
         h = 15
@@ -208,11 +209,12 @@ class Simulation:
 
     def _draw_rails(self):
         """
+        Draws the rails onto the background
+
         Parameters:
             None
         Returns:
             None
-        Draws the rails onto the background
         """
         for s in self.stations:
             for r in s.rails.values():
@@ -221,11 +223,12 @@ class Simulation:
 
     def _draw_trains(self):
         """
+        Visualizes the trains and their information
+
         Parameters:
             None
         Returns:
             None
-        Visualizes the trains and their information
         """
         w = 30
         h = 16
@@ -255,11 +258,12 @@ class Simulation:
 
     def _draw_stats(self):
         """
+        Draws the stats in the second window
+
         Parameters:
             None
         Returns:
             None
-        Draws the stats in the second window
         """
         on_time = 0
         delayed = 0
@@ -369,9 +373,9 @@ class Simulation:
         """
         Prints the results of the simulation, with an overview of the stations to a seperate file
         """
-        
+
         print(f"Simulation ran for {self.tick} ticks")
-    
+
         # print all results to a csv file
         with open('results.csv', 'w') as f:
             f.write(f"NAME, TRAINS_PASSED, TRAINS_DELAYED\n")
@@ -380,7 +384,7 @@ class Simulation:
 
             f.close()
 
-        
+
 if __name__ == "__main__":
     try:
         sim = Simulation()

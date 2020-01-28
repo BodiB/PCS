@@ -13,8 +13,8 @@ class Train(SimulationEntity):
     def __init__(self, load_capacity: int = 0, load_rate: int = 0):
         """
         Parameters:
-        -   load_capacity: total amount of people that fit in the train
-        -   load_rate: number of people per timestep that can enter or leave the train
+            - load_capacity: total amount of people that fit in the train
+            - load_rate: number of people per timestep that can enter or leave the train
         """
         super().__init__()
         self.start = 0

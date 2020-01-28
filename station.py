@@ -12,10 +12,10 @@ class Station(SimulationEntity):
     def __init__(self, daily_capacity: int, name: str, x_coord=0, y_coord=0):
         """
         Parameters:
-        -   daily_capacity: number of persons that arrive at the station per day
-        -   name: Name of the train station used for display
-        -   x_coord: x coordinate of the station used for display
-        -   y_coord: y coordinate of the station used for display
+            - daily_capacity: number of persons that arrive at the station per day
+            - name: Name of the train station used for display
+            - x_coord: x coordinate of the station used for display
+            - y_coord: y coordinate of the station used for display
 
         Returns:
             None

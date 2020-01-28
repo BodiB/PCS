@@ -89,7 +89,7 @@ class Simulation:
 
         black = np.all(self.train_image == [0, 0, 0], axis=-1)
         self.train_image[black] = [51, 204, 255]
-        
+
         self.background2 = cv2.resize(self.background2, (400, 300))
         self.background_image2 = np.copy(self.background2)
         self.train_image = cv2.resize(self.train_image, (30, 16))
@@ -160,7 +160,7 @@ class Simulation:
                           (x + w, y + h), (0, 0, 255), -1)
 
             if self.ix <= x + w and self.ix >= x and self.iy <= y + h and self.iy >= y:
-                cv2.putText(self.background2, f"Trains: {len(s.trains)}", (20, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
+                cv2.putText(self.background2, f"Trains: {len(s.trains)}, Passed: {s.trains_passed}, Delayed: {s.trains_delayed}", (20, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
                 cv2.putText(self.background2, f"{s._name}", (20, 75), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
                 cv2.putText(self.background2, f"Delay: {s.delay} minutes", (20, 100), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
 

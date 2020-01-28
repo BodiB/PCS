@@ -36,6 +36,8 @@ class Station(SimulationEntity):
 
         # list to hold all present trains at the station
         self.trains = []
+        self.trains_passed = 0
+        self.trains_delayed = 0
 
         self.trajects = []
         # keep a list of times at which to spawn trains
@@ -54,8 +56,11 @@ class Station(SimulationEntity):
                 if ((ticks >= t.get_departure_tick() + self.get_delay()) or t.get_skip()):
                     t.attach_rail(self.rails[target.station._name], ticks)
                     if not t.get_skip():
+                        self.trains_passed += 1
                         t.delay = max(0, self.get_minutes(
                             ticks - t.get_departure_tick()))
+                        if t.delay > 0:
+                            self.trains_delayed += 1
                     trainlist.append(t)
             if t.is_terminated():
                 trainlist.append(t)

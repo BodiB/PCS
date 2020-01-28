@@ -77,12 +77,14 @@ class Train(SimulationEntity):
 
         time = self.get_arrival_tick() - tick
 
-        if (time > 1):
-            self.speed = (rail.get_length() / time - 1) + 10
+        if (time > 5):
+            self.speed = (rail.get_length() / time - 5)
         else:
             self.speed = 5000
         if self.skip:
             self.speed = 5000
+
+        self.speed += (random_delay(-self.speed, self.speed) / 30)
         self.speed = min(self.speed, rail.get_speed())
 
         if self.speed <= 0:

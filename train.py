@@ -36,6 +36,11 @@ class Train(SimulationEntity):
 
     def attach_rail(self, rail, tick):
         """
+        Parameters:
+            - rail: Rail entity
+            - tick: Current time in ticks
+        Returns:
+            None
         TODO
         """
         self.distance = 0
@@ -58,6 +63,11 @@ class Train(SimulationEntity):
 
     def add_schedule(self, schedule, ticks):
         """
+        Parameters:
+            - schedule: Timetable of the train in minutes
+            - ticks: Current time in ticks
+        Returns:
+            None
         TODO
         """
         self.arrival_ticks = []
@@ -88,26 +98,38 @@ class Train(SimulationEntity):
 
     def get_arrival_tick(self):
         """
-        TODO
+        Parameters:
+            None
+        Returns:
+            Tick the train has to arrive at the next station
         """
         return self.arrival_ticks[self.current_schedule_place]
 
     def get_departure_tick(self):
         """
-        TODO
+        Parameters:
+            None
+        Returns:
+            Tick on which the train should depart the station it is at
         """
         return self.departure_ticks[self.current_schedule_place - 1]
 
     def get_target(self):
         """
-        Returns the current target Timeslot
+        Parameters:
+            None
+        Returns:
+            Current target Timeslot
         """
         if self.schedule:
             return self.schedule[self.current_schedule_place]
 
     def get_next_stop(self):
         """
-        Returns the next place the train will call at.
+        Parameters:
+            None
+        Returns:
+            Next place the train will call at.
         """
         place = self.current_schedule_place
         if self.schedule:
@@ -117,19 +139,28 @@ class Train(SimulationEntity):
 
     def get_speed_kph(self):
         """
-        TODO
+        Parameters:
+            None
+        Returns:
+            Speed the train is currently doing
         """
         return round(self.speed / self._interval * 3.6, 1)
 
     def get_departure(self):
         """
-        TODO
+        Parameters:
+            None
+        Returns:
+            Departure time of the train
         """
         return self.departure_time
 
     def get_data(self):
         """
-        TODO
+        Parameters:
+            None
+        Returns:
+            The data to be printed in _draw_trains.
         """
         previous = "NULL"
         ICD = ["Schiphol Airport", "Rotterdam Centraal"]
@@ -155,13 +186,19 @@ class Train(SimulationEntity):
 
     def get_skip(self):
         """
-        TODO
+        Parameters:
+            None
+        Returns:
+            If the train is gonna skip the next station it passes (Intercity)
         """
         return self.skip
 
     def _is_on_time(self, tick):
         """
-        TODO
+        Parameters:
+            - tick: Current time in ticks
+        Returns:
+            If the train is on time
         """
         sec = self.get_seconds(tick)
         remainder = sec % 60 / self._interval
@@ -169,6 +206,10 @@ class Train(SimulationEntity):
 
     def simulate(self, tick):
         """
+        Parameters:
+            - tick: Current time in ticks
+        Returns:
+            None
         TODO
         """
         if self.rail:
@@ -198,13 +239,19 @@ class Train(SimulationEntity):
 
     def is_terminated(self):
         """
-        TODO
+        Parameters:
+            None
+        Returns:
+            If the train has reached it's last destination.
         """
         return False if self.schedule else True
 
     def get_pos(self):
         """
-        TODO
+        Parameters:
+            None
+        Returns:
+            Current position of the train.
         """
         if self.rail:
             ratio = self.distance / self.rail.get_length()

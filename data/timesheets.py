@@ -1,65 +1,7 @@
 from traject import TimeSlot, Traject
 
-# TIMESHEET VERTREK CENTRAAL:
-# 00 14B Sprinter Hoofddorp
-# 00 10A IC Berlijn
-# 04 2A IC Vlissingen
-# 05 4B IC Maastricht
-# 08 5B Sprinter Rhenen
-# 08 14A ICD Breda
-# 08 11B IC Almere
-# 09 8A IC Den Helder
-# 11 11A Sprinter Amersfoort Vathorst
-# 11 14B Sprinter Den Haag Centraal
-# 11 1 Sprinter Hoorn
-# 13 7A Sprinter Uitgeest
-# 14 4B IC Heerlen
-# 15 15A Thalys Paris-Nord
-# 19 8A IC Enkhuizen
-# 19 5B Sprinter Rotterdam Centraal
-# 20 2A IC Den Haag Centraal
-# 22 10A ICD Rotterdam Centraal
-# 23 7A Sprinter Uitgeest
-# 23 10B Sprinter Zwolle
-# 24 4B IC Nijmegen
-# 25 15A ICD Brussel-Zuid/Midi
-# 26 1 Sprinter Zandvoort
-# 29 8A IC Alkmaar
-# 30 11B Amersfoort Centraal
-# 30 14B Sprinter Hoofddorp
-# 34 2A IC Vlissingen
-# 35 4B IC Maastricht
-# 38 14A ICD Breda
-# 38 11B IC Almere
-# 39 8A IC Den Helder
-# 39 5B Sprinter Rhenen
-# 41 11A Sprinter Amersfoort Vathorst
-# 41 14B Sprinter Den Haag Centraal
-# 41 1 Sprinter Hoorn
-# 43 7A Sprinter Uitgeest
-# 44 4B IC Heerlen
-# 49 8A IC Enkhuizen
-# 49 5B Sprinter Rotterdam Centraal
-# 50 2A IC Den Haag Centraal
-# 53 10A ICD Rotterdam Centraal
-# 53 7A Sprinter Uitgeest
-# 53 10B Sprinter Zwolle
-# 54 4B IC Nijmegen
-# 56 1 Sprinter Zandvoort
-# 59 8A IC Alkmaar
-
-# EN AANKOMSTEN DIE NIET DOORGAAN:
-# 7 11A ICD van Rotterdam Centraal
-# 21 15A ICD van Breda
-# 30 13B IC Amersfoort Centraal
-# 35 11A ICD Rotterdam Centraal
-# 38 15B ICD Brussel-Zuid/Midi
-# 44 13 Thalys Paris-Nord
-# 51 14A ICD Breda
-
 # CODE: "CS8A" beteken CS SPOOR 8A
-# Omdat we CS als centraal punt pakken moeten we iig alle treinen
-# vanaf CS hebben.
+
 timeslots = [
     # CS1 SPR Zandvoort aan zee - Amsterdam Centraal
     # CS1 SPR SLUIT AAN OP Amsterdam Centraal - Beverwijk - Hoorn
@@ -738,3 +680,60 @@ timeslots = [
 ]
 
 timeslots_NL = []
+
+# TIMESHEET VERTREK CENTRAAL:
+# 00 14B Sprinter Hoofddorp
+# 00 10A IC Berlijn
+# 04 2A IC Vlissingen
+# 05 4B IC Maastricht
+# 08 5B Sprinter Rhenen
+# 08 14A ICD Breda
+# 08 11B IC Almere
+# 09 8A IC Den Helder
+# 11 11A Sprinter Amersfoort Vathorst
+# 11 14B Sprinter Den Haag Centraal
+# 11 1 Sprinter Hoorn
+# 13 7A Sprinter Uitgeest
+# 14 4B IC Heerlen
+# 15 15A Thalys Paris-Nord
+# 19 8A IC Enkhuizen
+# 19 5B Sprinter Rotterdam Centraal
+# 20 2A IC Den Haag Centraal
+# 22 10A ICD Rotterdam Centraal
+# 23 7A Sprinter Uitgeest
+# 23 10B Sprinter Zwolle
+# 24 4B IC Nijmegen
+# 25 15A ICD Brussel-Zuid/Midi
+# 26 1 Sprinter Zandvoort
+# 29 8A IC Alkmaar
+# 30 11B Amersfoort Centraal
+# 30 14B Sprinter Hoofddorp
+# 34 2A IC Vlissingen
+# 35 4B IC Maastricht
+# 38 14A ICD Breda
+# 38 11B IC Almere
+# 39 8A IC Den Helder
+# 39 5B Sprinter Rhenen
+# 41 11A Sprinter Amersfoort Vathorst
+# 41 14B Sprinter Den Haag Centraal
+# 41 1 Sprinter Hoorn
+# 43 7A Sprinter Uitgeest
+# 44 4B IC Heerlen
+# 49 8A IC Enkhuizen
+# 49 5B Sprinter Rotterdam Centraal
+# 50 2A IC Den Haag Centraal
+# 53 10A ICD Rotterdam Centraal
+# 53 7A Sprinter Uitgeest
+# 53 10B Sprinter Zwolle
+# 54 4B IC Nijmegen
+# 56 1 Sprinter Zandvoort
+# 59 8A IC Alkmaar
+
+# EN AANKOMSTEN DIE NIET DOORGAAN:
+# 7 11A ICD van Rotterdam Centraal
+# 21 15A ICD van Breda
+# 30 13B IC Amersfoort Centraal
+# 35 11A ICD Rotterdam Centraal
+# 38 15B ICD Brussel-Zuid/Midi
+# 44 13 Thalys Paris-Nord
+# 51 14A ICD Breda

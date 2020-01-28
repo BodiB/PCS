@@ -13,6 +13,8 @@ class Railway(SimulationEntity):
         -   length: the length of the railway in kilometers
         -   speed: speed in kph
 
+        Returns:
+            None
         """
 
         super().__init__()
@@ -38,30 +40,47 @@ class Railway(SimulationEntity):
 
     def get_begin(self) -> (int, int):
         """
-        Returns the begin point for drawing
+        Parameter(s):
+            None
+        Returns:
+            Begin point for drawing
         """
         return (self.x_start, self.y_start)
 
     def get_end(self) -> (int, int):
         """
-        Returns the end point for drawing
+        Parameter(s):
+            None
+        Returns:
+            End point for drawing
         """
         return (self.x_end, self.y_end)
 
     def set_delay(self, delay):
         """
-        TODO
+        Parameter(s):
+            - delay: Delay in minutes
+        Returns:
+            None
+
+        Sets the delay of the track
         """
         self.delay = delay
 
     def get_speed(self):
         """
-        TODO
+        Parameter(s):
+            None
+        Returns:
+            Max speed of this given track.
         """
         return self._speed
 
     def get_length(self):
         """
-        Returns length in meters
+        Parameter(s):
+            None
+        Returns:
+            Length of the given track
         """
         return self._length

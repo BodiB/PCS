@@ -16,6 +16,9 @@ class Station(SimulationEntity):
         -   name: Name of the train station used for display
         -   x_coord: x coordinate of the station used for display
         -   y_coord: y coordinate of the station used for display
+
+        Returns:
+            None
         """
         super().__init__()
 
@@ -45,6 +48,11 @@ class Station(SimulationEntity):
 
     def simulate(self, ticks):
         """
+        Parameter(s):
+            - ticks: Current timestamp in ticks.
+        Returns:
+            None
+
         Simulates a station by assigning trains to tracks
         """
         trainlist = []
@@ -66,40 +74,65 @@ class Station(SimulationEntity):
 
     def get_delay(self):
         """
-        TODO
+        Parameter(s):
+            None
+        Returns:
+            The delay in ticks
         """
         return self.delay * 60 / self._interval
 
     def derail_train(self, trainlist):
         """
-        TODO
+        Parameter(s):
+            trainlist: List of trains that have fullfilled their duties.
+        Returns:
+            None
+
+        Removes trains from tracks
         """
         for train in trainlist:
             self.trains.remove(train)
 
-    def is_free(self):
-        """
-        TODO
-        """
-        return len(self.trains) < 1
-
     def get_coord(self):
         """
+        Parameter(s):
+            None
+        Returns:
+            Tuple (X,Y) coordinates of the station.
+
         Coordinates for drawing
         """
         return (self.x, self.y)
 
     def attach_rail(self, rail):
         """
+        Parameter(s):
+            rail: rail entity
+        Returns:
+            None
+
         Attach a rail to this station
         """
         self.rails[rail.end_station._name] = rail
 
     def add_traject(self, traject):
+        """
+        Parameter(s):
+            traject: traject entity
+        Returns:
+            None
+
+        Adds a traject to this station.
+        """
         self.trajects.append(traject)
 
     def add_train(self, train):
         """
+        Parameter(s):
+            train: train entity
+        Returns:
+            None
+
         Add train to this station
         """
         self.trains.append(train)

@@ -15,9 +15,12 @@ from traject import TimeSlot, Traject
 
 class Simulation:
 
-    def __init__(self, map="NL"):
+    def __init__(self):
         """
-        TODO
+        Parameters:
+            None
+        Returns:
+            None
         """
         timeslots.extend(timeslots_NL)
         rail_list.extend(rail_list_NL)
@@ -25,8 +28,6 @@ class Simulation:
         self._create_station_hash()
 
         self.schedules = []
-
-        self.map = map
 
         self.pause = True
 
@@ -103,7 +104,12 @@ class Simulation:
 
     def _create_station_hash(self):
         """
-        Create hashtable to easily access stations
+        Parameters:
+            None
+        Returns:
+            None
+
+        Creates hashtable to easily access stations
         """
         self.station_hash = {}
 
@@ -112,12 +118,23 @@ class Simulation:
 
     def _get_station(self, name):
         """
-        TODO
+        Parameters:
+            - name: Name of a station
+        Returns:
+            Station entity matching the given name
         """
         return self.station_hash[name]
 
     def handle_mouse(self, event, x, y, flags, param):
         """
+        Parameters:
+            - event:
+            - x:
+            - y:
+            - flags:
+            - param:
+        Returns:
+            None
         TODO
         """
         if event == cv2.EVENT_MOUSEMOVE:
@@ -146,6 +163,10 @@ class Simulation:
 
     def clear_background(self):
         """
+        Parameters:
+            None
+        Returns:
+            None
         TODO
         """
         self.background = np.copy(self.background_image)
@@ -153,7 +174,11 @@ class Simulation:
 
     def _draw_stations(self):
         """
-        TODO
+        Parameters:
+            None
+        Returns:
+            None
+        Draws the stations onto the background
         """
         w = 15
         h = 15
@@ -183,7 +208,11 @@ class Simulation:
 
     def _draw_rails(self):
         """
-        Draws all rails
+        Parameters:
+            None
+        Returns:
+            None
+        Draws the rails onto the background
         """
         for s in self.stations:
             for r in s.rails.values():
@@ -192,7 +221,11 @@ class Simulation:
 
     def _draw_trains(self):
         """
-        TODO
+        Parameters:
+            None
+        Returns:
+            None
+        Visualizes the trains and their information
         """
         w = 30
         h = 16
@@ -222,7 +255,11 @@ class Simulation:
 
     def _draw_stats(self):
         """
-        TODO
+        Parameters:
+            None
+        Returns:
+            None
+        Draws the stats in the second window
         """
         on_time = 0
         delayed = 0
@@ -245,6 +282,10 @@ class Simulation:
 
     def simulate_steps(self):
         """
+        Parameters:
+            None
+        Returns:
+            None
         TODO
         """
         for s in self.schedules:
@@ -257,12 +298,19 @@ class Simulation:
 
     def _get_time(self):
         """
-        Returns the simulation time in seconds
+        Parameters:
+            None
+        Returns:
+            Simulation time in seconds
         """
         return self.tick * SECONDS_PER_TICK
 
     def draw_time(self):
         """
+        Parameters:
+            None
+        Returns:
+            None
         TODO
         """
         seconds = self._get_time()
@@ -277,6 +325,10 @@ class Simulation:
 
     def start(self):
         """
+        Parameters:
+            None
+        Returns:
+            None
         TODO
         """
         # setup simulation window

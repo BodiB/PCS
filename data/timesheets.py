@@ -632,7 +632,7 @@ timeslots = [
      ('Almere Parkwijk', -2, -2, True), ('Almere Buiten', -2, -2, True),
      ('Almere Oostvaarders', -2, -2, True), ('Lelystad Centrum', 16, 17),
      ('Dronten', -2, -2, True), ('Kampen Zuid', -2, -2, True),
-     ('Zwolle', -1, 43)]
+     ('Zwolle', 43, -1)],
 
     # IC Den Haag Centraal - Zwolle (Leeuwarden) #TODO TIJDEN
     [('Den Haag Centraal', 33, -1), ('Den Haag Laan van NOI', -2, -2, True),
@@ -647,7 +647,7 @@ timeslots = [
      ('Almere Parkwijk', -2, -2, True), ('Almere Buiten', -2, -2, True),
      ('Almere Oostvaarders', -2, -2, True), ('Lelystad Centrum', 46, 47),
      ('Dronten', -2, -2, True), ('Kampen Zuid', -2, -2, True),
-     ('Zwolle', -1, 13)]
+     ('Zwolle', 13, -1)],
 
     # SPR Leiden Centraal - Hoorn Kersenboogerd
     [("Leiden Centraal", -1, 52), ("Sassenheim", 57, 57),

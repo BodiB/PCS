@@ -35,8 +35,6 @@ class Simulation:
             current = []
             last = -1
             hour = False
-            firststop = schedule[0]
-            laststop = schedule[-1]
             for slot in schedule:
                 slot1 = slot[1]
                 slot2 = slot[2]
@@ -253,9 +251,6 @@ class Simulation:
         day = seconds // (24 * 60 * 60)
         hour = seconds // (60 * 60)
         minute = (seconds // 60) % 60
-        # SECONDS IN TIME STRING:
-        # second = (seconds) % 60
-        # timestring = f"day: {day} {hour}:{minute}:{second}"
 
         timestring = f"day: {day} {hour}:{minute}"
         cv2.putText(self.background2, timestring, (20, 25),

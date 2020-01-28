@@ -63,10 +63,10 @@ rail_list = [
     ("Naarden-Bussum", "Bussum Zuid", 1.6, 130),
     ("Bussum Zuid", "Hilversum Media Park", 3.2, 130),
     ("Hilversum Media Park", "Hilversum", 1.5, 130),
-    ("Hilversum", "Baarn", 1, 130),  # TODO
-    ("Baarn", "Amersfoort", 1, 130),  # TODO
-    ("Amersfoort", "Amersfoort Schothorst", 1, 130),  # TODO
-    ("Amersfoort Schothorst", "Amersfoort Vathorst", 1, 130),  # TODO
+    ("Hilversum", "Baarn", 7.3, 130), 
+    ("Baarn", "Amersfoort", 8.8, 130),  
+    ("Amersfoort", "Amersfoort Schothorst", 3.4, 130), 
+    ("Amersfoort Schothorst", "Amersfoort Vathorst", 2.8, 130),  
 
     # Leiden Centraal - Schiphol Airport
     ("Leiden Centraal", "Sassenheim", 6.5, 130),
@@ -99,16 +99,16 @@ rail_list = [
     ("Hoorn Kersenboogerd", "Hoorn", 2.4, 80),
 
     # Zwolle - Weesp
-    ("Zwolle", "Kampen Zuid", 1, 130),  # TODO
-    ("Kampen Zuid", "Dronten", 1, 130),  # TODO
-    ("Dronten", "Lelystad Centrum", 1, 130),  # TODO
+    ("Zwolle", "Kampen Zuid", 15, 130),  
+    ("Kampen Zuid", "Dronten", 13.4, 130),  
+    ("Dronten", "Lelystad Centrum", 20.6, 130),  
     ("Lelystad Centrum", "Almere Oostvaarders", 18.0, 130),
     ("Almere Oostvaarders", "Almere Buiten", 1.8, 130),
     ("Almere Buiten", "Almere Parkwijk", 3.0, 130),
     ("Almere Parkwijk", "Almere Centrum", 1.8, 130),
-    ("Almere Centrum", "Almere Muziekwijk", 1, 130),  # TODO
-    ("Almere Muziekwijk", "Almere Poort", 1, 130),  # TODO
-    ("Almere Poort", "Weesp", 1, 130),  # TODO
+    ("Almere Centrum", "Almere Muziekwijk", 2, 130),  
+    ("Almere Muziekwijk", "Almere Poort", 4, 130),  
+    ("Almere Poort", "Weesp", 9.6, 130),  
 
     # Weesp - Amsterdam RAI
     ("Weesp", "Diemen Zuid", 7.4, 130),
@@ -142,35 +142,35 @@ rail_list = [
     ("Voorhout", "Leiden Centraal", 6.9, 130),
 
     # Leiden - Den Haag Laan van NOI
-    ("Leiden Centraal", "De Vink", 1, 130),  # TODO
-    ("De Vink", "Voorschoten", 1, 130),  # TODO
-    ("Voorschoten", "Den Haag Mariahoeve", 1, 130),  # TODO
-    ("Den Haag Mariahoeve", "Den Haag Laan van NOI", 1, 130),  # TODO
+    ("Leiden Centraal", "De Vink", 2.7, 130),
+    ("De Vink", "Voorschoten", 3.6, 130),  
+    ("Voorschoten", "Den Haag Mariahoeve", 6, 130),  
+    ("Den Haag Mariahoeve", "Den Haag Laan van NOI", 2.3, 130), 
 
     # Den Haag Laan van NOI - Den Haag Centraal
-    ("Den Haag Laan van NOI", "Den Haag Centraal", 1, 130),  # TODO
+    ("Den Haag Laan van NOI", "Den Haag Centraal", 1.3, 130), 
 
     # Den Haag Laan van NOI - Den Haag HS
-    ("Den Haag Laan van NOI", "Den Haag HS", 1, 130),  # TODO
+    ("Den Haag Laan van NOI", "Den Haag HS", 1.7, 130), 
 
     # Den Haag Centraal - Den Haag HS
-    ("Den Haag Centraal", "Den Haag HS", 1, 130),  # TODO
+    ("Den Haag Centraal", "Den Haag HS", 1.6, 130), 
 
     # Den Haag HS - Rotterdam Centraal
-    ("Den Haag HS", "Den Haag Moerwijk", 1, 130),  # TODO
-    ("Den Haag Moerwijk", "Rijswijk", 1, 130),  # TODO
-    ("Rijswijk", "Delft", 1, 130),  # TODO
-    ("Delft", "Delft Zuid", 1, 130),  # TODO
-    ("Delft Zuid", "Schiedam Centrum", 1, 130),  # TODO
-    ("Schiedam Centrum", "Rotterdam Centraal", 1, 130),  # TODO
+    ("Den Haag HS", "Den Haag Moerwijk", 2, 130),  
+    ("Den Haag Moerwijk", "Rijswijk", 1.7, 130),  
+    ("Rijswijk", "Delft", 4.5, 130), 
+    ("Delft", "Delft Zuid", 1.9, 130),  
+    ("Delft Zuid", "Schiedam Centrum", 8.4, 130),  
+    ("Schiedam Centrum", "Rotterdam Centraal", 3.9, 130),  
 
     # Rotterdam Centraal - Dordrecht
-    ("Rotterdam Centraal", "Rotterdam Blaak", 1, 130),  # TODO
-    ("Rotterdam Blaak", "Rotterdam Zuid", 1, 130),  # TODO
-    ("Rotterdam Zuid", "Rotterdam Lombardijen", 1, 130),  # TODO
-    ("Rotterdam Lombardijen", "Barendrecht", 1, 130),  # TODO
-    ("Barendrecht", "Zwijndrecht", 1, 130),  # TODO
-    ("Zwijndrecht", "Dordrecht", 1, 130),  # TODO
+    ("Rotterdam Centraal", "Rotterdam Blaak", 1.7, 130),  
+    ("Rotterdam Blaak", "Rotterdam Zuid", 2.3, 130),  
+    ("Rotterdam Zuid", "Rotterdam Lombardijen", 3, 130),  
+    ("Rotterdam Lombardijen", "Barendrecht", 3.2, 130),  
+    ("Barendrecht", "Zwijndrecht", 7.6, 130),  
+    ("Zwijndrecht", "Dordrecht", 1, 130),  
 
     # Amsterdam RAI - Amsterdam Bijlmer Arena
     ("Amsterdam RAI", "Amsterdam Bijlmer Arena", 4.8, 130),
@@ -186,30 +186,31 @@ rail_list = [
     ("Utrecht Zuilen", "Utrecht Centraal", 2.0, 130),
 
     # Utrecht Centraal - Nijmegen (KORT)
-    ("Utrecht Centraal", "Veenendaal-De Klomp", 1, 130),  # TODO
-    ("Veenendaal-De Klomp", "Ede-Wageningen", 1, 130),  # TODO
-    ("Ede-Wageningen", "Arnhem Centraal", 1, 130),  # TODO
-    ("Arnhem Centraal", "Nijmegen", 1, 130),  # TODO
+    ("Utrecht Centraal", "Veenendaal-De Klomp", 33.1, 130), 
+    ("Veenendaal-De Klomp", "Ede-Wageningen", 7, 130),  
+    ("Ede-Wageningen", "Arnhem Centraal", 16.3, 130), 
+    ("Arnhem Centraal", "Nijmegen", 18.4, 130),  
 
     # Utrecht Centraal - Nijmegen (HOE HET ZOU MOETEN)
-    ("Utrecht Centraal", "Veenendaal-De Klomp", 1, 130),  # TODO
-    ("Veenendaal-De Klomp", "Ede-Wageningen", 1, 130),  # TODO
-    ("Ede-Wageningen", "Arnhem Centraal", 1, 130),  # TODO
-    ("Arnhem Centraal", "Nijmegen", 1, 130),  # TODO
+    #???
+#    ("Utrecht Centraal", "Veenendaal-De Klomp", 1, 130),  # TODO
+#    ("Veenendaal-De Klomp", "Ede-Wageningen", 1, 130),  # TODO
+#    ("Ede-Wageningen", "Arnhem Centraal", 1, 130),  # TODO
+#    ("Arnhem Centraal", "Nijmegen", 1, 130),  # TODO
 
     # Rotterdam Centraal - Gouda
-    ("Rotterdam Centraal", "Rotterdam Noord", 1, 130),  # TODO
-    ("Rotterdam Noord", "Rotterdam Alexander", 1, 130),  # TODO
-    ("Rotterdam Alexander", "Capelle Schollevaar", 1, 130),  # TODO
-    ("Capelle Schollevaar", "Nieuwerkerk a/d IJssel", 1, 130),  # TODO
-    ("Nieuwerkerk a/d IJssel", "Gouda", 1, 130),  # TODO
+    ("Rotterdam Centraal", "Rotterdam Noord", 4.7, 130),  
+    ("Rotterdam Noord", "Rotterdam Alexander", 4.9, 130),  
+    ("Rotterdam Alexander", "Capelle Schollevaar", 2.2, 130),
+    ("Capelle Schollevaar", "Nieuwerkerk a/d IJssel", 2.6, 130), 
+    ("Nieuwerkerk a/d IJssel", "Gouda", 9.2, 130), 
 
     # Gouda - Woerden
-    ("Gouda", "Gouda Goverwelle", 1, 130),  # TODO
-    ("Gouda Goverwelle", "Woerden", 1, 130),  # TODO
+    ("Gouda", "Gouda Goverwelle", 2.4, 130),  
+    ("Gouda Goverwelle", "Woerden", 13.8, 130), 
 
     # Woerden - Breukelen
-    ("Woerden", "Breukelen", 1, 130),  # TODO
+    ("Woerden", "Breukelen", 12.5, 130),  
 
 ]
 

@@ -78,11 +78,10 @@ class Traject(SimulationEntity):
             - tick: the current simulation tick, used for timing
         """
         if self.get_minutes(tick) == self.times[0].departure and self.get_seconds_remaining(tick) < self._interval:
-            if self.times[0].station.is_free():
-                t = Train()
-                t.add_schedule(self.times, tick)
-                self.trains.append(t)
-                self.times[0].station.add_train(t)
+            t = Train()
+            t.add_schedule(self.times, tick)
+            self.trains.append(t)
+            self.times[0].station.add_train(t)
 
         for t in self.trains:
             t.simulate(tick)

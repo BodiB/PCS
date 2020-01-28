@@ -188,9 +188,11 @@ class Simulation:
     def _draw_trains(self):
         w = 30
         h = 16
+        fsz = 0.3
         for s in self.schedules:
             for t in s.trains:
                 x, y = t.get_pos()
+                cv2.putText(self.background, f"Delay {t.delay}", (x, y + h + int(fsz * 22)), cv2.FONT_HERSHEY_SIMPLEX, fsz, (0, 0, 255), 1, cv2.LINE_AA)
                 self.background[y:y + h, x:x + w, :] = self.train_image[:, :]
                 if self.click_x <= x + w and self.click_x >= x and self.click_y <= y + h and self.click_y >= y:
                     self.selected_train = t
@@ -200,9 +202,9 @@ class Simulation:
         if self.selected_train:
             try:
                 x, y = self.selected_train.get_pos()
-                cv2.putText(self.background, f"SELECTED", (x, y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
-                cv2.putText(self.background2, f"Current target: {self.selected_train.get_next_stop().station._name}", (20, 140), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
-                cv2.putText(self.background2, f"Current speed: {self.selected_train.get_speed_kph()}", (20, 165), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
+                cv2.putText(self.background, f"SELECTED", (x, y), cv2.FONT_HERSHEY_SIMPLEX, fsz, (0, 0, 255), 1, cv2.LINE_AA)
+                cv2.putText(self.background2, f"Current target: {self.selected_train.get_next_stop().station._name}", (20, 140), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0, 0, 255), 1, cv2.LINE_AA)
+                cv2.putText(self.background2, f"Current speed: {self.selected_train.get_speed_kph()}", (20, 160), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0, 0, 255), 1, cv2.LINE_AA)
                 cv2.putText(self.background2, self.selected_train.get_data()[
                             0], (20, 180), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0, 0, 255), 1, cv2.LINE_AA)
                 cv2.putText(self.background2, self.selected_train.get_data()[

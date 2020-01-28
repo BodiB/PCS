@@ -47,13 +47,15 @@ class Station(SimulationEntity):
         if self.get_random() <= self._spawn_rate:
             self._people += self._people_per_spawn
 
-        minute = self.get_minutes(ticks)
         trainlist = []
         for t in self.trains:
             target = t.get_target()
             if target:
-                if ((minute == (t.get_departure() + self.delay) % 60) or t.get_skip()):
+                if ((ticks >= t.get_departure_tick() + self.get_delay()) or t.get_skip()):
                     t.attach_rail(self.rails[target.station._name], ticks)
+                    if not t.get_skip():
+                        t.delay = max(0, self.get_minutes(
+                            ticks - t.get_departure_tick()))
                     trainlist.append(t)
             if t.is_terminated():
                 trainlist.append(t)
@@ -64,6 +66,9 @@ class Station(SimulationEntity):
         Returns the amount of people present at the station
         """
         return self._people
+
+    def get_delay(self):
+        return self.delay * 60 / self._interval
 
     def derail_train(self, trainlist):
         for train in trainlist:

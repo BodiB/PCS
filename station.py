@@ -92,7 +92,6 @@ class Station(SimulationEntity):
         """
         Attach a rail to this station
         """
-        # print(f"attaching rail at {self._name} to {rail.end_station._name}")
         self.rails[rail.end_station._name] = rail
 
     def add_traject(self, traject):
@@ -102,5 +101,4 @@ class Station(SimulationEntity):
         """
         Add train to this station
         """
-        # print(f"adding train at {self._name}")
         self.trains.append(train)

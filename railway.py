@@ -10,8 +10,8 @@ class Railway(SimulationEntity):
     def __init__(self, length: float, speed: float, begin_station: Station, end_station: Station):
         """
         Parameters:
-        -   length: the length of the railway in kilometers
-        -   speed: speed in kph
+            - length: the length of the railway in kilometers
+            - speed: speed in kph
 
         Returns:
             None

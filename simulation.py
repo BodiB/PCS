@@ -28,7 +28,7 @@ class Simulation:
 
         self.map = map
 
-        self.pause = False
+        self.pause = True
 
         # create timeslots
         for schedule in timeslots:

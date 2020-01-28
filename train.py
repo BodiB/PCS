@@ -17,10 +17,6 @@ class Train(SimulationEntity):
         -   load_rate: number of people per timestep that can enter or leave the train
         """
         super().__init__()
-        self._max_capacity = load_capacity
-        self._load_rate = load_rate
-        self._current_load = 0
-
         self.start = 0
         self.end = 0
 
@@ -38,40 +34,10 @@ class Train(SimulationEntity):
 
         self.rail = None
 
-    def load(self, amount: int) -> int:
-        """
-        Parameters:
-        -   amount: the amount of people to load
-
-        Returns:
-            amount of people that could not enter the train
-        """
-
-        if self._current_load + amount > self._max_capacity:
-            temp = self._current_load + amount
-            self._current_load = self._max_capacity
-            return temp - self._max_capacity
-
-        self._current_load += amount
-
-        self.distance = 0
-        return 0
-
-    def unload(self) -> int:
-        """
-        Unloads the max amount of people for a given timestep
-        """
-
-        if self._current_load - self._load_rate > 0:
-            self._current_load -= self._load_rate
-            return self._load_rate
-
-        temp = self._current_load
-        self._current_load = 0
-
-        return temp
-
     def attach_rail(self, rail, tick):
+        """
+        TODO
+        """
         self.distance = 0
         self.rail = rail
 
@@ -91,6 +57,9 @@ class Train(SimulationEntity):
             self.speed = rail.get_speed()
 
     def add_schedule(self, schedule, ticks):
+        """
+        TODO
+        """
         self.arrival_ticks = []
         self.departure_ticks = []
         self.current_schedule_place = 1
@@ -118,9 +87,15 @@ class Train(SimulationEntity):
             self.departure_ticks.append(departure_tick + ticks)
 
     def get_arrival_tick(self):
+        """
+        TODO
+        """
         return self.arrival_ticks[self.current_schedule_place]
 
     def get_departure_tick(self):
+        """
+        TODO
+        """
         return self.departure_ticks[self.current_schedule_place - 1]
 
     def get_target(self):
@@ -141,12 +116,21 @@ class Train(SimulationEntity):
             return self.schedule[place]
 
     def get_speed_kph(self):
+        """
+        TODO
+        """
         return round(self.speed / self._interval * 3.6, 1)
 
     def get_departure(self):
+        """
+        TODO
+        """
         return self.departure_time
 
     def get_data(self):
+        """
+        TODO
+        """
         previous = "NULL"
         ICD = ["Schiphol Airport", "Rotterdam Centraal"]
         type = "Sprinter"
@@ -170,14 +154,23 @@ class Train(SimulationEntity):
         return [f"This train departed {self.start[0]} at {self.start[1]}", f"As {type} to {self.end}."]
 
     def get_skip(self):
+        """
+        TODO
+        """
         return self.skip
 
     def _is_on_time(self, tick):
+        """
+        TODO
+        """
         sec = self.get_seconds(tick)
         remainder = sec % 60 / self._interval
         return self.arrival_ticks[self.current_schedule_place] + remainder >= tick
 
     def simulate(self, tick):
+        """
+        TODO
+        """
         if self.rail:
             # self.get_arrival_tick
 
@@ -204,9 +197,15 @@ class Train(SimulationEntity):
                     self.schedule = []
 
     def is_terminated(self):
+        """
+        TODO
+        """
         return False if self.schedule else True
 
     def get_pos(self):
+        """
+        TODO
+        """
         if self.rail:
             ratio = self.distance / self.rail.get_length()
 

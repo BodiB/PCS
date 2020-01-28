@@ -2,13 +2,13 @@ from config import SCREEN_HEIGHT, SCREEN_WIDTH
 from station import Station
 
 stations_list = [
-    Station(5704, "Zandvoort aan zee", 529, 1154),
-    Station(2391, "Overveen", 551, 1154),
-    Station(42040, "Haarlem", 584, 1154),
-    Station(3090, "Haarlem Spaarnwoude", 615, 1154),
-    Station(2730, "Halfweg-Zwanenburg", 648, 1154),
-    Station(58008, "Amsterdam Sloterdijk", 691, 1154),
-    Station(192178, "Amsterdam Centraal", 791, 1154),
+    Station(0, "Zandvoort aan zee", 529, 1154),
+    Station(0, "Overveen", 551, 1154),
+    Station(0, "Haarlem", 584, 1154),
+    Station(0, "Haarlem Spaarnwoude", 615, 1154),
+    Station(0, "Halfweg-Zwanenburg", 648, 1154),
+    Station(0, "Amsterdam Sloterdijk", 691, 1154),
+    Station(0, "Amsterdam Centraal", 791, 1154),
     Station(0, "Den Helder", 618, 720),
     Station(0, "Den Helder Zuid", 650, 750),
     Station(0, "Anna Paulowna", 657, 800),

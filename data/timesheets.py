@@ -14,7 +14,7 @@ from traject import TimeSlot, Traject
 # 11 1 Sprinter Hoorn
 # 13 7A Sprinter Uitgeest
 # 14 4B IC Heerlen
-# 15 15A Thalys Paris-Nord #TODO staat er nu in, maar onnodig?
+# 15 15A Thalys Paris-Nord
 # 19 8A IC Enkhuizen
 # 19 5B Sprinter Rotterdam Centraal
 # 20 2A IC Den Haag Centraal
@@ -51,7 +51,6 @@ from traject import TimeSlot, Traject
 # EN AANKOMSTEN DIE NIET DOORGAAN:
 # 7 11A ICD van Rotterdam Centraal
 # 21 15A ICD van Breda
-# 28 7B ICE International van Frankfurt #TODO
 # 30 13B IC Amersfoort Centraal
 # 35 11A ICD Rotterdam Centraal
 # 38 15B ICD Brussel-Zuid/Midi

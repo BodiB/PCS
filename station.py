@@ -25,17 +25,15 @@ class Station(SimulationEntity):
         ticks_per_day = seconds_per_day // self._interval
 
         # chance of a person spwaning per simulation tick
-        self._spawn_rate = daily_capacity / ticks_per_day
         self._name = name
-        self._people = 0
-
-        self._people_per_spawn = 1 if daily_capacity // ticks_per_day == 0 else daily_capacity // ticks_per_day
 
         # list to hold all usable rails of the station
         self.rails = {}
 
         # list to hold all present trains at the station
         self.trains = []
+
+        # Counters that holds the number of (delayed) trains that passed the station
         self.trains_passed = 0
         self.trains_delayed = 0
 
@@ -46,9 +44,9 @@ class Station(SimulationEntity):
         self.delay = 0
 
     def simulate(self, ticks):
-        if self.get_random() <= self._spawn_rate:
-            self._people += self._people_per_spawn
-
+        """
+        Simulates a station by assigning trains to tracks
+        """
         trainlist = []
         for t in self.trains:
             target = t.get_target()
@@ -66,20 +64,23 @@ class Station(SimulationEntity):
                 trainlist.append(t)
         self.derail_train(trainlist)
 
-    def get_people(self) -> int:
-        """
-        Returns the amount of people present at the station
-        """
-        return self._people
-
     def get_delay(self):
+        """
+        TODO
+        """
         return self.delay * 60 / self._interval
 
     def derail_train(self, trainlist):
+        """
+        TODO
+        """
         for train in trainlist:
             self.trains.remove(train)
 
     def is_free(self):
+        """
+        TODO
+        """
         return len(self.trains) < 1
 
     def get_coord(self):
@@ -92,7 +93,6 @@ class Station(SimulationEntity):
         """
         Attach a rail to this station
         """
-        # print(f"attaching rail at {self._name} to {rail.end_station._name}")
         self.rails[rail.end_station._name] = rail
 
     def add_traject(self, traject):
@@ -102,5 +102,4 @@ class Station(SimulationEntity):
         """
         Add train to this station
         """
-        # print(f"adding train at {self._name}")
         self.trains.append(train)

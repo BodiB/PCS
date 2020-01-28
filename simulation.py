@@ -85,14 +85,14 @@ class Simulation:
                 background_image, (SCREEN_WIDTH, SCREEN_HEIGHT))
 
         self.train_image = cv2.imread("logo.png")
-        self.background2 = cv2.imread("logo.png")
+        self.background2 = self.train_image
+
+        black = np.all(self.train_image == [0, 0, 0], axis=-1)
+        self.train_image[black] = [51, 204, 255]
+        
         self.background2 = cv2.resize(self.background2, (400, 300))
         self.background_image2 = np.copy(self.background2)
         self.train_image = cv2.resize(self.train_image, (30, 16))
-
-        black = np.all(self.train_image == [0, 0, 0], axis=-1)
-
-        self.train_image[black] = [0, 190, 255]
 
         self.background = np.copy(self.background_image)
 

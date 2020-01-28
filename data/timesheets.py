@@ -55,7 +55,7 @@ from traject import TimeSlot, Traject
 # 30 13B IC Amersfoort Centraal
 # 35 11A ICD Rotterdam Centraal
 # 38 15B ICD Brussel-Zuid/Midi
-# 44 13 Thalys Paris-Nord #TODO
+# 44 13 Thalys Paris-Nord
 # 51 14A ICD Breda
 
 # CODE: "CS8A" beteken CS SPOOR 8A
@@ -73,7 +73,7 @@ timeslots = [
      ("Santpoort Noord", 10, 10), ("Driehuis", 12, 12), ("Beverwijk", 18, 18),
      ("Heemskerk", 21, 21), ("Uitgeest", 26, 26), ("Castricum", 30, 30),
      ("Heiloo", 36, 36), ("Alkmaar", 41, 43), ("Alkmaar Noord", 46, 46),
-     ("Heerhugowaard", 51, 51), ("Obdam", 56, 58), ("Hoorn", 7, -1), ],
+     ("Heerhugowaard", 51, 51), ("Obdam", 56, 58), ("Hoorn", 7, -1)],
 
     [("Zandvoort aan zee", -1, 34), ("Overveen", 41, 41), ("Haarlem", 45, 46),
      ("Haarlem Spaarnwoude", 49, 49), ("Halfweg-Zwanenburg", 54, 54),
@@ -84,7 +84,7 @@ timeslots = [
      ("Santpoort Noord", 40, 40), ("Driehuis", 42, 42), ("Beverwijk", 48, 48),
      ("Heemskerk", 51, 51), ("Uitgeest", 56, 56), ("Castricum", 60, 60),
      ("Heiloo", 6, 6), ("Alkmaar", 11, 13), ("Alkmaar Noord", 16, 16),
-     ("Heerhugowaard", 21, 21), ("Obdam", 26, 28), ("Hoorn", 37, -1), ],
+     ("Heerhugowaard", 21, 21), ("Obdam", 26, 28), ("Hoorn", 37, -1)],
 
     # CS1 SPR Hoorn - Beverwijk - Amsterdam Centraal
     # CS1 SPR SLUIT AAN OP Amsterdam Centraal - Zandvoort aan zee
@@ -169,7 +169,7 @@ timeslots = [
      ("Schiedam Centrum", 13, 13), ("Rotterdam Centraal", 18, 21),
      ("Rotterdam Blaak", 24, 24), ("Rotterdam Zuid", -2, -2, True),
      ("Rotterdam Lombardijen", -2, -2, True),  ("Barendrecht", -2, -2, True),
-     ("Zwijndrecht", -2, -2, True), ("Dordrecht", 36, -1), ],
+     ("Zwijndrecht", -2, -2, True), ("Dordrecht", 36, -1)],
 
     [("Dordrecht", -1, 55), ("Zwijndrecht", -2, -2, True),
      ("Barendrecht", -2, -2, True), ("Rotterdam Lombardijen", -2, -2, True),
@@ -196,7 +196,7 @@ timeslots = [
      ("Schiedam Centrum", 43, 43), ("Rotterdam Centraal", 48, 51),
      ("Rotterdam Blaak", 54, 54), ("Rotterdam Zuid", -2, -2, True),
      ("Rotterdam Lombardijen", -2, -2, True),  ("Barendrecht", -2, -2, True),
-     ("Zwijndrecht", -2, -2, True), ("Dordrecht", 6, -1), ],
+     ("Zwijndrecht", -2, -2, True), ("Dordrecht", 6, -1)],
 
     # CS4B IC Den Helder - Utrecht Centraal (Nijmegen)#verlengen
     [("Den Helder", -1, 4), ("Den Helder Zuid", 8, 8), ("Anna Paulowna", 14, 15),
@@ -212,7 +212,7 @@ timeslots = [
      ("Amsterdam Bijlmer Arena", -2, -2, True),
      ("Amsterdam Holendrecht", -2, -2, True), ("Abcoude", -2, -2, True),
      ("Breukelen", -2, -2, True), ("Maarssen", -2, -2, True),
-     ("Utrecht Zuilen", -2, -2, True), ("Utrecht Centraal", 51, -1), ],
+     ("Utrecht Zuilen", -2, -2, True), ("Utrecht Centraal", 51, -1)],
 
     [("Den Helder", -1, 34), ("Den Helder Zuid", 38, 38), ("Anna Paulowna", 44, 45),
      ("Schagen", 52, 52), ("Heerhugowaard",  1, 1), ("Alkmaar Noord", 6, 6),
@@ -228,7 +228,7 @@ timeslots = [
      ("Amsterdam Holendrecht", -2, -2, True),
      ("Abcoude", -2, -2, True), ("Breukelen", -2, -2, True),
      ("Maarssen", -2, -2, True), ("Utrecht Zuilen", -2, -2, True),
-     ("Utrecht Centraal", 21, -1), ],
+     ("Utrecht Centraal", 21, -1)],
 
     # CS4B IC Alkmaar - Utrecht Centraal (Maastricht)#verlengen
     [("Alkmaar", -1, 27), ("Heiloo", -2, -2, True), ("Castricum", 35, 35),
@@ -242,7 +242,7 @@ timeslots = [
      ("Amsterdam Bijlmer Arena", -2, -2, True),
      ("Amsterdam Holendrecht", -2, -2, True), ("Abcoude", -2, -2, True),
      ("Breukelen", -2, -2, True), ("Maarssen", -2, -2, True),
-     ("Utrecht Zuilen", -2, -2, True), ("Utrecht Centraal", 31, -1), ],
+     ("Utrecht Zuilen", -2, -2, True), ("Utrecht Centraal", 31, -1)],
 
     [("Alkmaar", -1, 57), ("Heiloo", -2, -2, True), ("Castricum", 5, 5),
      ("Uitgeest",  -2, -2, True), ("Krommenie-Assendelft",  -2, -2, True),
@@ -255,7 +255,7 @@ timeslots = [
      ("Amsterdam Bijlmer Arena", -2, -2, True),
      ("Amsterdam Holendrecht", -2, -2, True), ("Abcoude", -2, -2, True),
      ("Breukelen", -2, -2, True), ("Maarssen", -2, -2, True),
-     ("Utrecht Zuilen", -2, -2, True), ("Utrecht Centraal", 1, -1), ],
+     ("Utrecht Zuilen", -2, -2, True), ("Utrecht Centraal", 1, -1)],
 
 
     # CS5B IC Enkhuizen - Utrecht Centraal (Heerlen) #verlengen
@@ -271,7 +271,7 @@ timeslots = [
      ("Amsterdam Bijlmer Arena", -2, -2, True),
      ("Amsterdam Holendrecht", -2, -2, True), ("Abcoude", -2, -2, True),
      ("Breukelen", -2, -2, True), ("Maarssen", -2, -2, True),
-     ("Utrecht Zuilen", -2, -2, True), ("Utrecht Centraal", 40, -1), ],
+     ("Utrecht Zuilen", -2, -2, True), ("Utrecht Centraal", 40, -1)],
 
     [("Enkhuizen", -1, 39), ("Bovenkarspel Flora", 43, 43),
      ("Bovenkarspel-Grootebroek", 45, 48), ("Hoogkarspel", 51, 53),
@@ -285,7 +285,7 @@ timeslots = [
      ("Amsterdam Bijlmer Arena", -2, -2, True),
      ("Amsterdam Holendrecht", -2, -2, True), ("Abcoude", -2, -2, True),
      ("Breukelen", -2, -2, True), ("Maarssen", -2, -2, True),
-     ("Utrecht Zuilen", -2, -2, True), ("Utrecht Centraal", 12, -1), ],
+     ("Utrecht Zuilen", -2, -2, True), ("Utrecht Centraal", 12, -1)],
 
     # CS5B Sprinter Uitgeest - Amsterdam Centraal - Utrecht Centraal (Rhenen)#verlengen
     # https://www.rijdendetreinen.nl/treinarchief/2020-01-27/7441
@@ -346,7 +346,7 @@ timeslots = [
      ('Amsterdam Centraal', 41, 43), ('Amsterdam Sloterdijk', 48, 48),
      ('Zaandam', 55, 55), ('Koog aan de Zaan', 58, 58),
      ('Zaandijk Zaanse Schans', 60, 60), ('Wormerveer', 4, 4),
-     ('Krommenie-Assendelft', 7, 7), ('Uitgeest', 12, -1), ],
+     ('Krommenie-Assendelft', 7, 7), ('Uitgeest', 12, -1)],
 
     [("Rotterdam Centraal", -1, 55), ("Rotterdam Noord", 60, 60),
      ("Rotterdam Alexander", 5, 5), ("Capelle Schollevaar", 8, 8),
@@ -358,7 +358,7 @@ timeslots = [
      ('Amsterdam Centraal', 11, 13), ('Amsterdam Sloterdijk', 18, 18),
      ('Zaandam', 25, 25), ('Koog aan de Zaan', 28, 28),
      ('Zaandijk Zaanse Schans', 30, 30), ('Wormerveer', 34, 34),
-     ('Krommenie-Assendelft', 37, 37), ('Uitgeest', 42, -1), ],
+     ('Krommenie-Assendelft', 37, 37), ('Uitgeest', 42, -1)],
 
     # CS7A Sprinter (Rhenen) Utrecht Centraal - Uitgeest #verlengen
     [('Utrecht Centraal', -1, 37), ('Utrecht Zuilen', 40, 40),
@@ -465,7 +465,7 @@ timeslots = [
      ("Amsterdam Science Park", -2, -2, True), ("Diemen",  -2, -2, True),
      ("Weesp",  -2, -2, True), ("Naarden-Bussum",  -2, -2, True),
      ("Bussum Zuid", -2, -2, True), ("Hilversum Media Park",  -2, -2, True),
-     ("Hilversum", 20, 23), ("Baarn",  -2, -2, True), ("Amersfoort", 34, -1), ],
+     ("Hilversum", 20, 23), ("Baarn",  -2, -2, True), ("Amersfoort", 34, -1)],
 
     # CS10A ICD Amsterdam Centraal - Rotterdam Centraal
     [("Amsterdam Centraal", -1, 22), ("Amsterdam Sloterdijk", -2, -2, True),
@@ -502,7 +502,7 @@ timeslots = [
      ("Almere Centrum", 24, 25), ("Almere Parkwijk", 28, 28),
      ("Almere Buiten", 31, 31), ("Almere Oostvaarders", 34, 39),
      ("Lelystad Centrum", 50, 54), ("Dronten", 6, 6), ("Kampen Zuid", 14, 14),
-     ("Zwolle", 24, -1), ],
+     ("Zwolle", 24, -1)],
 
     [("Hoofddorp", -1, 55), ("Schiphol Airport", 59, 60),
      ("Amsterdam Lelylaan", 7, 7), ("Amsterdam Sloterdijk", 11, 11),
@@ -512,7 +512,7 @@ timeslots = [
      ("Almere Centrum", 54, 55), ("Almere Parkwijk", 58, 58),
      ("Almere Buiten", 1, 1), ("Almere Oostvaarders", 4, 9),
      ("Lelystad Centrum", 20, 24), ("Dronten", 36, 36), ("Kampen Zuid", 44, 44),
-     ("Zwolle", 54, -1), ],
+     ("Zwolle", 54, -1)],
 
     # CS11B IC Amsterdam Centraal - Amersfoort
     [("Amsterdam Centraal", -1, 30), ("Amsterdam Muiderpoort", -2, -2, True),
@@ -525,12 +525,17 @@ timeslots = [
     [("Amsterdam Centraal", -1, 8), ("Amsterdam Muiderpoort", -2, -2, True),
      ("Amsterdam Science Park", -2, -2, True), ("Diemen", -2, -2, True),
      ("Weesp", -2, -2, True), ("Almere Poort", -2, -2, True),
-     ("Almere Muziekwijk", -2, -2, True), ("Almere Centrum", 28, -1), ],
+     ("Almere Muziekwijk", -2, -2, True), ("Almere Centrum", 28, -1)],
 
     [("Amsterdam Centraal", -1, 38), ("Amsterdam Muiderpoort", -2, -2, True),
      ("Amsterdam Science Park", -2, -2, True), ("Diemen", -2, -2, True),
      ("Weesp", -2, -2, True), ("Almere Poort", -2, -2, True),
-     ("Almere Muziekwijk", -2, -2, True), ("Almere Centrum", 58, -1), ],
+     ("Almere Muziekwijk", -2, -2, True), ("Almere Centrum", 58, -1)],
+
+    # CS13B Thalys Paris-Nord - Amsterdam Centraal #TODO goed leggen
+    [("Paris-Nord", -1, 13), ("Rotterdam Centraal", 122, 126),
+     ("Schiphol Airport", 25, 25), ("Amsterdam Lelylaan", -2, -2, True),
+     ("Amsterdam Sloterdijk", -2, -2, True), ("Amsterdam Centraal", 44, -1)],
 
     # CS14A ICD Amsterdam Centraal - Breda
     [("Amsterdam Centraal", -1, 8), ("Amsterdam Sloterdijk", -2, -2, True),
@@ -580,7 +585,7 @@ timeslots = [
      ("Diemen", 38, 38), ("Amsterdam Science Park", 40, 40),
      ("Amsterdam Muiderpoort", 43, 43), ("Amsterdam Centraal", 49, 60),
      ("Amsterdam Sloterdijk", 6, 8), ("Amsterdam Lelylaan", 11, 11),
-     ("Schiphol Airport", 18, 20), ("Hoofddorp", 24, -1), ],
+     ("Schiphol Airport", 18, 20), ("Hoofddorp", 24, -1)],
 
     [("Amersfoort Vathorst", -1, 24), ("Amersfoort Schothorst", 27, 27),
      ("Amersfoort", 31, 32), ("Baarn", 39, 39), ("Hilversum", 45, 46),
@@ -589,14 +594,14 @@ timeslots = [
      ("Diemen", 8, 8), ("Amsterdam Science Park", 10, 10),
      ("Amsterdam Muiderpoort", 13, 13), ("Amsterdam Centraal", 19, 30),
      ("Amsterdam Sloterdijk", 36, 38), ("Amsterdam Lelylaan", 41, 41),
-     ("Schiphol Airport", 48, 50), ("Hoofddorp", 54, -1), ],
+     ("Schiphol Airport", 48, 50), ("Hoofddorp", 54, -1)],
 
     # CS15A ICD Amsterdam Centraal - Rotterdam Centraal (Brussel-Zuid/Midi)#verlengen
     [("Amsterdam Centraal", -1, 25), ("Amsterdam Sloterdijk", -2, -2, True),
      ("Amsterdam Lelylaan", -2, -2, True), ("Schiphol Airport", 38, 40),
      ("Rotterdam Centraal", 6, 10), ("Breda", 34, -1)],
 
-    # CS15A Thalys Amsterdam Centraal - Rotterdam Centraal (Paris-Nord)#verlengen
+    # CS15A Thalys Amsterdam Centraal - Paris-Nord#TODO GOED LEGGEN
     [("Amsterdam Centraal", -1, 15), ("Amsterdam Sloterdijk", -2, -2, True),
      ("Amsterdam Lelylaan", -2, -2, True), ("Schiphol Airport", 31, 34),
      ("Rotterdam Centraal", 54, 54), ("Paris-Nord", 160, -1)],
@@ -654,7 +659,7 @@ timeslots = [
      ("De Vink", -2, -2, True), ("Voorschoten", -2, -2, True),
      ("Den Haag Mariahoeve", -2, -2, True),
      ("Den Haag Laan van NOI", -2, -2, True),
-     ("Den Haag Centraal", 56, -1), ],
+     ("Den Haag Centraal", 56, -1)],
 
     # IC (Groningen) Zwolle - Den Haag Centraal #TODO (Verlengen?)
     [("Zwolle", -1, 47), ("Kampen Zuid", -2, -2, True),
@@ -671,7 +676,7 @@ timeslots = [
      ("De Vink", -2, -2, True), ("Voorschoten", -2, -2, True),
      ("Den Haag Mariahoeve", -2, -2, True),
      ("Den Haag Laan van NOI", -2, -2, True),
-     ("Den Haag Centraal", 26, -1), ],
+     ("Den Haag Centraal", 26, -1)],
 
     # SPR Leiden Centraal - Hoorn Kersenboogerd
     [("Leiden Centraal", -1, 52), ("Sassenheim", 57, 57, True),
@@ -709,7 +714,7 @@ timeslots = [
      ("Almere Poort", -2, -2, True),  ("Almere Muziekwijk", -2, -2, True),
      ("Almere Centrum", 47, 49), ("Almere Parkwijk", -2, -2, True),
      ("Almere Buiten", 54, 54), ("Almere Oostvaarders", -2, -2, True),
-     ("Lelystad Centrum", 6, -1), ],
+     ("Lelystad Centrum", 6, -1)],
 
     [("Dordrecht", -1, 38), ("Zwijndrecht", -2, -2, True),
      ("Barendrecht", -2, -2, True), ("Rotterdam Lombardijen", -2, -2, True),
@@ -728,7 +733,7 @@ timeslots = [
      ("Almere Poort", -2, -2, True),  ("Almere Muziekwijk", -2, -2, True),
      ("Almere Centrum", 17, 19), ("Almere Parkwijk", -2, -2, True),
      ("Almere Buiten", 24, 24), ("Almere Oostvaarders", -2, -2, True),
-     ("Lelystad Centrum", 36, -1), ],
+     ("Lelystad Centrum", 36, -1)],
 
 
 ]

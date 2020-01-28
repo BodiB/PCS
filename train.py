@@ -74,7 +74,7 @@ class Train(SimulationEntity):
         self.rail = rail
 
         time = self.get_arrival_tick() - tick
-
+        time = self.get_arrival_tick() - self.get_departure_tick()
         if (time > 1):
             if (len(self.schedule) - 1 > self.current_schedule_place):
                 if(self.schedule[self.current_schedule_place + 1].skip):
@@ -133,6 +133,9 @@ class Train(SimulationEntity):
     def get_arrival_tick(self):
         return self.arrival_ticks[self.current_schedule_place]
 
+    def get_departure_tick(self):
+        return self.departure_ticks[self.current_schedule_place]
+
     def get_target(self):
         """
         Returns the current target Timeslot
@@ -169,7 +172,7 @@ class Train(SimulationEntity):
                 if ((check_type.station._name in ICD) and (previous in ICD)):
                     type = "Intercity Direct"
                 previous = check_type.station._name
-        if self.schedule[-1].station._name == "Paris-Nord":
+        if self.schedule[-1].station._name == "Paris-Nord" or self.schedule[0].station._name == "Paris-Nord":
             type = "Thalys"
         if self.start[0] == self.end:
             place = floor(len(self.schedule) / 2)

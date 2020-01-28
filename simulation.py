@@ -54,13 +54,11 @@ class Simulation:
                         if slot1 >= 0:
                             while slot1 < last:
                                 slot1 += 60
-                                # print(f"+60, slot1 {slot1} op {slot[0]} orig{firststop[0]}@{firststop[2]} dest{laststop[0]}")
                     if slot[2] >= 0:
                         slot2 += 60
                         if slot2 >= 0:
                             while slot2 < slot1:
                                 slot2 += 60
-                                # print(f"+60, slot2 {slot2} op {slot[0]} orig{firststop[0]}@{firststop[2]} dest{laststop[0]}")
                     current.append(TimeSlot(self._get_station(
                         slot[0]), slot1, slot2, slot3))
                 else:
@@ -71,13 +69,6 @@ class Simulation:
             self.schedules.append(Traject(current))
 
         for r in rail_list:
-            # if r in connection.keys():
-            #     for c in connection[r]:
-            #         self._get_station(c[0]).attach_rail(
-            #             Railway(c[2], c[3], self._get_station(c[0]), self._get_station(c[1])))
-            #         self._get_station(c[1]).attach_rail(
-            #             Railway(c[2], c[3], self._get_station(c[1]), self._get_station(c[0])))
-            # else:
             self._get_station(r[0]).attach_rail(
                 Railway(r[2], r[3], self._get_station(r[0]), self._get_station(r[1])))
             self._get_station(r[1]).attach_rail(
@@ -201,8 +192,6 @@ class Simulation:
             for t in s.trains:
                 x, y = t.get_pos()
                 self.background[y:y + h, x:x + w, :] = self.train_image[:, :]
-                # cv2.rectangle(self.background, (x, y),
-                #               (x + w, y + h), TRAIN_COLOR, -1)
                 if self.click_x <= x + w and self.click_x >= x and self.click_y <= y + h and self.click_y >= y:
                     self.selected_train = t
                     self.click_x = -1
@@ -216,7 +205,6 @@ class Simulation:
                             0], (20, 180), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0, 0, 255), 1, cv2.LINE_AA)
                 cv2.putText(self.background2, self.selected_train.get_data()[
                             1], (20, 200), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0, 0, 255), 1, cv2.LINE_AA)
-                # cv2.putText(self.background2, f"Intercity: {self.selected_train.get_skip()}", (20, 180), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
             except:
                 pass
 
@@ -308,34 +296,17 @@ class Simulation:
         # destory window when simulation ends
         cv2.destroyAllWindows()
 
-    def test(self):
-        # setup simulation window
-        cv2.namedWindow("Simulation", cv2.WND_PROP_FULLSCREEN)
-        cv2.setMouseCallback('Simulation', self.handle_mouse)
-
-        while(1):
-            self._draw_stations()
-            cv2.imshow('Simulation', self.background)
-
-            # clear background
-            self.clear_background()
-
-            # aquire user input
-            k = cv2.waitKey(20) & 0xFF
-            if k == 27:
-                break
-            elif k == ord('a'):
-                print (self.ix, self.iy)
-
 
 if __name__ == "__main__":
-    choice = input("""
-                   A: North Holland Rail
-                   B: Entire dutch rail network operated by NS
-                   Please enter your choice: """)
-    if choice == "B" or choice == "b":
+    try:
+        # choice = input("""
+        #                A: North Holland Rail
+        #                B: Entire dutch rail network operated by NS
+        #                Please enter your choice: """)
+        # if choice == "B" or choice == "b":
         sim = Simulation("NL")
-    else:
-        sim = Simulation()
-    sim.start()
-    # sim.test()
+        # else:
+        #     sim = Simulation()
+        sim.start()
+    except Exception as e:
+        print(e)

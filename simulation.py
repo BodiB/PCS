@@ -5,6 +5,7 @@ from config import *
 from config import (BACKGROUND_COLOR, SCREEN_HEIGHT, SCREEN_HEIGHT_B,
                     SCREEN_WIDTH, SCREEN_WIDTH_B, SECONDS_PER_TICK)
 from data.rails import rail_list, rail_list_NL
+from data.stationsNL import stations_list
 from data.timesheets import timeslots, timeslots_NL
 from railway import Railway
 from station import Station
@@ -14,13 +15,12 @@ from traject import TimeSlot, Traject
 
 class Simulation:
 
-    def __init__(self, map="NH"):
-        if map == "NL":
-            from data.stationsNL import stations_list
-            timeslots.extend(timeslots_NL)
-            rail_list.extend(rail_list_NL)
-        else:
-            from data.stations import stations_list
+    def __init__(self, map="NL"):
+        """
+        TODO
+        """
+        timeslots.extend(timeslots_NL)
+        rail_list.extend(rail_list_NL)
         self.stations = stations_list
         self._create_station_hash()
 
@@ -73,14 +73,9 @@ class Simulation:
                 Railway(r[2], r[3], self._get_station(r[1]), self._get_station(r[0])))
 
         # create white background
-        if map == "NL":
-            background_image = cv2.imread("backgroundNL.jpg")
-            self.background_image = cv2.resize(
-                background_image, (SCREEN_WIDTH_B, SCREEN_HEIGHT_B))
-        else:
-            background_image = cv2.imread("background.png")
-            self.background_image = cv2.resize(
-                background_image, (SCREEN_WIDTH, SCREEN_HEIGHT))
+        background_image = cv2.imread("backgroundNL.jpg")
+        self.background_image = cv2.resize(
+            background_image, (SCREEN_WIDTH_B, SCREEN_HEIGHT_B))
 
         self.train_image = cv2.imread("logo.png")
         self.background2 = self.train_image
@@ -116,9 +111,15 @@ class Simulation:
             self.station_hash[s._name] = s
 
     def _get_station(self, name):
+        """
+        TODO
+        """
         return self.station_hash[name]
 
     def handle_mouse(self, event, x, y, flags, param):
+        """
+        TODO
+        """
         if event == cv2.EVENT_MOUSEMOVE:
             self.ix, self.iy = x, y
         if event == cv2.EVENT_LBUTTONDOWN and flags == (cv2.EVENT_FLAG_SHIFTKEY + cv2.EVENT_FLAG_LBUTTON):
@@ -144,10 +145,16 @@ class Simulation:
                 self.selected_train = None
 
     def clear_background(self):
+        """
+        TODO
+        """
         self.background = np.copy(self.background_image)
         self.background2 = np.copy(self.background_image2)
 
     def _draw_stations(self):
+        """
+        TODO
+        """
         w = 15
         h = 15
 
@@ -184,6 +191,9 @@ class Simulation:
                          RAIL_COLOR, thickness=RAIL_THICKNESS)
 
     def _draw_trains(self):
+        """
+        TODO
+        """
         w = 30
         h = 16
         fsz = 0.3
@@ -200,7 +210,7 @@ class Simulation:
         if self.selected_train:
             try:
                 x, y = self.selected_train.get_pos()
-                cv2.putText(self.background, f"SELECTED", (x, y), cv2.FONT_HERSHEY_SIMPLEX, fsz, (0, 0, 255), 1, cv2.LINE_AA)
+                cv2.putText(self.background, f"SELECTED", (x, y), cv2.FONT_HERSHEY_SIMPLEX, fsz, (116, 52, 1), 1, cv2.LINE_AA)
                 cv2.putText(self.background2, f"Current target: {self.selected_train.get_next_stop().station._name}", (20, 140), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0, 0, 255), 1, cv2.LINE_AA)
                 cv2.putText(self.background2, f"Current speed: {self.selected_train.get_speed_kph()}", (20, 160), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0, 0, 255), 1, cv2.LINE_AA)
                 cv2.putText(self.background2, self.selected_train.get_data()[
@@ -211,6 +221,9 @@ class Simulation:
                 pass
 
     def _draw_stats(self):
+        """
+        TODO
+        """
         on_time = 0
         delayed = 0
 
@@ -231,6 +244,9 @@ class Simulation:
         cv2.putText(self.background2, f"Delayed: {delayed_percent} %", (20, 255), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
 
     def simulate_steps(self):
+        """
+        TODO
+        """
         for s in self.schedules:
             s.simulate(self.tick)
 
@@ -246,6 +262,9 @@ class Simulation:
         return self.tick * SECONDS_PER_TICK
 
     def draw_time(self):
+        """
+        TODO
+        """
         seconds = self._get_time()
 
         day = seconds // (24 * 60 * 60)
@@ -257,15 +276,12 @@ class Simulation:
                     cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2, cv2.LINE_AA)
 
     def start(self):
-
+        """
+        TODO
+        """
         # setup simulation window
-        if self.map == "NL":
-            cv2.namedWindow("Simulation", cv2.WND_PROP_FULLSCREEN)
-            cv2.namedWindow("Data")
-            # cv2.setWindowProperty(
-            #     "Simulation", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
-        else:
-            cv2.namedWindow('Simulation')
+        cv2.namedWindow("Simulation", cv2.WND_PROP_FULLSCREEN)
+        cv2.namedWindow("Data")
         cv2.setMouseCallback('Simulation', self.handle_mouse)
 
         # start simulation loop
@@ -315,14 +331,7 @@ class Simulation:
         
 if __name__ == "__main__":
     try:
-        # choice = input("""
-        #                A: North Holland Rail
-        #                B: Entire dutch rail network operated by NS
-        #                Please enter your choice: """)
-        # if choice == "B" or choice == "b":
-        sim = Simulation("NL")
-        # else:
-        #     sim = Simulation()
+        sim = Simulation()
         sim.start()
     except Exception as e:
         print(e)

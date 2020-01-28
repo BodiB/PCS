@@ -185,19 +185,6 @@ rail_list = [
     ("Maarssen", "Utrecht Zuilen", 5.3, 120),
     ("Utrecht Zuilen", "Utrecht Centraal", 2.0, 120),
 
-    # Utrecht Centraal - Nijmegen (KORT)
-    # ("Utrecht Centraal", "Veenendaal-De Klomp", 33.1, 120),
-    # ("Veenendaal-De Klomp", "Ede-Wageningen", 7, 120),
-    # ("Ede-Wageningen", "Arnhem Centraal", 16.3, 120),
-    # ("Arnhem Centraal", "Nijmegen", 18.4, 120),
-
-    # Utrecht Centraal - Nijmegen (HOE HET ZOU MOETEN)
-    #???
-    #    ("Utrecht Centraal", "Veenendaal-De Klomp", 1, 120),  # TODO
-    #    ("Veenendaal-De Klomp", "Ede-Wageningen", 1, 120),  # TODO
-    #    ("Ede-Wageningen", "Arnhem Centraal", 1, 120),  # TODO
-    #    ("Arnhem Centraal", "Nijmegen", 1, 120),  # TODO
-
     # Rotterdam Centraal - Gouda
     ("Rotterdam Centraal", "Rotterdam Noord", 4.7, 120),
     ("Rotterdam Noord", "Rotterdam Alexander", 4.9, 120),

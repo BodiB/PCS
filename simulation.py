@@ -363,7 +363,24 @@ class Simulation:
         # destory window when simulation ends
         cv2.destroyAllWindows()
 
+        self.print_results()
 
+    def print_results(self):
+        """
+        Prints the results of the simulation, with an overview of the stations to a seperate file
+        """
+        
+        print(f"Simulation ran for {self.tick} ticks")
+    
+        # print all results to a csv file
+        with open('results.csv', 'w') as f:
+            f.write(f"NAME, TRAINS_PASSED, TRAINS_DELAYED\n")
+            for s in self.stations:
+                f.write(f"{s._name}, {s.trains_passed}, {s.trains_delayed}\n")
+
+            f.close()
+
+        
 if __name__ == "__main__":
     try:
         sim = Simulation()

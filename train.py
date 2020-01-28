@@ -91,7 +91,7 @@ class Train(SimulationEntity):
             if departure_tick >= 0:
                 departure_tick = (
                     s.departure - initial_departure) * 60 / self._interval
-            if arrival_tick == departure_tick:
+            if arrival_tick == departure_tick or s.arrival < ticks:
                 departure_tick += random_delay(20, 70) / self._interval
             self.arrival_ticks.append(arrival_tick + ticks)
             self.departure_ticks.append(departure_tick + ticks)

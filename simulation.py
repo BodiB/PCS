@@ -199,6 +199,8 @@ class Simulation:
 
         if self.selected_train:
             try:
+                x, y = self.selected_train.get_pos()
+                cv2.putText(self.background, f"SELECTED", (x, y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
                 cv2.putText(self.background2, f"Current target: {self.selected_train.get_next_stop().station._name}", (20, 140), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
                 cv2.putText(self.background2, f"Current speed: {self.selected_train.get_speed_kph()}", (20, 165), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
                 cv2.putText(self.background2, self.selected_train.get_data()[

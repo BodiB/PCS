@@ -679,7 +679,7 @@ timeslots = [
      ("Den Haag Centraal", 26, -1)],
 
     # SPR Leiden Centraal - Hoorn Kersenboogerd
-    [("Leiden Centraal", -1, 52), ("Sassenheim", 57, 57, True),
+    [("Leiden Centraal", -1, 52), ("Sassenheim", 57, 57),
      ("Nieuw Vennep", 4, 4), ("Hoofddorp", 9, 9),
      ("Schiphol Airport", 13, 15), ("Amsterdam Lelylaan", 22, 22),
      ("Amsterdam Sloterdijk", 26, 28), ("Zaandam", 34, 34),
@@ -687,7 +687,7 @@ timeslots = [
      ("Purmerend", 47, 47), ("Purmerend Overwhere", 50, 50),
      ("Hoorn", 1, 3), ("Hoorn Kersenboogerd", 6, -1)],
 
-    [("Leiden Centraal", -1, 22), ("Sassenheim", 27, 27, True),
+    [("Leiden Centraal", -1, 22), ("Sassenheim", 27, 27),
      ("Nieuw Vennep", 34, 34), ("Hoofddorp", 39, 39),
      ("Schiphol Airport", 43, 45), ("Amsterdam Lelylaan", 52, 52),
      ("Amsterdam Sloterdijk", 56, 58), ("Zaandam", 4, 4),

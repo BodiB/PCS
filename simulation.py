@@ -167,7 +167,8 @@ class Simulation:
             None
         Returns:
             None
-        TODO
+        
+        Clears the background so it can be used for drawing again
         """
         self.background = np.copy(self.background_image)
         self.background2 = np.copy(self.background_image2)
@@ -178,6 +179,7 @@ class Simulation:
             None
         Returns:
             None
+
         Draws the stations onto the background
         """
         w = 15
@@ -212,6 +214,7 @@ class Simulation:
             None
         Returns:
             None
+
         Draws the rails onto the background
         """
         for s in self.stations:
@@ -225,6 +228,7 @@ class Simulation:
             None
         Returns:
             None
+
         Visualizes the trains and their information
         """
         w = 30
@@ -259,6 +263,7 @@ class Simulation:
             None
         Returns:
             None
+
         Draws the stats in the second window
         """
         on_time = 0
@@ -286,7 +291,8 @@ class Simulation:
             None
         Returns:
             None
-        TODO
+        
+        Calls the simulation functions for all entities held within the simulation
         """
         for s in self.schedules:
             s.simulate(self.tick)
@@ -311,12 +317,14 @@ class Simulation:
             None
         Returns:
             None
-        TODO
+
+        Draws the current simulated time in the status window
         """
         seconds = self._get_time()
 
+        # convert the simulation second to days, hours and minutes on the clock
         day = seconds // (24 * 60 * 60)
-        hour = seconds // (60 * 60)
+        hour = seconds // (60 * 60) % 24
         minute = (seconds // 60) % 60
 
         timestring = f"day: {day} {hour}:{minute}"
@@ -329,7 +337,11 @@ class Simulation:
             None
         Returns:
             None
-        TODO
+
+        This starts the simulation, builds the displays and runs the simulation ticks for all entities,
+        as well as runs the drawing of entities.
+
+        After the main loop has finished, results will be written to a file and printeed to stdout
         """
         # setup simulation window
         cv2.namedWindow("Simulation", cv2.WND_PROP_FULLSCREEN)

@@ -619,6 +619,36 @@ timeslots = [
      ("Den Haag Laan van NOI", -2, -2, True),
      ("Den Haag Centraal", 26, -1)],
 
+    # IC Den Haag Centraal - Zwolle (Leeuwarden) #TODO TIJDEN
+    [('Den Haag Centraal', 56, -1), ('Den Haag Laan van NOI', -2, -2, True),
+     ('Den Haag Mariahoeve', -2, -2, True), ('Voorschoten', -2, -2, True),
+     ('De Vink', -2, -2, True), ('Leiden Centraal', 43, 45),
+     ('Sassenheim', -2, -2, True), ('Nieuw Vennep', -2, -2, True),
+     ('Hoofddorp', -2, -2, True), ('Schiphol Airport', 25, 27),
+     ('Amsterdam Zuid', 18, 19), ('Amsterdam RAI', -2, -2, True),
+     ('Duivendrecht', -2, -2, True), ('Diemen Zuid', -2, -2, True),
+     ('Weesp', -2, -2, True), ('Almere Poort', -2, -2, True),
+     ('Almere Muziekwijk', -2, -2, True), ('Almere Centrum', 57, 59, True),
+     ('Almere Parkwijk', -2, -2, True), ('Almere Buiten', -2, -2, True),
+     ('Almere Oostvaarders', -2, -2, True), ('Lelystad Centrum', 42, 43),
+     ('Dronten', -2, -2, True), ('Kampen Zuid', -2, -2, True),
+     ('Zwolle', -1, 17)]
+
+    # IC Den Haag Centraal - Zwolle (Groningen) #TODO TIJDEN
+    [('Den Haag Centraal', 56, -1), ('Den Haag Laan van NOI', -2, -2, True),
+     ('Den Haag Mariahoeve', -2, -2, True), ('Voorschoten', -2, -2, True),
+     ('De Vink', -2, -2, True), ('Leiden Centraal', 43, 45),
+     ('Sassenheim', -2, -2, True), ('Nieuw Vennep', -2, -2, True),
+     ('Hoofddorp', -2, -2, True), ('Schiphol Airport', 25, 27),
+     ('Amsterdam Zuid', 18, 19), ('Amsterdam RAI', -2, -2, True),
+     ('Duivendrecht', -2, -2, True), ('Diemen Zuid', -2, -2, True),
+     ('Weesp', -2, -2, True), ('Almere Poort', -2, -2, True),
+     ('Almere Muziekwijk', -2, -2, True), ('Almere Centrum', 57, 59, True),
+     ('Almere Parkwijk', -2, -2, True), ('Almere Buiten', -2, -2, True),
+     ('Almere Oostvaarders', -2, -2, True), ('Lelystad Centrum', 42, 43),
+     ('Dronten', -2, -2, True), ('Kampen Zuid', -2, -2, True),
+     ('Zwolle', -1, 17)]
+
     # SPR Leiden Centraal - Hoorn Kersenboogerd
     [("Leiden Centraal", -1, 52), ("Sassenheim", 57, 57),
      ("Nieuw Vennep", 4, 4), ("Hoofddorp", 9, 9),

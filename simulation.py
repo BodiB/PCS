@@ -167,7 +167,7 @@ class Simulation:
             None
         Returns:
             None
-        
+
         Clears the background so it can be used for drawing again
         """
         self.background = np.copy(self.background_image)
@@ -299,7 +299,7 @@ class Simulation:
             None
         Returns:
             None
-        
+
         Calls the simulation functions for all entities held within the simulation
         """
         for s in self.schedules:
@@ -357,7 +357,7 @@ class Simulation:
         cv2.setMouseCallback('Simulation', self.handle_mouse)
 
         # start simulation loop
-        while(1):
+        while(self.tick <= 4325):
             if not self.pause:
                 self.simulate_steps()
             self.draw_time()

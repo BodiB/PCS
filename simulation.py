@@ -31,7 +31,7 @@ class Simulation:
 
         self.pause = True
 
-        # create timeslots
+        # create timeslots adjusted for slots that arrive over the hour
         for schedule in timeslots:
             current = []
             last = -1
@@ -73,7 +73,7 @@ class Simulation:
             self._get_station(r[1]).attach_rail(
                 Railway(r[2], r[3], self._get_station(r[1]), self._get_station(r[0])))
 
-        # create white background
+        # create background
         background_image = cv2.imread("backgroundNL.jpg")
         self.background_image = cv2.resize(
             background_image, (SCREEN_WIDTH_B, SCREEN_HEIGHT_B))
@@ -90,12 +90,15 @@ class Simulation:
 
         self.background = np.copy(self.background_image)
 
+        # holds the mouse hover coordinates
         self.ix = -1
         self.iy = -1
 
+        # holds the mouse click coordinates
         self.click_x = -1
         self.click_y = -1
 
+        # holds the mouse shift click coordinates
         self.shift_click_x = -1
         self.shift_click_y = -1
 

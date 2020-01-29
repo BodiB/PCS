@@ -86,6 +86,8 @@ class Traject(SimulationEntity):
         for t in self.trains:
             t.simulate(tick)
 
+            # when the train is terminated, add all its delays and arrivals to the
+            # total amount of the current traject
             if t.is_terminated():
                 self.on_time += t.on_time
                 self.delayed += t.delayed

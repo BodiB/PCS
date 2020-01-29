@@ -22,10 +22,8 @@ class Station(SimulationEntity):
         """
         super().__init__()
 
-        self.x, self.y = int(
-            x_coord / 1024 * SCREEN_WIDTH), int(y_coord / 1024 * SCREEN_HEIGHT)
-        seconds_per_day = 24 * 60 * 60
-        ticks_per_day = seconds_per_day // self._interval
+        self.x = int(x_coord / 1024 * SCREEN_WIDTH)
+        self.y = int(y_coord / 1024 * SCREEN_HEIGHT)
 
         # chance of a person spwaning per simulation tick
         self._name = name
@@ -44,6 +42,7 @@ class Station(SimulationEntity):
         # keep a list of times at which to spawn trains
         self.spawn_times = []
 
+        # the current delay at the station in minutes
         self.delay = 0
 
     def simulate(self, ticks):
@@ -61,15 +60,20 @@ class Station(SimulationEntity):
             if target:
                 if ((ticks >= t.get_departure_tick() + self.get_delay()) or t.get_skip()):
                     t.attach_rail(self.rails[target.station._name], ticks)
+
                     if not t.get_skip():
                         self.trains_passed += 1
                         t.delay = max(0, self.get_minutes(
                             ticks - t.get_departure_tick()))
+
                         if t.delay > 0:
                             self.trains_delayed += 1
+
                     trainlist.append(t)
+
             if t.is_terminated():
                 trainlist.append(t)
+                
         self.derail_train(trainlist)
 
     def get_delay(self):

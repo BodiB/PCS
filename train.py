@@ -3,7 +3,7 @@ Class to describe a train on the network
 """
 
 from math import floor
-from random import uniform as random_delay
+from random import uniform
 
 from simulationEntity import SimulationEntity
 
@@ -48,6 +48,7 @@ class Train(SimulationEntity):
 
         time = self.get_arrival_tick() - tick
 
+        # make sure the train will not drive too slowly if it has enough time
         if (time > 5):
             self.speed = (rail.get_length() / time - 5)
         else:
@@ -55,7 +56,8 @@ class Train(SimulationEntity):
         if self.skip:
             self.speed = 5000
 
-        self.speed += (random_delay(-self.speed, self.speed) / 30)
+        # add a random offset to the ideal speed, to simulate imperfect conditions
+        self.speed += (uniform(-self.speed, self.speed) / 30)
         self.speed = min(self.speed, rail.get_speed())
 
         if self.speed <= 0:
@@ -85,11 +87,15 @@ class Train(SimulationEntity):
             if arrival_tick >= 0:
                 arrival_tick = (s.arrival - initial_departure) * \
                     60 / self._interval
+                    
             if departure_tick >= 0:
                 departure_tick = (
                     s.departure - initial_departure) * 60 / self._interval
+
             if arrival_tick == departure_tick or s.arrival < ticks:
-                departure_tick += random_delay(20, 70) / self._interval
+                # add random delay between 20 and 70 seconds to allow passengers to board the train
+                departure_tick += uniform(20, 70) / self._interval
+
             self.arrival_ticks.append(arrival_tick + ticks)
             self.departure_ticks.append(departure_tick + ticks)
 
@@ -218,13 +224,13 @@ class Train(SimulationEntity):
             if self.distance >= self.rail.get_length():
                 end = self.rail.end_station
                 end.add_train(self)
+
+                # check if the current station should be skipped due to the train being an intercity
                 if not self.schedule[self.current_schedule_place].skip:
                     if self._is_on_time(tick):
                         self.on_time += 1
                     else:
                         self.delayed += 1
-                        print(f"DELAY: FROM: {self.schedule[self.current_schedule_place-1].station._name} TO: {self.schedule[self.current_schedule_place].station._name} with {tick} {self.arrival_ticks[self.current_schedule_place]} {tick - self.arrival_ticks[self.current_schedule_place]}")
-                        print(f"This train departed {self.start[0]} at {self.start[1]}")
 
                 self.rail = None
                 self.departure_time = self.schedule[self.current_schedule_place].departure
@@ -262,4 +268,6 @@ class Train(SimulationEntity):
             return pos_x, pos_y
 
         else:
+            # if not a rail, simply return a coordinate outside of the viewing 
+            # area to stop the train from being drawn
             return (-100, -100)

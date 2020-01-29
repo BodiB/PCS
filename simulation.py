@@ -96,8 +96,8 @@ class Simulation:
         self.click_x = -1
         self.click_y = -1
 
-        self.clickr_x = -1
-        self.clickr_y = -1
+        self.shift_click_x = -1
+        self.shift_click_y = -1
 
         self.tick = 0
         self.selected_train = None
@@ -140,7 +140,7 @@ class Simulation:
         if event == cv2.EVENT_MOUSEMOVE:
             self.ix, self.iy = x, y
         if event == cv2.EVENT_LBUTTONDOWN and flags == (cv2.EVENT_FLAG_SHIFTKEY + cv2.EVENT_FLAG_LBUTTON):
-            self.clickr_x, self.clickr_y = x, y
+            self.shift_click_x, self.shift_click_y = x, y
         elif event == cv2.EVENT_LBUTTONDOWN:
             train = False
             w = 15
@@ -193,19 +193,22 @@ class Simulation:
             cv2.rectangle(self.background, (x, y),
                           (x + w, y + h), (0, 0, 255), -1)
 
+            # if the mouse is hovering over a station, this will draw information in the information window
             if self.ix <= x + w and self.ix >= x and self.iy <= y + h and self.iy >= y:
                 cv2.putText(self.background2, f"Trains: {len(s.trains)}, Passed: {s.trains_passed}, Delayed: {s.trains_delayed}", (20, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
                 cv2.putText(self.background2, f"{s._name}", (20, 75), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
                 cv2.putText(self.background2, f"Delay: {s.delay} minutes", (20, 100), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
-
+            
+            # click will increase delay at the station
             if self.click_x <= x + w and self.click_x >= x and self.click_y <= y + h and self.click_y >= y:
                 self.click_x = -1
                 self.click_y = -1
                 s.delay += 1
 
-            if self.clickr_x <= x + w and self.clickr_x >= x and self.clickr_y <= y + h and self.clickr_y >= y:
-                self.clickr_x = -1
-                self.clickr_y = -1
+            # shiftclick will decrease delay at station
+            if self.shift_click_x <= x + w and self.shift_click_x >= x and self.shift_click_y <= y + h and self.shift_click_y >= y:
+                self.shift_click_x = -1
+                self.shift_click_y = -1
 
                 s.delay -= 1
                 s.delay = max(s.delay, 0)

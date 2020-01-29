@@ -24,48 +24,13 @@ class Simulation:
         """
         timeslots.extend(timeslots_NL)
         rail_list.extend(rail_list_NL)
+        self.pause = True # start off in pause mode to make adding delays easier
+
         self.stations = stations_list
         self._create_station_hash()
 
         self.schedules = []
-
-        self.pause = True
-
-        # create timeslots adjusted for slots that arrive over the hour
-        for schedule in timeslots:
-            current = []
-            last = -1
-            hour = False
-            for slot in schedule:
-                slot1 = slot[1]
-                slot2 = slot[2]
-                if len(slot) <= 3:
-                    slot3 = False
-                else:
-                    slot3 = slot[3]
-                if slot1 < 0 and slot2 < 0:
-                    slot3 = True
-                if ((slot1 > slot2 and slot2 >= 0) or (slot1 < last and slot1 >= 0)):
-                    hour = True
-                if hour:
-                    if slot1 >= 0 and (slot1 <= slot2 or slot2 < 0):
-                        slot1 += 60
-                        if slot1 >= 0:
-                            while slot1 < last:
-                                slot1 += 60
-                    if slot[2] >= 0:
-                        slot2 += 60
-                        if slot2 >= 0:
-                            while slot2 < slot1:
-                                slot2 += 60
-                    current.append(TimeSlot(self._get_station(
-                        slot[0]), slot1, slot2, slot3))
-                else:
-                    current.append(TimeSlot(self._get_station(
-                        slot[0]), slot1, slot2, slot3))
-                if slot2 >= 0:
-                    last = slot2
-            self.schedules.append(Traject(current))
+        self._create_schedules()
 
         for r in rail_list:
             self._get_station(r[0]).attach_rail(
@@ -126,6 +91,51 @@ class Simulation:
 
         for s in self.stations:
             self.station_hash[s._name] = s
+
+    def _create_schedules(self):
+        """
+        Parameters:
+            None
+        Returns:
+            None
+
+        Creates the schedules in the simulation, adjusted for passing whole hours
+        """
+
+        for schedule in timeslots:
+            current = []
+            last = -1
+            hour = False
+            for slot in schedule:
+                slot1 = slot[1]
+                slot2 = slot[2]
+                if len(slot) <= 3:
+                    slot3 = False
+                else:
+                    slot3 = slot[3]
+                if slot1 < 0 and slot2 < 0:
+                    slot3 = True
+                if ((slot1 > slot2 and slot2 >= 0) or (slot1 < last and slot1 >= 0)):
+                    hour = True
+                if hour:
+                    if slot1 >= 0 and (slot1 <= slot2 or slot2 < 0):
+                        slot1 += 60
+                        if slot1 >= 0:
+                            while slot1 < last:
+                                slot1 += 60
+                    if slot[2] >= 0:
+                        slot2 += 60
+                        if slot2 >= 0:
+                            while slot2 < slot1:
+                                slot2 += 60
+                    current.append(TimeSlot(self._get_station(
+                        slot[0]), slot1, slot2, slot3))
+                else:
+                    current.append(TimeSlot(self._get_station(
+                        slot[0]), slot1, slot2, slot3))
+                if slot2 >= 0:
+                    last = slot2
+            self.schedules.append(Traject(current))
 
     def _get_station(self, name):
         """

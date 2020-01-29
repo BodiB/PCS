@@ -81,12 +81,20 @@ class Simulation:
         self.train_image = cv2.imread("logo.png")
         self.background2 = self.train_image
 
+        # set sizes for stations and trains
+        self.station_width = STATION_WIDTH
+        self.station_height = STATION_HEIGHT
+
+        self.train_width = TRAIN_WIDTH
+        self.train_height = TRAIN_HEIGHT
+
+        # set all black pixels to yellow
         black = np.all(self.train_image == [0, 0, 0], axis=-1)
-        self.train_image[black] = [51, 204, 255]
+        self.train_image[black] = [51, 204, 255] # NS yellow color
 
         self.background2 = cv2.resize(self.background2, (400, 300))
         self.background_image2 = np.copy(self.background2)
-        self.train_image = cv2.resize(self.train_image, (30, 16))
+        self.train_image = cv2.resize(self.train_image, (self.train_width, self.train_height))
 
         self.background = np.copy(self.background_image)
 
@@ -146,20 +154,18 @@ class Simulation:
             self.shift_click_x, self.shift_click_y = x, y
         elif event == cv2.EVENT_LBUTTONDOWN:
             train = False
-            w = 15
-            h = 15
+            
             self.click_x, self.click_y = x, y
             for s in self.stations:
-                x = s.x - w // 2
-                y = s.y - h // 2
-                if self.click_x <= x + w and self.click_x >= x and self.click_y <= y + h and self.click_y >= y:
+                x = s.x - self.station_width  // 2
+                y = s.y - self.station_height // 2
+                if self.click_x <= x + self.station_width and self.click_x >= x and self.click_y <= y + self.station_height and self.click_y >= y:
                     train = True
-            w = 30
-            h = 16
+
             for s in self.schedules:
                 for t in s.trains:
                     x, y = t.get_pos()
-                    if self.click_x <= x + w and self.click_x >= x and self.click_y <= y + h and self.click_y >= y:
+                    if self.click_x <= x + self.train_width and self.click_x >= x and self.click_y <= y + self.train_height and self.click_y >= y:
                         train = True
             if not train:
                 self.selected_train = None
@@ -187,29 +193,26 @@ class Simulation:
 
         Draws the stations onto the background
         """
-        w = 15
-        h = 15
-
         for s in self.stations:
-            x = s.x - w // 2
-            y = s.y - h // 2
+            x = s.x - self.station_width // 2
+            y = s.y - self.station_height // 2
             cv2.rectangle(self.background, (x, y),
-                          (x + w, y + h), (0, 0, 255), -1)
+                          (x + self.station_width, y + self.station_height), (0, 0, 255), -1)
 
             # if the mouse is hovering over a station, this will draw information in the information window
-            if self.ix <= x + w and self.ix >= x and self.iy <= y + h and self.iy >= y:
+            if self.ix <= x + self.station_width and self.ix >= x and self.iy <= y + self.station_height and self.iy >= y:
                 cv2.putText(self.background2, f"Trains: {len(s.trains)}, Passed: {s.trains_passed}, Delayed: {s.trains_delayed}", (20, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
                 cv2.putText(self.background2, f"{s._name}", (20, 75), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
                 cv2.putText(self.background2, f"Delay: {s.delay} minutes", (20, 100), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
             
             # click will increase delay at the station
-            if self.click_x <= x + w and self.click_x >= x and self.click_y <= y + h and self.click_y >= y:
+            if self.click_x <= x + self.station_width and self.click_x >= x and self.click_y <= y + self.station_height and self.click_y >= y:
                 self.click_x = -1
                 self.click_y = -1
                 s.delay += 1
 
             # shiftclick will decrease delay at station
-            if self.shift_click_x <= x + w and self.shift_click_x >= x and self.shift_click_y <= y + h and self.shift_click_y >= y:
+            if self.shift_click_x <= x + self.station_width and self.shift_click_x >= x and self.shift_click_y <= y + self.station_height and self.shift_click_y >= y:
                 self.shift_click_x = -1
                 self.shift_click_y = -1
 
@@ -243,15 +246,14 @@ class Simulation:
 
         Visualizes the trains and their information
         """
-        w = 30
-        h = 16
         fsz = 0.3
         for s in self.schedules:
             for t in s.trains:
                 x, y = t.get_pos()
-                cv2.putText(self.background, f"Delay {t.delay}", (x, y + h + int(fsz * 22)), cv2.FONT_HERSHEY_SIMPLEX, fsz, (0, 0, 255), 1, cv2.LINE_AA)
-                self.background[y:y + h, x:x + w, :] = self.train_image[:, :]
-                if self.click_x <= x + w and self.click_x >= x and self.click_y <= y + h and self.click_y >= y:
+                cv2.putText(self.background, f"Delay {t.delay}", (x, y + self.train_height + int(fsz * 22)), cv2.FONT_HERSHEY_SIMPLEX, fsz, (0, 0, 255), 1, cv2.LINE_AA)
+                self.background[y:y + self.train_height, x:x + self.train_width, :] = self.train_image[:, :]
+
+                if self.click_x <= x + self.train_width and self.click_x >= x and self.click_y <= y + self.train_height and self.click_y >= y:
                     self.selected_train = t
                     self.click_x = -1
                     self.click_y = -1
@@ -371,10 +373,10 @@ class Simulation:
             self._draw_stations()
             self._draw_trains()
             self._draw_stats()
+
             cv2.imshow('Simulation', self.background)
             cv2.imshow('Data', self.background2)
 
-            # clear background
             self.clear_background()
 
             # aquire user input
@@ -389,6 +391,7 @@ class Simulation:
         # destory window when simulation ends
         cv2.destroyAllWindows()
 
+        # print results on finishing the simulation
         self.print_results()
 
     def print_results(self):

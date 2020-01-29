@@ -128,14 +128,14 @@ class Simulation:
     def handle_mouse(self, event, x, y, flags, param):
         """
         Parameters:
-            - event:
-            - x:
-            - y:
-            - flags:
-            - param:
+            - event: the registered opencv event
+            - x: x position in pixels of the event
+            - y: y position in pixels of the event
+            - flags: flags of the event
+            - param: optional paramters of the event
         Returns:
             None
-        TODO
+        Handles mouse events within the simulation window
         """
         if event == cv2.EVENT_MOUSEMOVE:
             self.ix, self.iy = x, y

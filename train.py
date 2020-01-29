@@ -41,7 +41,7 @@ class Train(SimulationEntity):
             - tick: Current time in ticks
         Returns:
             None
-        TODO
+        Sets the given rail as the train's current rail.
         """
         self.distance = 0
         self.rail = rail
@@ -68,7 +68,7 @@ class Train(SimulationEntity):
             - ticks: Current time in ticks
         Returns:
             None
-        TODO
+        Sets the given schedule as the train's current schedule and updates the arrival ticks and departure ticks
         """
         self.arrival_ticks = []
         self.departure_ticks = []
@@ -78,9 +78,6 @@ class Train(SimulationEntity):
         self.end = schedule[-1].station._name
         self.departure_time = schedule[0].departure
 
-        current_minute = self.get_minutes(ticks)
-        # TICK 0 = Vertrek
-        curr = 0
         initial_departure = self.schedule[0].departure
         for s in self.schedule:
             arrival_tick = s.arrival
@@ -210,11 +207,11 @@ class Train(SimulationEntity):
             - tick: Current time in ticks
         Returns:
             None
-        TODO
+        Runs the simulation step for the train given the current simulation tick
+        If the train is on a rail, it will try to match the needed speed for the schedule, or 
+        if the train is delayed, it will travel the max speed allowed on the current rail.
         """
         if self.rail:
-            # self.get_arrival_tick
-
             self.distance += self.speed
 
             # train arrived at station

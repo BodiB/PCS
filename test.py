@@ -2,7 +2,7 @@
 File that recreates the figure by simulating the given delay at
 all stations in the 'stations' list.
 
-Parameters:
+Parameters: (These can be changed within this file)
     - tickCount: The amount of ticks that the simulation will take.
     - delayMinutes: The simulated delay in minutes at the given station.
     - stations: A list of station names on which the delay in delayMinutes

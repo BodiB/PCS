@@ -35,3 +35,4 @@ To end the simulation, press `ESC`. This will write results per station to `resu
 By running `test.py` from the root folder, the simulation will start to
 generate data to create the graph.
 The simulation will run for each given station.
+After completing the simulations the graph will be created.

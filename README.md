@@ -12,7 +12,7 @@ In order to run the simulation, run the command `python simulation.py` this will
 
 ## Configuration
 To control some parameters of the simulation as well as visuals, the `config.py` file can be editted.
-The most important parameter to edit is `SECONDS_PER_TICK`. This controls the speed at which the simulation runs, as it represents the amountof real-world seconds that will be simulated for each simulation tick. 
+The most important parameter to edit is `SECONDS_PER_TICK`. This controls the speed at which the simulation runs, as it represents the amountof real-world seconds that will be simulated for each simulation tick.
 
 ## Controls
 
@@ -30,3 +30,8 @@ By hovering over a station icon, its statistics will be displayed in the display
 
 ### Ending the Simulation
 To end the simulation, press `ESC`. This will write results per station to `results.csv` and print the amount of ticks for which the simulation has run to `stdout`
+
+### Recreating the result
+By running `test.py` from the root folder, the simulation will start to
+generate data to create the graph.
+The simulation will run for each given station.

@@ -24,7 +24,7 @@ class Simulation:
         """
         timeslots.extend(timeslots_NL)
         rail_list.extend(rail_list_NL)
-        self.pause = True # start off in pause mode to make adding delays easier
+        self.pause = True  # start off in pause mode to make adding delays easier
 
         self.stations = stations_list
         self._create_station_hash()
@@ -55,11 +55,12 @@ class Simulation:
 
         # set all black pixels to yellow
         black = np.all(self.train_image == [0, 0, 0], axis=-1)
-        self.train_image[black] = [51, 204, 255] # NS yellow color
+        self.train_image[black] = [51, 204, 255]  # NS yellow color
 
         self.background2 = cv2.resize(self.background2, (400, 300))
         self.background_image2 = np.copy(self.background2)
-        self.train_image = cv2.resize(self.train_image, (self.train_width, self.train_height))
+        self.train_image = cv2.resize(
+            self.train_image, (self.train_width, self.train_height))
 
         self.background = np.copy(self.background_image)
 
@@ -164,10 +165,10 @@ class Simulation:
             self.shift_click_x, self.shift_click_y = x, y
         elif event == cv2.EVENT_LBUTTONDOWN:
             train = False
-            
+
             self.click_x, self.click_y = x, y
             for s in self.stations:
-                x = s.x - self.station_width  // 2
+                x = s.x - self.station_width // 2
                 y = s.y - self.station_height // 2
                 if self.click_x <= x + self.station_width and self.click_x >= x and self.click_y <= y + self.station_height and self.click_y >= y:
                     train = True
@@ -214,7 +215,7 @@ class Simulation:
                 cv2.putText(self.background2, f"Trains: {len(s.trains)}, Passed: {s.trains_passed}, Delayed: {s.trains_delayed}", (20, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
                 cv2.putText(self.background2, f"{s._name}", (20, 75), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
                 cv2.putText(self.background2, f"Delay: {s.delay} minutes", (20, 100), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
-            
+
             # click will increase delay at the station
             if self.click_x <= x + self.station_width and self.click_x >= x and self.click_y <= y + self.station_height and self.click_y >= y:
                 self.click_x = -1
@@ -261,7 +262,8 @@ class Simulation:
             for t in s.trains:
                 x, y = t.get_pos()
                 cv2.putText(self.background, f"Delay {t.delay}", (x, y + self.train_height + int(fsz * 22)), cv2.FONT_HERSHEY_SIMPLEX, fsz, (0, 0, 255), 1, cv2.LINE_AA)
-                self.background[y:y + self.train_height, x:x + self.train_width, :] = self.train_image[:, :]
+                self.background[y:y + self.train_height, x:x +
+                                self.train_width, :] = self.train_image[:, :]
 
                 if self.click_x <= x + self.train_width and self.click_x >= x and self.click_y <= y + self.train_height and self.click_y >= y:
                     self.selected_train = t
@@ -375,7 +377,7 @@ class Simulation:
         cv2.setMouseCallback('Simulation', self.handle_mouse)
 
         # start simulation loop
-        while(self.tick <= 4325):
+        while(1):
             if not self.pause:
                 self.simulate_steps()
             self.draw_time()
@@ -403,6 +405,76 @@ class Simulation:
 
         # print results on finishing the simulation
         self.print_results()
+
+    def test(self, tickCount, delayStation, delayMinutes):
+        """
+        Parameters:
+            None
+        Returns:
+            None
+
+        This starts the simulation, builds the displays and runs the simulation ticks for all entities,
+        as well as runs the drawing of entities.
+
+        After the main loop has finished, results will be written to a file and printeed to stdout
+        """
+        # Sets the delay for testing
+        myStation = self._get_station(delayStation)
+        myStation.delay = delayMinutes
+
+        # setup simulation window
+        cv2.namedWindow("Simulation", cv2.WND_PROP_FULLSCREEN)
+        cv2.namedWindow("Data")
+        cv2.setMouseCallback('Simulation', self.handle_mouse)
+
+        # start simulation loop
+        while(self.tick <= tickCount):
+            if self.pause:
+                self.simulate_steps()
+            self.draw_time()
+            self._draw_rails()
+            self._draw_stations()
+            self._draw_trains()
+            self._draw_stats()
+
+            cv2.imshow('Simulation', self.background)
+            cv2.imshow('Data', self.background2)
+
+            self.clear_background()
+
+            # aquire user input
+            k = cv2.waitKey(20) & 0xFF
+            if k == ord('p'):
+                self.pause = not self.pause
+            if k == 27:
+                break
+            elif k == ord('a'):
+                print (self.ix, self.iy)
+
+        # destory window when simulation ends
+        cv2.destroyAllWindows()
+
+        # print results on finishing the simulation
+        return self.get_results(myStation)
+
+    def get_results(self, myStation):
+        """
+        Return the results of the simulation for drawing the graph
+        """
+
+        print(f"Simulation ran for {self.tick} ticks")
+        local = 0
+        total = 0
+        delayed = 0
+        for s in self.stations:
+            if s == myStation:
+                local = s.trains_passed
+            total += s.trains_passed
+            delayed += s.trains_delayed
+            s.trains_passed = 0
+            s.trains_delayed = 0
+            s.delay = 0
+        return [total, delayed, local]
 
     def print_results(self):
         """

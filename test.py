@@ -1,3 +1,15 @@
+"""
+File that recreates the figure by simulating the given delay at
+all stations in the 'stations' list.
+
+Parameters:
+    - tickCount: The amount of ticks that the simulation will take.
+    - delayMinutes: The simulated delay in minutes at the given station.
+    - stations: A list of station names on which the delay in delayMinutes
+                has to be simulated for tickCount time.
+                (approximately 360 ticks per hour)
+"""
+
 import csv
 
 import matplotlib.pyplot as plt
